@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_03_06_150831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +43,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_150831) do
     t.index ["mood_id"], name: "index_ingredients_by_moods_on_mood_id"
   end
 
+  create_table "ingredients_by_symptoms", force: :cascade do |t|
+    t.bigint "symptom_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.string "anecdote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_ingredients_by_symptoms_on_ingredient_id"
+    t.index ["symptom_id"], name: "index_ingredients_by_symptoms_on_symptom_id"
+  end
+
   create_table "moods", force: :cascade do |t|
     t.string "name"
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "nutrient_by_ingredients", force: :cascade do |t|
+    t.bigint "nutrient_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.integer "quantity"
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_nutrient_by_ingredients_on_ingredient_id"
+    t.index ["nutrient_id"], name: "index_nutrient_by_ingredients_on_nutrient_id"
   end
 
   create_table "nutrients", force: :cascade do |t|
@@ -67,6 +87,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_150831) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "recipes_ingredients", force: :cascade do |t|
+    t.bigint "ingredient_id", null: false
+    t.bigint "recipe_id", null: false
+    t.integer "quantity"
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipes_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipes_ingredients_on_recipe_id"
+  end
 
   create_table "recipes_steps", force: :cascade do |t|
     t.integer "step_number"
@@ -77,6 +107,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_150831) do
     t.index ["recipe_id"], name: "index_recipes_steps_on_recipe_id"
   end
 
+  create_table "restrictions_ingredients_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_restrictions_ingredients_users_on_ingredient_id"
+    t.index ["user_id"], name: "index_restrictions_ingredients_users_on_user_id"
+  end
 
   create_table "symptoms", force: :cascade do |t|
     t.string "name"
@@ -101,5 +139,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_150831) do
   add_foreign_key "conditions", "users"
   add_foreign_key "ingredients_by_moods", "ingredients"
   add_foreign_key "ingredients_by_moods", "moods"
+  add_foreign_key "ingredients_by_symptoms", "ingredients"
+  add_foreign_key "ingredients_by_symptoms", "symptoms"
+  add_foreign_key "nutrient_by_ingredients", "ingredients"
+  add_foreign_key "nutrient_by_ingredients", "nutrients"
+  add_foreign_key "recipes_ingredients", "ingredients"
+  add_foreign_key "recipes_ingredients", "recipes"
   add_foreign_key "recipes_steps", "recipes"
+  add_foreign_key "restrictions_ingredients_users", "ingredients"
+  add_foreign_key "restrictions_ingredients_users", "users"
 end
