@@ -1,6 +1,7 @@
 class ConditionsController < ApplicationController
 
   def question1
+    @moods = Mood.all
   end
 
   def question2

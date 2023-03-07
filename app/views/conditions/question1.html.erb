@@ -1,1 +1,7 @@
 <h1> Question 1</h1>
+
+
+    <% @moods.each do |mood| %>
+    <li>
+      <%= link_to mood.name, question2_path(mood) %></li>
+    <% end %>
