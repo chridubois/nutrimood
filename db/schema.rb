@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_112243) do
 
   create_table "conditions", force: :cascade do |t|
     t.integer "energy_level"
-    t.bigint "symptom_id", null: false
+    t.bigint "symptom_id"
     t.bigint "mood_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
