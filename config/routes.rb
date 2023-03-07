@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  get '/question1' => 'condition#question1
+  '
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
