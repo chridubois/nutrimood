@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get '/question2' => 'conditions#question2'
   get '/question3' => 'conditions#question3'
 
-  get '/recipes/:id/show_detailed' => 'recipes#show_detailed'
+  get '/recipes/:id/show_detailed', to: 'recipes#show_detailed', as: 'show_detailed'
   resources :recipes, only: %i[show index]
   get '/recipes/:id' => 'recipes#recipes_proposal'
-  get '/recipes/:id/steps' => 'steps#index'
+  get '/recipes/:id/steps', to: 'steps#index', as: 'recipe_steps'
   get '/recipes/:id/infos' => 'infos#show'
+  get '/menu', to: 'pages#menu'
 end
