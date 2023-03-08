@@ -9,25 +9,23 @@ class ConditionsController < ApplicationController
     @condition = Condition.create(mood_id: @mood_id, user: current_user)
   end
 
-
-  def question4
-    @symptoms = Symptom.all
-# récupère l'instance de @condition crée en Q2
-    # @condition = Condition.find(params[:id]) # ??? à voir fin Q2
-# crée une instance de la table de jointure symptoms_by_condition
-    # @symptoms_association = NomTableJ.new
-# récup les @symptoms = id_symptoms du formulaire
-    # @symptoms = []
-# pour chaque ID_symptom récup:
-#      jointure asso ID
-# upload @condition
-
   def question3
     @condition = Condition.find_by(user: current_user)
     @condition.energy_level = params[:energy_level]
     @condition.update(energy_level: params[:energy_level])
-
   end
 
+  def question4
+    @symptoms = Symptom.all
+    @symptoms_association = SymptomsByCondition.new
+
+    @condition_id = Condition.find_by(user: current_user).id
+    @symptoms_association.condition_id = @condition_id
+
+    @symptoms_association.symptom_id = params[:my_symptoms]
+    @symptoms_association.save
+    raise
+    redirect_to recipes_path(@condition)
+  end
 
 end
