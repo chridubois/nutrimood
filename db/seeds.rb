@@ -1,6 +1,8 @@
 require 'csv'
 
 # Création des moods
+Condition.destroy_all
+RestrictionsIngredientsUser.destroy_all
 Mood.destroy_all
 Symptom.destroy_all
 User.destroy_all
@@ -106,7 +108,7 @@ recipe_urls.each do |url|
       unit: unit,
       quantity: quantity_calc
     })
-  i += 1
+    i += 1
   end
 
   # Get Recipe steps
@@ -118,6 +120,47 @@ recipe_urls.each do |url|
       step_number: i + 1,
       step_description: step.text
     })
-  i += 1
+    i += 1
+  end
+end
+
+# Create user ingredient restrictions
+ingredient_count = Ingredient.count
+mood_count = Mood.count
+symptom_count = Symptom.count
+user_count = User.count
+
+User.all.each do |user|
+  random_ingredient_offset = rand(ingredient_count)
+  random_ingredient = Ingredient.offset(random_ingredient_offset).first
+  RestrictionsIngredientsUser.create({
+    user: user,
+    ingredient: random_ingredient
+  })
+end
+
+# Create user conditions
+40.times do
+  random_mood_offset = rand(mood_count)
+  random_mood = Mood.offset(random_mood_offset).first
+  random_user_offset = rand(user_count)
+  random_user = User.offset(random_user_offset).first
+  Condition.create({
+    user: random_user,
+    mood: random_mood,
+    # symptom: random_symptom,
+    energy_level: [25, 50, 75, 100].sample
+  })
+end
+
+# Create Symptom by condition
+Condition.all.each do |condition|
+  2.times do
+    random_symptom_offset = rand(symptom_count)
+    random_symptom = Symptom.offset(random_symptom_offset).first
+    SymptomsByCondition.create({
+      symptom: random_symptom,
+      condition: condition
+    })
   end
 end
