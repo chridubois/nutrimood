@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
+  root to: "pages#menu"
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
