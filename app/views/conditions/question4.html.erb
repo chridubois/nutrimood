@@ -1,19 +1,16 @@
 <div class='layout'>
 <h1> Question 4</h1>
   <div>
-<%# formulaire à choix multiples, affiche toutes instances de symptoms, envoie hidden dans array @symptoms = [symptom_id]  de ceux selectionnés %>
 
- <form action="question4" method="GET">
+    <%= form_with url: {controller: :conditions, action: :question4}, model: @condition do |f| %>
 
-
-    <select name="my_symptoms" multiple>
       <% @symptoms.each do |symptom|%>
-        <option value="<%= symptom.id %>"><%= symptom.name %></option>
+        <%= symptom.name %> <%= check_box_tag :symptom_id, "#{symptom.id}" %>
+      <br>
       <% end %>
-    </select>
-    <input type="submit" value="Suivant" class="suivant" />
-  </form>
 
+      <%= f.submit %>
+    <% end %>
 
   </div>
 </div>
