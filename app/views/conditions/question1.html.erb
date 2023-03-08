@@ -1,21 +1,12 @@
-<<<<<<< HEAD
-<h1> Question 1</h1>
-
-
-    <% @moods.each do |mood| %>
-    <li>
-      <%= link_to mood.name, question2_path(mood) %></li>
-    <% end %>
-=======
 <h1>Quel est ton mood ?</h1>
 
-<form action="question2" method="GET">
+<form target="_blank" action="question2" method="GET">
 <select name="mood" id="pet-select">
   <% @moods.each do |mood|%>
     <option value="<%= mood.id %>"><%= mood.name %></option>
   <% end %>
 </select>
-<input type="hidden" name="condition_id" value="<% @condition.id %>">
-<input type="submit" value="Send Request" />
+<input onclick="question2_path" type="submit" value="Submit request" />
+
+<%# <input type="submit" value="Send Request" /> %>
 </form>
->>>>>>> 318e5fe227525a517d403359883da2e29a87d59c
