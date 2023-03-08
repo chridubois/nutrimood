@@ -1,0 +1,23 @@
+<div class="recipe-card">
+  <div class="recipe-img">
+    <img src="<%= recipe.image %>" alt="">
+  </div>
+
+  <div class="recipe-title">
+    <%= recipe.name %>
+  </div>
+
+  <div class="recipe-tips">
+
+  <%= link_to recipe_infos_path(recipe) , :class => "button" do %>
+    <%= recipe.ingredients_by_symptoms.first.anecdote %>
+  <% end %>
+  </div>
+
+  <div class="recipe-submit-button mt-5">
+  <%= link_to recipe_path(recipe), class: "to_shoplist-button" do %>
+    <i class="fa-solid fa-cart-plus"></i>SHOP LIST
+  <% end %>
+  </div>
+
+</div>

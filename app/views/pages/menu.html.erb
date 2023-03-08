@@ -1,0 +1,20 @@
+<div class="layout">
+  <div class="recipe-submit-button mt-5 mb-5">
+    <%= link_to question1_path, class: "to_shoplist-button" do %>
+      GO
+    <% end %>
+  </div>
+  <h2>Mes derniers moods</h2>
+  <div class="conditions-list">
+    <% @conditions.each do |condition|  %>
+      <div class="condition-item">
+        <%= condition.created_at %>
+        <% condition.symptoms.each do |symptom| %>
+          <%= symptom.name %>
+        <% end %>
+        <%= condition.mood.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<h1>Menu</h1>

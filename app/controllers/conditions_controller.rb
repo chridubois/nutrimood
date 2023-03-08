@@ -27,4 +27,5 @@ class ConditionsController < ApplicationController
 raise
 # redirect_to recipes_path(@condition)
   end
+
 end
