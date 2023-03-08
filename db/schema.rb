@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_153326) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_084608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_153326) do
     t.bigint "ingredient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_good"
+    t.boolean "is_bad"
     t.index ["ingredient_id"], name: "index_ingredients_by_moods_on_ingredient_id"
     t.index ["mood_id"], name: "index_ingredients_by_moods_on_mood_id"
   end
@@ -49,6 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_153326) do
     t.string "anecdote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_good"
+    t.boolean "is_bad"
     t.index ["ingredient_id"], name: "index_ingredients_by_symptoms_on_ingredient_id"
     t.index ["symptom_id"], name: "index_ingredients_by_symptoms_on_symptom_id"
   end
