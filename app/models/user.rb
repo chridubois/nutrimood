@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :conditions
   has_many :restrictions_ingredients_users
+  has_many :ingredients, through: :restrictions_ingredients_users
 end
