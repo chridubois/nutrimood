@@ -1,11 +1,12 @@
 
 <div class="layout">
-  <form action="question2" method="GET">
+  <form action="list_moods" method="POST">
     <select name="mood" id="pet-select">
       <% @moods.each do |mood|%>
         <option value="<%= mood.id %>"><%= mood.name %></option>
       <% end %>
     </select>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <input type="submit" value="Suivant" class="suivant" />
   </form>
 </div>
