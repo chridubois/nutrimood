@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[show index]
   get '/recipes/:id' => 'recipes#recipes_proposal'
   get '/recipes/:id/steps', to: 'steps#index', as: 'recipe_steps'
-  get '/recipes/:id/infos' => 'infos#show'
+  get '/recipes/:id/infos' => 'infos#show', as: 'recipe_infos'
   get '/menu', to: 'pages#menu'
 end
