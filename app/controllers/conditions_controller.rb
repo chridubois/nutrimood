@@ -15,4 +15,5 @@ class ConditionsController < ApplicationController
     @condition.update(energy_level: params[:energy_level])
   end
 
+
 end
