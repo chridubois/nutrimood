@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/question3' => 'conditions#question3'
 
   get '/recipes/:id/show_detailed' => 'recipes#show_detailed'
-  resources :recipes, only: %i[show]
+  resources :recipes, only: %i[show index]
   get '/recipes/:id' => 'recipes#recipes_proposal'
   get '/recipes/:id/steps' => 'steps#index'
   get '/recipes/:id/infos' => 'infos#show'
