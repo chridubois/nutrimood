@@ -1,8 +1,10 @@
 require 'kimurai'
+require 'uri'
+require 'selenium-webdriver'
 
 class RecettehealthyScrap < Kimurai::Base
   @name = "recette_healthy_scrap"
-  @engine = :selenium_chrome
+  @engine = :mechanize
   @start_urls = ["http://recettehealthy.com/les-recette-salee/plat-complet"]
 
   def parse(response, url:, data: {})

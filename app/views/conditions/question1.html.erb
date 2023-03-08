@@ -1,12 +1,12 @@
-<h1>Quel est ton mood ?</h1>
 
-<form target="_blank" action="question2" method="GET">
-<select name="mood" id="pet-select">
-  <% @moods.each do |mood|%>
-    <option value="<%= mood.id %>"><%= mood.name %></option>
-  <% end %>
-</select>
-<input onclick="question2_path" type="submit" value="Submit request" />
-
-<%# <input type="submit" value="Send Request" /> %>
-</form>
+<div class="layout">
+  <form action="question2" method="GET">
+    <select name="mood" id="pet-select">
+      <% @moods.each do |mood|%>
+        <option value="<%= mood.id %>"><%= mood.name %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Suivant" class="suivant" />
+  </form>
+</div>
+<h1>Ton mood ?</h1>
