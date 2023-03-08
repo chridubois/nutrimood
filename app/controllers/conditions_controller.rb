@@ -20,11 +20,11 @@ class ConditionsController < ApplicationController
     @symptoms_association = SymptomsByCondition.new
     @condition_id = Condition.find_by(user: current_user).id
     @symptoms_association.condition_id = @condition_id
-
+# ok pour un ou plsr symptomes => crée new table de jointure
 
     @symptoms_association.symptom_id = params[:my_symptoms]
     @symptoms_association.save
-
-    # redirect_to recipes_path(@condition)
+raise
+# redirect_to recipes_path(@condition)
   end
 end
