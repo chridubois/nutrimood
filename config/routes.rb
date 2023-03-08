@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
+  root to: "pages#menu"
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get '/question3' => 'conditions#question3'
   get '/question4' => 'conditions#question4'
 
-  get '/recipes/:id/show_detailed' => 'recipes#show_detailed'
-  resources :recipes, only: %i[show]
+  get '/recipes/:id/show_detailed', to: 'recipes#show_detailed', as: 'show_detailed'
+  resources :recipes, only: %i[show index]
   get '/recipes/:id' => 'recipes#recipes_proposal'
-  get '/recipes/:id/steps' => 'steps#index'
+  get '/recipes/:id/steps', to: 'steps#index', as: 'recipe_steps'
   get '/recipes/:id/infos' => 'infos#show'
+  get '/menu', to: 'pages#menu'
 end

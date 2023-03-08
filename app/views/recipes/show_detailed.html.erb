@@ -1,1 +1,22 @@
-recipes / show detailed de card recette
+<div class="layout">
+  <div class="recipe-card">
+    <div class="recipe-img">
+      <img src="<%= @recipe.image %>" alt="">
+    </div>
+    <div class="recipe-title">
+      <%= @recipe.name %>
+    </div>
+    <div class="recipe-ingredients">
+      <% @recipe.ingredients.each do |ingredient| %>
+        <div class="ingredient-item">
+          <%= ingredient.name %>
+        </div>
+      <% end %>
+    </div>
+    <div class="recipe-submit-button mt-5">
+      <%= link_to recipe_steps_path(@recipe), class: "to_shoplist-button" do %>
+        <i class="fa-solid fa-utensils"></i>EN CUISINE
+      <% end %>
+    </div>
+  </div>
+</div>
