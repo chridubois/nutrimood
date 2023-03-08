@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    raise
   end
 
   def recipes_proposal
