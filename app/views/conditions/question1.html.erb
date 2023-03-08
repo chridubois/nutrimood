@@ -1,11 +1,22 @@
+</div>
 <div class="layout">
   <form action="question2" method="GET">
     <select name="mood" id="pet-select">
       <% @moods.each do |mood|%>
-        <option value="<%= mood.id %>"><%= mood.name %></option>
+      <option value="<%= mood.id %>"><%= mood.name %></option>
       <% end %>
     </select>
     <input type="submit" value="Suivant" class="suivant" />
   </form>
+<div class="grid-mood">
+  <% @moods.each_with_index do |mood, index|%>
+    <% if index % 2 != 0 %>
+      <div class="mood-pills mood-left"><%= mood.name %></div>
+    <% else %>
+      <div class="mood-pills mood-right"><%= mood.name %></div>
+    <% end %>
+  <% end %>
+</div>
+
 </div>
 <h1>Ton mood ?</h1>

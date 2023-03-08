@@ -1,0 +1,22 @@
+.grid-mood{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  .mood-pills {
+    background-color: white;
+    text-align: center;
+    border-radius: 12px;
+    color: #B1CDA6;
+    font-family: 'Outfit';
+    height: 30px;
+
+  }
+  .mood-left {
+    margin-top: 50px;
+
+  }
+  .mood-right {
+    margin-bottom: 50px;
+
+  }
+
+}
