@@ -24,7 +24,6 @@ class ConditionsController < ApplicationController
 
     @symptoms_association.symptom_id = params[:my_symptoms]
     @symptoms_association.save
-raise
 # redirect_to recipes_path(@condition)
   end
 
