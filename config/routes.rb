@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/question1' => 'conditions#question1'
   get '/question2' => 'conditions#question2'
   get '/question3' => 'conditions#question3'
+  get '/question4' => 'conditions#question4'
 
   get '/recipes/:id/show_detailed', to: 'recipes#show_detailed', as: 'show_detailed'
   resources :recipes, only: %i[show index]
