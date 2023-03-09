@@ -30,6 +30,9 @@ gem "jbuilder"
 # Use Kimurai to scrap pages with infinite scroll
 gem "kimurai"
 
+# Use omniauth gem
+gem "omniauth"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
