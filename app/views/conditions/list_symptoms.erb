@@ -1,14 +1,22 @@
 
 <div class="layout">
-  <form action="list_symptoms" method="POST">
-  <option value="selected_symptoms">
-    <% @symptoms.each do |s| %>
-      <label for="symptom<%= s.id %>"><%= s.name %></label>
-      <input type="checkbox" id="symptom<%= s.name %>" name="<%= s.name %>" value="<%= s.id %>" />
-    <% end %>
-  </option>
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <input type="submit" value="Suivant" class="suivant" />
-  </form>
+
+  <div class="symptoms-list">
+    <form action="list_symptoms" method="POST">
+      <option value="selected_symptoms">
+        <% @symptoms.each do |s| %>
+
+          <div class="symptom-item">
+          <label for="symptom<%= s.id %>"><%= s.name %></label>
+          <input type="checkbox" id="symptom<%= s.name %>" name="<%= s.name %>" value="<%= s.id %>" />
+          </div>
+
+        <% end %>
+      </option>
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <input type="submit" value="Suivant" class="suivant" />
+    </form>
+  </div>
+
 </div>
-<h1>Ton mood ?</h1>
+<h1>Tes symptômes ?</h1>
