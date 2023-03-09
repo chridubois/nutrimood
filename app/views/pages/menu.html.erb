@@ -4,11 +4,13 @@
       GO
     <% end %>
   </div>
-  <h2>Mes derniers moods</h2>
+  <div class="last-mood-title mt-3">
+    <h2>Mes derniers moods</h2>
+  </div>
   <div class="conditions-list">
     <% @conditions.each do |condition|  %>
       <div class="condition-item">
-        <%= condition.created_at %>
+        <%= condition.created_at.strftime('%d %b %Y') %>
         <% condition.symptoms.each do |symptom| %>
           <%= symptom.name %>
         <% end %>
