@@ -1,25 +1,66 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="layout">
+  <div class="sign_in p-2">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs mt-3">
+        <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+                input_html: { autocomplete: "email", class: "login-input" } %>
+        <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+                label: "Mot de passe",
+                hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password", class: "login-input" } %>
+        <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                label: "Mot de passe confirmation",
+                input_html: { autocomplete: "new-password", class: "login-input" } %>
+        <%= f.input :firstname,
+                required: true,
+                autofocus: true,
+                label: "Prénom",
+                input_html: { autocomplete: "firstname", class: "login-input" } %>
+        <%= f.input :birthday_date,
+                required: true,
+                autofocus: true,
+                label: "Date de naissance",
+                input_html: { autocomplete: "birthday_date", class: "login-input" } %>
+        <%= f.input :weight,
+                required: true,
+                autofocus: true,
+                label: "Poids",
+                input_html: { autocomplete: "weight", class: "login-input" } %>
+        <%= f.input :height,
+                required: true,
+                autofocus: true,
+                label: "Taille",
+                input_html: { autocomplete: "height", class: "login-input" } %>
+        <%= f.input :gender,
+                required: true,
+                autofocus: true,
+                label: "Genre",
+                input_html: { autocomplete: "gender", class: "login-input" } %>
+        <%= f.input :is_gluten_sensitive,
+                required: true,
+                autofocus: true,
+                label: "Es-tu allergique au gluten ?",
+                input_html: { autocomplete: "is_gluten_sensitive", class: "login-input" } %>
+        <%= f.input :is_diabetic,
+                required: true,
+                autofocus: true,
+                label: "Es-tu diabétique ?",
+                input_html: { autocomplete: "is_diabetic", class: "login-input" } %>
+        <%= f.input :is_pregnant,
+                required: true,
+                autofocus: true,
+                label: "Es-tu enceinte ?",
+                input_html: { autocomplete: "is_pregnant", class: "login-input" } %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Fini !", class: "login-button" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+<h1>Inscris toi !</h1>
