@@ -1,0 +1,35 @@
+<div class="layout">
+  <div class="recipe-card">
+    <div class="recipe-img">
+      <img src="<%= recipe.image %>" alt="">
+    </div>
+    <div class="text-content">
+      <div class="recipe-title">
+        <%= recipe.name %>
+      </div>
+      <div class="recipe-tips">
+        <%= link_to recipe_infos_path(recipe) do %>
+          <div class="anecdote-bloc">
+            <div class="anecdote">
+              <div class="pourquoi">
+                <% ingredients_by_symptoms = recipe.ingredients_by_symptoms.sample %>
+                Pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
+              </div>
+              <div class="anecdote-content">
+                <%= ingredients_by_symptoms.anecdote %>
+              </div>
+              <div class="plus-infos mt-3">
+                <i class="fa-solid fa-circle-info"></i> Pour plus d'infos
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-submit-button">
+    <%= link_to recipe_path(recipe), class: "to_shoplist-button" do %>
+      <i class="fa-solid fa-cart-plus"></i>SHOP LIST
+    <% end %>
+  </div>
+</div>
