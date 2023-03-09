@@ -83,49 +83,51 @@ recipe_urls.each do |url|
   count_people = html_doc.search('.wprm-recipe-servings').text.to_i
 
   # First creation of Recipe
-  recipe = Recipe.create({
-    name: name,
-    calories_by_person: calories,
-    duration: prep_time + cook_time,
-    image: image
-  })
+  if Recipe.find_by(name: name).nil?
+    recipe = Recipe.create({
+      name: name,
+      calories_by_person: calories,
+      duration: prep_time + cook_time,
+      image: image
+    })
 
-  # Get Recipe Ingredients
-  ingredients = html_doc.search('li.wprm-recipe-ingredient')
-  i = 0
-  ingredients.each do |ingredient|
-    quantity = ingredient.xpath('//span[@class="wprm-recipe-ingredient-amount"]').collect(&:text)[i].to_i
-    quantity_calc = (quantity / count_people.to_f).ceil(2)
-    unit = ingredient.xpath('//span[@class="wprm-recipe-ingredient-unit"]').collect(&:text)[i]
-    name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i]
+    # Get Recipe Ingredients
+    ingredients = html_doc.search('li.wprm-recipe-ingredient')
+    i = 0
+    ingredients.each do |ingredient|
+      quantity = ingredient.xpath('//span[@class="wprm-recipe-ingredient-amount"]').collect(&:text)[i].to_i
+      quantity_calc = (quantity / count_people.to_f).ceil(2)
+      unit = ingredient.xpath('//span[@class="wprm-recipe-ingredient-unit"]').collect(&:text)[i]
+      name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i]
 
-    if Ingredient.find_by_name(name).nil?
-      ingredient = Ingredient.create({
-        name: name
+      if Ingredient.find_by(name: name).nil?
+        ingredient = Ingredient.create({
+          name: name
+        })
+      else
+        ingredient = Ingredient.find_by_name(name)
+      end
+
+      RecipesIngredient.create({
+        recipe: recipe,
+        ingredient: ingredient,
+        unit: unit,
+        quantity: quantity_calc
       })
-    else
-      ingredient = Ingredient.find_by_name(name)
+      i += 1
     end
 
-    RecipesIngredient.create({
-      recipe: recipe,
-      ingredient: ingredient,
-      unit: unit,
-      quantity: quantity_calc
-    })
-    i += 1
-  end
-
-  # Get Recipe steps
-  steps = html_doc.search('li.wprm-recipe-instruction')
-  i = 0
-  steps.each do |step|
-    RecipesStep.create({
-      recipe: recipe,
-      step_number: i + 1,
-      step_description: step.text
-    })
-    i += 1
+    # Get Recipe steps
+    steps = html_doc.search('li.wprm-recipe-instruction')
+    i = 0
+    steps.each do |step|
+      RecipesStep.create({
+        recipe: recipe,
+        step_number: i + 1,
+        step_description: step.text
+      })
+      i += 1
+    end
   end
 end
 

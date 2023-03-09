@@ -5,4 +5,6 @@ class Ingredient < ApplicationRecord
   has_many :nutrients_by_ingredients
   has_many :restrictions_ingredients_users
   has_many :nutrients, through: :nutrients_by_ingredients
+
+  validates :name, uniqueness: true
 end
