@@ -25,4 +25,5 @@ Rails.application.routes.draw do
 
   # Pages routes
   get '/menu', to: 'pages#menu'
+  get '/home', to: 'pages#home'
 end
