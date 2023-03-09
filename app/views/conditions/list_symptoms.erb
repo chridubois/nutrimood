@@ -2,14 +2,14 @@
 <div class="layout">
   <div class="symptoms-list">
 
-    <form action="list_symptoms" method="POST">
+    <form action="list_symptoms" method="POST" data-turbo=false>
       <option value="selected_symptoms">
         <% @symptoms.each do |s| %>
 
           <div class="symptom-item">
 
           <label> <%= s.name %>
-              <input type="checkbox" name="<%= s.name %>" value="<%= s.id %>" />
+              <input type="checkbox" name="<%= s.name %>" value="<%= s.id %>" visibility: hidden />
           </label>
 
 
