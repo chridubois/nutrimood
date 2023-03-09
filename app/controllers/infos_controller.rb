@@ -1,17 +1,19 @@
 class InfosController < ApplicationController
 
   def show
+    @condition = Condition.find_by(user: current_user)
     @recipe = Recipe.find(params[:id])
-  end
 
-  def info1
-    @ingredients_by_mood = IngredientByMood.find(params[:id])
-    @ingredients_by_mood.anecdote = params[:anecdote]
-  end
+    @recipes3 = []
 
-  def info2
-    @ingredients_by_symptom = IngredientByMood.find(params[:id])
-    @ingredients_by_symptom.anecdote = params[:anecdote]
+    while @recipes3.size == 3
+      unless @recipes3.include?(ingredients_by_symptoms)
+        @recipes3 << @recipe.ingredients_by_symptoms
+      end
+    end
+    # 3.times do
+    # @recipes3 << @recipe.ingredients_by_symptoms
+    # end
   end
 
 end
