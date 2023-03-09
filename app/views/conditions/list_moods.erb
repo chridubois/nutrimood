@@ -1,4 +1,3 @@
-
 <div class="layout">
   <form action="list_moods" method="POST">
     <select name="mood" id="pet-select">
@@ -9,5 +8,14 @@
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <input type="submit" value="Suivant" class="suivant" />
   </form>
+  <div class="grid-mood">
+    <% @moods.each_with_index do |mood, index|%>
+      <% if index % 2 != 0 %>
+        <div class="mood-pills mood-left"><%= mood.name %></div>
+      <% else %>
+        <div class="mood-pills mood-right"><%= mood.name %></div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 <h1>Ton mood ?</h1>
