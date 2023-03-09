@@ -24,14 +24,22 @@ class ConditionsController < ApplicationController
   end
 
   def update_condition_symptom
-    @symptoms_association = SymptomsByCondition.new
+    @selected_symptoms = []
     @condition_id = Condition.find_by(user: current_user).id
-    @symptoms_association.condition_id = @condition_id
 
-    # ok pour un ou plsr symptomes => crée new table de jointure
+    Symptom.all.each do |s|
+      if params.include?(s.name)
+        @selected_symptoms << s
+      end
+    end
 
-    @symptoms_association.symptom_id = params[:my_symptoms]
-    @symptoms_association.save
+    @selected_symptoms.each do |s|
+      @symptoms_association = SymptomsByCondition.new
+      @symptoms_association.condition_id = @condition_id
+      @symptoms_association.symptom_id = s.id
+      @symptoms_association.save
+    end
+
     redirect_to recipes_path
   end
 end
