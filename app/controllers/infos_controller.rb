@@ -15,5 +15,4 @@ class InfosController < ApplicationController
     # @recipes3 << @recipe.ingredients_by_symptoms
     # end
   end
-
 end
