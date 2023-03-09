@@ -1,8 +1,5 @@
 <div class="recipe-proposal">
-  <% @recipes.each do |recipe|%>
-    <div class="layout">
-      <%= render 'recipes/recipe_card', recipe: recipe %>
-    </div>
+  <% @recipe_proposal.each do |recipe|%>
+    <%= render 'recipes/recipe_card', recipe: recipe %>
   <% end %>
 </div>
-<h1>Tes recettes</h1>

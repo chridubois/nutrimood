@@ -1,5 +1,5 @@
 .recipe-img img {
-  width: 250px;
+  border-radius: 42px 42px 0px 0px;
 }
 
 .to_shoplist-button {
@@ -13,4 +13,44 @@
   background-color: white;
   border-radius: 59px;
   padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+}
+.anecdote {
+  font-family: 'Outfit';
+  text-align: center;
+  padding: 0px 10px 0px 10px
+}
+.text-content {
+  margin: 10px;
+  position: relative;
+  top: -26px;
+}
+.recipe-tips {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .pourquoi {
+    font-weight:900;
+  }
+}
+.anecdote-content {
+  font-size: 12px;
+  font-weight: lighter;
+}
+.recipe-submit-button {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 39px;
+}
+.anecdote-bloc {
+  margin: auto;
+  background-color: white;
+  border-radius: 59px;
+  padding: 15px;
+  margin-top: 10px;
+  width: 75%;
 }
