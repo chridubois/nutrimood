@@ -47,5 +47,64 @@ h1 {
 
 .condition-item {
   background-color: white;
-border-radius: 59px;
+  border-radius: 59px;
+}
+
+.sign_in {
+  margin: auto 20px;
+  color: white;
+}
+
+.login-button {
+  padding: 20px;
+  background-color: #FBB143;
+  border-radius: 59px;
+  border: solid 1px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px 103px 10px 103px;
+  font-size: 12px;
+}
+
+.login-input {
+  border-radius: 59px;
+  background-color: white;
+  font-size: 12px;
+  padding: 13px 10px 13px 10px;
+}
+.remember_form {
+  font-size: 12px;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.subscribe {
+  font-size: 12px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}
+.google_oauth {
+  border-radius: 59px;
+  background-color: white;
+  font-size: 12px;
+  padding: 13px 10px 13px 10px;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}
+.google_oauth_link {
+  text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
