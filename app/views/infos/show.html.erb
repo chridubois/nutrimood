@@ -1,11 +1,16 @@
 <h1>Card Infos</h1>
 
-<div class="layout">
-    <div class="info-anecdote-by-symptom">
-      <%= @ingredients_by_symptom %>
-    </div>
-    <div class="info-anecdote-by-mood">
-     <%= @ingredients_by_mood %>
-    </div>
+  <div class="layout">
+    <%= @condition.mood.name %>
   </div>
+
+
+<div class="layout">
+    <%= @condition.mood.ingredients_by_moods.first.anecdote %>
+  </div>
+
+<div class="layout">
+    <% @recipe.ingredients_by_symptoms.sample(3).each do |ingredient| %>
+      <p><%= ingredient.anecdote %></p><br>
+    <% end %>
 </div>
