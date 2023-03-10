@@ -44,6 +44,7 @@ class RecipesController < ApplicationController
         @recipe_proposal.delete(recipe) if recipe.ingredients.include?(ingredient)
       end
     end
+    @recipe_proposal = @recipe_proposal[0..2]
   end
 
   def show

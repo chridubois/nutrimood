@@ -5,9 +5,14 @@
 .recipe-img {
   border-radius: 42px 42px 0px 0px;
   height: 300px;
-  background-repeat: no-repeat;
   background-position: center;
-  object-fit: fill;
+  background-size: cover;
+}
+.recipe-card {
+  position: relative;
+  padding-bottom: 58px;
+  margin-bottom: 18px;
+  height: 80vh;
 }
 
 .to_shoplist-button {
@@ -41,15 +46,20 @@
   }
   .pourquoi {
     font-weight:900;
+    font-size: 14px;
   }
 }
 .anecdote-content {
   font-size: 12px;
   font-weight: lighter;
 }
-.recipe-submit-button {
+.recipe-shoplist-button {
   display: flex;
   justify-content: center;
+  position: absolute;
+  bottom: -27px;
+  left: 105px;
+  margin-bottom: 20px;
 }
 .anecdote-bloc {
   margin: auto;
@@ -58,4 +68,13 @@
   padding: 8px;
   margin-top: 10px;
   width: 80%;
+}
+.carousel-item {
+  margin-bottom: 20px;
+}
+.carousel-indicators {
+  bottom: -35px;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: orange;
 }
