@@ -1,17 +1,17 @@
 <% content_for :meta_title, "Liste d'étapes de la recette #{@recipe.name}" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
-
-<h1>Etapes de préparation, ma grosse, enfile ton tablier 🦃💨</h1>
-<div class="recipe-steps">
-  <% @recipe.recipes_steps.each do |step| %>
-    <div class="step-item">
-      <%= step.step_number %>
-      <%= step.step_description %>
-    </div>
-  <% end %>
-</div>
-<div class="recipe-submit-button mt-5">
-  <%= link_to menu_path, class: "to_shoplist-button" do %>
-    <i class="fa-solid fa-cookie-bite"></i>A TABLE
-  <% end %>
+<div class="layout">
+  <div class="recipe-steps">
+    <% @recipe.recipes_steps.each do |step| %>
+      <div class="step-item">
+        <%= step.step_number %>
+        <%= step.step_description %>
+      </div>
+    <% end %>
+  </div>
+  <div class="recipe-submit-button mt-5">
+    <%= link_to menu_path, class: "to_shoplist-button" do %>
+      <i class="fa-solid fa-cookie-bite"></i>A TABLE
+    <% end %>
+  </div>
 </div>

@@ -1,16 +1,19 @@
 <h1>Card Infos</h1>
 
-  <div class="layout">
-    <%= @condition.mood.name %>
-  </div>
-
-
 <div class="layout">
-    <%= @condition.mood.ingredients_by_moods.first.anecdote %>
-  </div>
 
-<div class="layout">
+    <p><%= @condition.mood.name %><br>
+
+    <%= @condition.mood.ingredients_by_moods.first.anecdote %></p><br>
+
     <% @recipe.ingredients_by_symptoms.sample(3).each do |ingredient| %>
       <p><%= ingredient.anecdote %></p><br>
     <% end %>
+
+    <div class="recipe-return-button mt-5">
+      <%= link_to recipes_path(@recipe) , class: "to_shoplist-button" do %>
+          back recipes
+        <% end %>
+    </div>
+
 </div>

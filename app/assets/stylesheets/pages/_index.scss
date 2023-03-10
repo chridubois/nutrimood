@@ -3,11 +3,7 @@
 @import "list-symptoms";
 @import "menu";
 @import "show_detailed";
-
-
-.recipe-proposal {
-  overflow-x: hidden;
-  width: 100vw;
-  display: flex;
-  gap: 20px;
-}
+@import "list-moods";
+@import "login";
+@import "index-recipes";
+@import "show";

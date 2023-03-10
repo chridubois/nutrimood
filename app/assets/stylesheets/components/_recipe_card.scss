@@ -2,6 +2,19 @@
   border-radius: 42px 42px 0px 0px;
 }
 
+.recipe-img {
+  border-radius: 42px 42px 0px 0px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+}
+.recipe-card {
+  position: relative;
+  padding-bottom: 58px;
+  margin-bottom: 18px;
+  height: 80vh;
+}
+
 .to_shoplist-button {
   padding: 20px;
   background-color: #FBB143;
@@ -20,7 +33,6 @@
 .anecdote {
   font-family: 'Outfit';
   text-align: center;
-  padding: 0px 10px 0px 10px
 }
 .text-content {
   margin: 10px;
@@ -34,23 +46,35 @@
   }
   .pourquoi {
     font-weight:900;
+    font-size: 14px;
   }
 }
 .anecdote-content {
   font-size: 12px;
   font-weight: lighter;
 }
-.recipe-submit-button {
+.recipe-shoplist-button {
   display: flex;
   justify-content: center;
-  position: relative;
-  top: 39px;
+  position: absolute;
+  bottom: -27px;
+  left: 105px;
+  margin-bottom: 20px;
 }
 .anecdote-bloc {
   margin: auto;
   background-color: white;
-  border-radius: 59px;
-  padding: 15px;
+  border-radius: 30px;
+  padding: 8px;
   margin-top: 10px;
-  width: 75%;
+  width: 80%;
+}
+.carousel-item {
+  margin-bottom: 20px;
+}
+.carousel-indicators {
+  bottom: -35px;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: orange;
 }
