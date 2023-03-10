@@ -1,21 +1,16 @@
 <div class="layout">
   <form action="list_moods" method="POST" data-turbo=false>
-    <select name="mood" id="pet-select">
-      <% @moods.each do |mood|%>
-        <option value="<%= mood.id %>"><%= mood.name %></option>
+    <div class="moods-list">
+      <% @moods.each_with_index do |mood, index|%>
+        <div class="mood-item">
+          <label> <%= mood.name %>
+            <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>" visibility: hidden />
+          </label>
+        </div>
       <% end %>
-    </select>
+    </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <input type="submit" value="Suivant" class="suivant" />
   </form>
-  <div class="grid-mood">
-    <% @moods.each_with_index do |mood, index|%>
-      <% if index % 2 != 0 %>
-        <div class="mood-pills mood-left"><%= mood.name %></div>
-      <% else %>
-        <div class="mood-pills mood-right"><%= mood.name %></div>
-      <% end %>
-    <% end %>
-  </div>
 </div>
 <h1>Ton mood ?</h1>
