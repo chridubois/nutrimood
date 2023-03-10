@@ -44,7 +44,8 @@ CSV.foreach(Rails.root.join('lib/users.csv'), headers: true) do |row|
     is_gluten_sensitive: row[6],
     is_diabetic: row[7],
     is_pregnant: row[8],
-    gender: row[9]
+    gender: row[9],
+    admin: true
   })
 end
 
