@@ -2,6 +2,14 @@
   border-radius: 42px 42px 0px 0px;
 }
 
+.recipe-img {
+  border-radius: 42px 42px 0px 0px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: fill;
+}
+
 .to_shoplist-button {
   padding: 20px;
   background-color: #FBB143;
@@ -20,7 +28,6 @@
 .anecdote {
   font-family: 'Outfit';
   text-align: center;
-  padding: 0px 10px 0px 10px
 }
 .text-content {
   margin: 10px;
@@ -43,14 +50,12 @@
 .recipe-submit-button {
   display: flex;
   justify-content: center;
-  position: relative;
-  top: 39px;
 }
 .anecdote-bloc {
   margin: auto;
   background-color: white;
-  border-radius: 59px;
-  padding: 15px;
+  border-radius: 30px;
+  padding: 8px;
   margin-top: 10px;
-  width: 75%;
+  width: 80%;
 }
