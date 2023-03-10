@@ -49,88 +49,92 @@ CSV.foreach(Rails.root.join('lib/users.csv'), headers: true) do |row|
 end
 
 # Create recipes
-i = 1
+pages_count = 1
 
-url = "https://recettehealthy.com/les-recette-salee/plat-complet/"
-html_file = URI.open(url).read
-html_doc = Nokogiri::HTML.parse(html_file)
-
-#Get all recipes
-p "Création des Recettes"
-recipe_urls = html_doc.xpath('//article//a/@href').map {|attr| attr.value}
-
-recipe_urls.each do |url|
-  # For each recipe, get recipe infos
+while pages_count < 24
+  url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
 
-  # Get Recipe name
-  name = html_doc.search('.wprm-recipe-container h2').text
+  # Get all recipes
+  p "Création des Recettes page #{pages_count}"
+  recipe_urls = html_doc.xpath('//article//a/@href').map {|attr| attr.value}
 
-  # Get Recipe prep_time
-  prep_time = html_doc.search('.wprm-recipe-details.wprm-recipe-details-minutes.wprm-recipe-prep_time.wprm-recipe-prep_time-minutes').text.to_i
+  recipe_urls.each do |url|
+    # For each recipe, get recipe infos
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML.parse(html_file)
 
-  # Get Recipe cook_time
-  cook_time = html_doc.search('.wprm-recipe-details.wprm-recipe-details-minutes.wprm-recipe-cook_time.wprm-recipe-cook_time-minutes').text.to_i
+    # Get Recipe name
+    name = html_doc.search('.wprm-recipe-container h2').text
 
-  # Get Recipe calories
-  calories = html_doc.search('.wprm-recipe-details.wprm-recipe-nutrition.wprm-recipe-calories.wprm-block-text-normal').text.to_i
+    # Get Recipe prep_time
+    prep_time = html_doc.search('.wprm-recipe-details.wprm-recipe-details-minutes.wprm-recipe-prep_time.wprm-recipe-prep_time-minutes').text.to_i
 
-  # Get Recipe image
-  image = html_doc.search('.wprm-recipe-image img').attr('data-lazy-src').text
+    # Get Recipe cook_time
+    cook_time = html_doc.search('.wprm-recipe-details.wprm-recipe-details-minutes.wprm-recipe-cook_time.wprm-recipe-cook_time-minutes').text.to_i
 
-  # Get Recipe count of people
-  count_people = html_doc.search('.wprm-recipe-servings').text.to_i
+    # Get Recipe calories
+    calories = html_doc.search('.wprm-recipe-details.wprm-recipe-nutrition.wprm-recipe-calories.wprm-block-text-normal').text.to_i
 
-  # First creation of Recipe
-  if Recipe.find_by(name: name).nil?
-    recipe = Recipe.create({
-      name: name,
-      calories_by_person: calories,
-      duration: prep_time + cook_time,
-      image: image
-    })
+    # Get Recipe image
+    next if html_doc.search('.wprm-recipe-image img').attr('data-lazy-src').nil?
 
-    # Get Recipe Ingredients
-    ingredients = html_doc.search('li.wprm-recipe-ingredient')
-    i = 0
-    ingredients.each do |ingredient|
-      quantity = ingredient.xpath('//span[@class="wprm-recipe-ingredient-amount"]').collect(&:text)[i].to_i
-      quantity_calc = (quantity / count_people.to_f).ceil(2)
-      unit = ingredient.xpath('//span[@class="wprm-recipe-ingredient-unit"]').collect(&:text)[i]
-      name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i]
+    image = html_doc.search('.wprm-recipe-image img').attr('data-lazy-src').text
 
-      if Ingredient.find_by(name: name).nil?
-        ingredient = Ingredient.create({
-          name: name
+    # Get Recipe count of people
+    count_people = html_doc.search('.wprm-recipe-servings').text.to_i
+
+    # First creation of Recipe
+    if Recipe.find_by(name: name).nil?
+      recipe = Recipe.create({
+        name: name,
+        calories_by_person: calories,
+        duration: prep_time + cook_time,
+        image: image
+      })
+
+      # Get Recipe Ingredients
+      ingredients = html_doc.search('li.wprm-recipe-ingredient')
+      i = 0
+      ingredients.each do |ingredient|
+        quantity = ingredient.xpath('//span[@class="wprm-recipe-ingredient-amount"]').collect(&:text)[i].to_i
+        quantity_calc = (quantity / count_people.to_f).ceil(2)
+        unit = ingredient.xpath('//span[@class="wprm-recipe-ingredient-unit"]').collect(&:text)[i]
+        name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i]
+
+        if Ingredient.find_by(name: name).nil?
+          ingredient = Ingredient.create({
+            name: name
+          })
+        else
+          ingredient = Ingredient.find_by_name(name)
+        end
+
+        RecipesIngredient.create({
+          recipe: recipe,
+          ingredient: ingredient,
+          unit: unit,
+          quantity: quantity_calc
         })
-      else
-        ingredient = Ingredient.find_by_name(name)
+        i += 1
       end
 
-      RecipesIngredient.create({
-        recipe: recipe,
-        ingredient: ingredient,
-        unit: unit,
-        quantity: quantity_calc
-      })
-      i += 1
-    end
-
-    # Get Recipe steps
-    steps = html_doc.search('li.wprm-recipe-instruction')
-    i = 0
-    steps.each do |step|
-      RecipesStep.create({
-        recipe: recipe,
-        step_number: i + 1,
-        step_description: step.text
-      })
-      i += 1
+      # Get Recipe steps
+      steps = html_doc.search('li.wprm-recipe-instruction')
+      i = 0
+      steps.each do |step|
+        RecipesStep.create({
+          recipe: recipe,
+          step_number: i + 1,
+          step_description: step.text
+        })
+        i += 1
+      end
     end
   end
+  pages_count += 1
 end
-
 # Create user ingredient restrictions
 p "Création des User restrictions"
 ingredient_count = Ingredient.count
