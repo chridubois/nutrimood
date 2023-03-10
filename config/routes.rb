@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Root route
-  root to: "pages#menu"
+  root to: "pages#home"
 
   # Devise routes
   devise_for :users do
