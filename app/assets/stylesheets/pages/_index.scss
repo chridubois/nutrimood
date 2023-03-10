@@ -4,10 +4,7 @@
 @import "menu";
 @import "show_detailed";
 @import "show_infos";
-
-.recipe-proposal {
-  overflow-x: hidden;
-  width: 100vw;
-  display: flex;
-  gap: 20px;
-}
+@import "list-moods";
+@import "login";
+@import "index-recipes";
+@import "show";

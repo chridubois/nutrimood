@@ -1,7 +1,6 @@
 <div class="layout">
   <div class="recipe-card">
-    <div class="recipe-img">
-      <img src="<%= recipe.image %>" alt="">
+    <div class="recipe-img" style="background-image: url(<%= recipe.image %>)">
     </div>
     <div class="text-content">
       <div class="recipe-title">
@@ -27,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="recipe-submit-button">
+  <div class="recipe-shoplist-button">
     <%= link_to recipe_path(recipe), class: "to_shoplist-button" do %>
       <i class="fa-solid fa-cart-plus"></i>SHOP LIST
     <% end %>

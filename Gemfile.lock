@@ -59,6 +59,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.0.4.2)
       activesupport (= 7.0.4.2)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (7.0.4.2)
       activemodel (= 7.0.4.2)
       activesupport (= 7.0.4.2)
@@ -138,6 +142,18 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     kimurai (1.4.0)
       activesupport
       capybara (>= 2.15, < 4.0)
@@ -181,6 +197,7 @@ GEM
     minitest (5.18.0)
     msgpack (1.6.1)
     murmurhash3 (0.1.7)
+    nested_form (0.3.2)
     net-http-digest_auth (1.4.1)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
@@ -243,6 +260,12 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
+    rails_admin (3.0.0)
+      activemodel-serializers-xml (>= 1.0)
+      kaminari (>= 0.14, < 2.0)
+      nested_form (~> 0.3)
+      rails (>= 6.0, < 8)
+      turbo-rails (~> 1.0)
     railties (7.0.4.2)
       actionpack (= 7.0.4.2)
       activesupport (= 7.0.4.2)
@@ -336,6 +359,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  rails_admin (= 3.0)
   sassc-rails
   selenium-webdriver
   simple_form!

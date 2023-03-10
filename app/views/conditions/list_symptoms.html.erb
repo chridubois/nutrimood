@@ -1,8 +1,7 @@
 <div class="layout container">
 
 
-    <form action="list_symptoms" method="POST" data-turbo=false>
-      <option value="selected_symptoms">
+    <form action="list_symptoms" method="POST" data-turbo=false class="symptoms-form">
 
         <div class="symptoms-list">
 
@@ -18,10 +17,8 @@
 
         </div>
 
-      </option>
-
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-      <input type="submit" value="Suivant" class="suivant" />
+      <input type="submit" value="Suivant" class="suivant" id="symptoms-submit-btn"/>
     </form>
 
 
