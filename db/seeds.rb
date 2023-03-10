@@ -52,7 +52,7 @@ end
 # Create recipes
 pages_count = 1
 
-while pages_count < 24
+while pages_count < 10
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
