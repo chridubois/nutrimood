@@ -1,29 +1,16 @@
 <div class="layout container">
-
-
-    <form action="list_symptoms" method="POST" data-turbo=false>
-      <option value="selected_symptoms">
-
-        <div class="symptoms-list">
-
-        <% @symptoms.each do |s| %>
-
-          <div class="symptom-item">
+  <form action="list_symptoms" method="POST" data-turbo=false>
+    <div class="symptoms-list">
+      <% @symptoms.each do |s| %>
+        <div class="symptom-item">
           <label> <%= s.name %>
-              <input type="checkbox" name="<%= s.name %>" value="<%= s.id %>" visibility: hidden />
+            <input type="checkbox" name="<%= s.name %>" value="<%= s.id %>" visibility: hidden />
           </label>
-          </div>
-
-        <% end %>
-
         </div>
-
-      </option>
-
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-      <input type="submit" value="Suivant" class="suivant" />
-    </form>
-
-
+      <% end %>
+    </div>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <input type="submit" value="Suivant" class="suivant" />
+  </form>
 </div>
 <h1>Tes symptômes ?</h1>
