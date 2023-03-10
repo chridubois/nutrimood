@@ -4,11 +4,5 @@
 @import "menu";
 @import "show_detailed";
 @import "list-moods";
-
-
-.recipe-proposal {
-  overflow-x: hidden;
-  width: 100vw;
-  display: flex;
-  gap: 20px;
-}
+@import "login";
+@import "index-recipes";
