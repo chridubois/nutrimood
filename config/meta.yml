@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_name: "Nutrimood"
+meta_title: "Nutrimood - Une idée de recette en fonction de ton mood"
+meta_description: "Tu ne sais pas quoi manger ce soir ? En 3 clics, accèdes à 3 suggestions de recettes simples et rapides"
+meta_image: "favicon.ico" # should exist in `app/assets/images/`
+twitter_account: "@your_twitter_account"   # required for Twitter Cards
