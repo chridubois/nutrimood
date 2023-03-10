@@ -1,14 +1,19 @@
+<% content_for :meta_title, "Menu" %>
+<% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
+
 <div class="layout">
   <div class="recipe-submit-button mt-5 mb-5">
     <%= link_to list_moods_path, class: "to_shoplist-button" do %>
       GO
     <% end %>
   </div>
-  <h2>Mes derniers moods</h2>
+  <div class="last-mood-title mt-3">
+    <h2>Mes derniers moods</h2>
+  </div>
   <div class="conditions-list">
     <% @conditions.each do |condition|  %>
       <div class="condition-item">
-        <%= condition.created_at %>
+        <%= condition.created_at.strftime('%d %b %Y') %>
         <% condition.symptoms.each do |symptom| %>
           <%= symptom.name %>
         <% end %>

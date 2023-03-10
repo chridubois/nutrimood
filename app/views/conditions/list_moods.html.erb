@@ -1,5 +1,5 @@
 <div class="layout">
-  <form action="list_moods" method="POST">
+  <form action="list_moods" method="POST" data-turbo=false>
     <select name="mood" id="pet-select">
       <% @moods.each do |mood|%>
         <option value="<%= mood.id %>"><%= mood.name %></option>

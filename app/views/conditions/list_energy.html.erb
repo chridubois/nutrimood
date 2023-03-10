@@ -1,0 +1,14 @@
+<div class="layout">
+  <form action="list_energy" method="POST" data-turbo=false>
+    <select name="energy_level" class="form-select" aria-label="Default select example">
+      <option selected>energy_level</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="75">75</option>
+      <option value="100">100</option>
+    </select>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <input type="submit" value="Suivant" />
+  </form>
+</div>
+<h1>Ton energie ?</h1>

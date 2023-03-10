@@ -1,3 +1,6 @@
+<% content_for :meta_title, "Liste d'étapes de la recette #{@recipe.name}" %>
+<% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
+
 <h1>Etapes de préparation, ma grosse, enfile ton tablier 🦃💨</h1>
 <div class="recipe-steps">
   <% @recipe.recipes_steps.each do |step| %>

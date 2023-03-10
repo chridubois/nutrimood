@@ -1,0 +1,17 @@
+.symptoms-list {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+.symptom-item {
+  // list-style: none;
+  // line-height: 0;
+  background-color: #2be248;
+  border-radius: 32px;
+  padding: 16px 24px;
+  margin: 16px;
+  width: fit-content;
+  text-align: center;
+  flex: 1 1 fit-content;
+}
