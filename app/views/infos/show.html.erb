@@ -1,19 +1,35 @@
-<h1>Card Infos</h1>
 
 <div class="layout">
 
-    <p><%= @condition.mood.name %><br>
+    <div class="radar">
+    </div>
 
-    <%= @condition.mood.ingredients_by_moods.first.anecdote %></p><br>
-
-    <% @recipe.ingredients_by_symptoms.sample(3).each do |ingredient| %>
-      <p><%= ingredient.anecdote %></p><br>
-    <% end %>
-
-    <div class="recipe-return-button mt-5">
-      <%= link_to recipes_path(@recipe) , class: "to_shoplist-button" do %>
-          back recipes
+    <div class="button">
+        <%= link_to recipes_path(@recipe) , class: "button" do %>
+        x
         <% end %>
     </div>
 
+    <div class= "bloc-blanc">
+
+        <div class= "condition-mood">
+          <b>Ton Mood: <%= @condition.mood.name %> <b>
+        </div>
+
+        <div class= "mood-ingredient">
+          <%= @condition.mood.ingredients_by_moods.first.anecdote %>
+        </div>
+
+        <div class= "symptom-ingredient">
+          <div class= "astuces"><b>Quelques astuces :</b></div>
+          <div class= "anecdotes">
+          <% @recipe.ingredients_by_symptoms.sample(3).each do |ingredient| %>
+          <div class= "anecdote3"><p><%= ingredient.anecdote %></p></div>
+          <% end %>
+            </div>
+        </div>
+
+    </div>
 </div>
+
+<h1><b>Infos Nutrition</b></h1>
