@@ -1,13 +1,17 @@
 <div class="layout container">
 
 
-    <form action="list_symptoms" method="POST" data-turbo=false class="symptoms-form">
+    <form action="list_symptoms" method="POST" data-turbo=false class="symptoms-form"
+    data-controller="symptoms-list">
 
-        <div class="symptoms-list">
+      <div class="symptoms-list"
+      data-action="click->symptoms-list#buttonAppear">
 
         <% @symptoms.each do |s| %>
 
-          <div class="symptom-item">
+          <div class="symptom-item"
+               data-action="click->symptoms-list#symptomChosen"
+               data-symptoms-list-target="item">
           <label> <%= s.name %>
               <input type="checkbox" name="<%= s.name %>" value="<%= s.id %>" visibility: hidden />
           </label>
@@ -18,7 +22,8 @@
         </div>
 
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-      <input type="submit" value="Suivant" class="suivant" id="symptoms-submit-btn"/>
+      <input type="submit" value="Suivant" class="suivant" id="symptoms-submit-btn" visibility: hidden
+      data-symptoms-list-target="button"/>
     </form>
 
 
