@@ -5,12 +5,14 @@
      data-controller="moods-list">
   <br>
   <h1 class="title list-mood">Je suis plutôt...</h1>
-  <form action="list_moods" method="POST" data-turbo=false class="text-center"
-        data-action="click->moods-list#buttonAppear">
+  <form action="list_moods" method="POST" data-turbo=false class="text-center">
     <div class="moods-list">
 
       <% @moods.each_with_index do |mood, index|%>
-        <div class="mood-item">
+        <div class="mood-item"
+              data-action="click->moods-list#btnAppear"
+              data-action="click->moods-list#selectAMood"
+              data-moods-list-target="item1">
           <label> <%= mood.name %>
             <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>"  />
             <%# visibility: hidden %>
@@ -23,7 +25,7 @@
     <br>
     <input visibility: hidden type="submit" value="Suivant"
       class="button list-mood"
-      data-moods-list-target="button" />
+      data-moods-list-target="btn" />
   </form>
 </div>
 <h1 class="title bottom list-mood">Ton mood ?</h1>
