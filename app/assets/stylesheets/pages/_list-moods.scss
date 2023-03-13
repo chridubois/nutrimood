@@ -1,15 +1,63 @@
+.layout.list-mood {
+  background-color: #17BEBB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 42px;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 400px;
+}
+
 .moods-list {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
  }
 
- .mood-item {
-   background-color: #2be248;
-   border-radius: 32px;
-   padding: 7px 15px;
-   margin: 16px;
-   width: fit-content;
-   text-align: center;
-   flex: 1 1 fit-content;
- }
+.mood-item {
+  background-color: white;
+  border-radius: 32px;
+  padding: 7px 15px;
+  margin: 16px;
+  width: fit-content;
+  text-align: center;
+  flex: 1 1 fit-content;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #17BEBB;
+}
+.title.list-mood {
+color: white;
+font-size: 29px;
+}
+.title.bottom.list-mood {
+  color: #17BEBB;
+}
+.indicators.list-mood {
+  display: flex;
+  justify-content: space-around;
+  width: 177px;
+  margin: auto;
+  .indicator-item {
+    width: 55px;
+    height: 4px;
+    background: rgba(177, 205, 166, 0.3);
+  }
+  .indicator-item.active {
+    width: 55px;
+    height: 4px;
+    background-color: #17BEBB;
+  }
+}
+.button.list-mood {
+  background: #17BEBB;
+  border: 3px solid #FFFFFF;
+  border-radius: 59px;
+  color: white;
+  padding: 2px;
+  width: 144px;
+  height: 68px;
+  margin: auto;
+}

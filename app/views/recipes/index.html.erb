@@ -10,11 +10,18 @@
     <% @recipe_proposal.each_with_index do |recipe, index|%>
       <% if index == 0 %>
         <div class="carousel-item active">
-          <%= render 'recipes/recipe_card', recipe: recipe %>
+          <%= render 'shared/navbar_blue' %>
+          <%= render 'recipes/recipe_card', recipe: recipe, color: "blue" %>
+        </div>
+      <% elsif index == 1 %>
+        <div class="carousel-item">
+          <%= render 'shared/navbar_yellow' %>
+          <%= render 'recipes/recipe_card', recipe: recipe, color: "yellow" %>
         </div>
       <% else %>
         <div class="carousel-item">
-          <%= render 'recipes/recipe_card', recipe: recipe %>
+          <%= render 'shared/navbar_red' %>
+          <%= render 'recipes/recipe_card', recipe: recipe, color: "red" %>
         </div>
       <% end %>
     <% end %>

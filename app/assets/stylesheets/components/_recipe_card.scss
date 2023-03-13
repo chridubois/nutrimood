@@ -29,6 +29,44 @@
   font-weight: bold;
   font-family: 'Outfit';
   text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-blue {
+  background: #FFFFFF;
+  border: 2px solid #17BEBB;
+  color: #17BEBB;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-yellow {
+  background: #FFFFFF;
+  border: 2px solid #FFC914;
+  color: #FFC914;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-red {
+  background: #FFFFFF;
+  border: 2px solid #E4572E;
+  color: #E4572E;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
 }
 .anecdote {
   font-family: 'Outfit';
@@ -71,6 +109,7 @@
 }
 .carousel-item {
   margin-bottom: 20px;
+  transition: transform .2s ease, opacity .5s ease-out !important;
 }
 .carousel-indicators {
   bottom: -35px;

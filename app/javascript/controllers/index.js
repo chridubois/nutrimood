@@ -10,6 +10,9 @@ application.register("hello", HelloController)
 import HomeLoaderController from "./home_loader_controller"
 application.register("home-loader", HomeLoaderController)
 
+import SearchLoaderController from "./search_loader_controller"
+application.register("search-loader", SearchLoaderController)
+
 import MoodsListController from "./moods_list_controller"
 application.register("moods-list", MoodsListController)
 
