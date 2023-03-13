@@ -9,6 +9,6 @@ export default class extends Controller {
       window.location.href = "menu";
       console.log(this.element);
       window.clearTimeout(tID);		// clear time out.
-  }, 4000);
+  }, 2000);
   }
 }
