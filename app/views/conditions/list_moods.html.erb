@@ -1,5 +1,10 @@
-<div class="layout">
-  <form action="list_moods" method="POST" data-turbo=false>
+ <% content_for :navbar do %>
+      <%= render 'shared/navbar_blue' %>
+ <% end %>
+<div class="layout list-mood">
+  <br>
+  <h1 class="title list-mood">Je suis plutôt...</h1>
+  <form action="list_moods" method="POST" data-turbo=false class="text-center">
     <div class="moods-list">
       <% @moods.each_with_index do |mood, index|%>
         <div class="mood-item">
@@ -10,7 +15,14 @@
       <% end %>
     </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <input type="submit" value="Suivant" class="suivant" />
+    <input type="submit" value="Suivant" class="button list-mood" />
+    <br>
+    <br>
   </form>
 </div>
-<h1>Ton mood ?</h1>
+<h1 class="title bottom list-mood">Ton mood ?</h1>
+<div class="indicators list-mood">
+  <div class="indicator-item active"></div>
+  <div class="indicator-item"></div>
+  <div class="indicator-item"></div>
+</div>

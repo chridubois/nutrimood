@@ -7,8 +7,11 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import SymptomsListController from "./symptoms_list_controller"
-application.register("symptoms-list", SymptomsListController)
-
 import HomeLoaderController from "./home_loader_controller"
 application.register("home-loader", HomeLoaderController)
+
+import SearchLoaderController from "./search_loader_controller"
+application.register("search-loader", SearchLoaderController)
+
+import SymptomsListController from "./symptoms_list_controller"
+application.register("symptoms-list", SymptomsListController)
