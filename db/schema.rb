@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_144834) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_195034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_144834) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "recipe_id"
     t.index ["mood_id"], name: "index_conditions_on_mood_id"
+    t.index ["recipe_id"], name: "index_conditions_on_recipe_id"
     t.index ["user_id"], name: "index_conditions_on_user_id"
   end
 
@@ -155,6 +157,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_144834) do
   end
 
   add_foreign_key "conditions", "moods"
+  add_foreign_key "conditions", "recipes"
   add_foreign_key "conditions", "users"
   add_foreign_key "ingredients_by_moods", "ingredients"
   add_foreign_key "ingredients_by_moods", "moods"

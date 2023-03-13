@@ -1,7 +1,7 @@
  <% content_for :navbar do %>
   <%= render 'shared/navbar_yellow' %>
 <% end %>
-<div class="layout-list-energy">
+<div class="layout-list-energy" data-controller="energy-list">
   <br>
   <h1 style="color: white;">Niveau énergie...</h1>
   <form action="list_energy" method="POST" data-turbo=false class="text-center">
@@ -10,19 +10,27 @@
       <div class="battery-bloc">
         <div class="battery">
           <div class="battery-items">
-            <div class="battery-level">
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item1">
               Je pète le feu
               <input type="checkbox" name="100" value="100" visibility: hidden />
             </div>
-            <div class="battery-level">
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item2">
               En vrai, ça va
               <input type="checkbox" name="75" value="75" visibility: hidden />
             </div>
-            <div class="battery-level">
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item3">
               Comme ci, comme ça
               <input type="checkbox" name="50" value="50" visibility: hidden />
             </div>
-            <div class="battery-level">
+            <div class="battery-level active"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item1">
               Au bout du roul’s
               <input type="checkbox" name="25" value="25" visibility: hidden />
             </div>
@@ -32,7 +40,7 @@
     </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <br>
-    <input type="submit" value="Suivant" class="button list-energy"/>
+    <input visibility: hidden type="submit" value="Suivant" class="button list-energy" data-energy-list-target="button"/>
     <br>
     <br>
   </form>

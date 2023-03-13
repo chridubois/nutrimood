@@ -142,6 +142,7 @@ ingredient_count = Ingredient.count
 mood_count = Mood.count
 symptom_count = Symptom.count
 user_count = User.count
+recipe_count = Recipe.count
 
 User.all.each do |user|
   random_ingredient_offset = rand(ingredient_count)
@@ -159,10 +160,12 @@ p "Création des conditions"
   random_mood = Mood.offset(random_mood_offset).first
   random_user_offset = rand(user_count)
   random_user = User.offset(random_user_offset).first
+  random_recipe_offset = rand(recipe_count)
+  random_recipe = Recipe.offset(random_recipe_offset).first
   Condition.create({
     user: random_user,
     mood: random_mood,
-    # symptom: random_symptom,
+    recipe: random_recipe,
     energy_level: [25, 50, 75, 100].sample
   })
 end

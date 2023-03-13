@@ -27,8 +27,10 @@
     </div>
   </div>
   <div class="recipe-shoplist-button" style="color:#17BEBB;">
-    <%= link_to recipe_path(recipe), class: "to_shoplist-button-#{color}" do %>
-      Ca me botte !
-    <% end %>
+    <form action="recap" method="POST" data-turbo=false>
+      <input name="recipe" type="hidden" value="<%= recipe.id %>" />
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <input type="submit" value="Ca me botte !" class="to_shoplist-button-<%= color %>" />
+    </form>
   </div>
 </div>
