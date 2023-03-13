@@ -11,19 +11,24 @@
     <h1 style="color: white;">Autre chose à déclarer.. ?</h1>
     <form action="list_symptoms" method="POST" data-turbo=false class="symptoms-form"
     data-controller="symptoms-list">
+
       <div class="symptoms-list"
       data-action="click->symptoms-list#buttonAppear">
+
         <% index = 0 %>
         <% @symptoms.each do |s| %>
           <div class="symptom-item"
+
                data-action="click->symptoms-list#symptomChosen"
-            data-symptoms-list-target="item" data-symptoms-list-index-param="<%= index %>">
+
+               data-symptoms-list-target="item"
+               data-symptoms-list-index-param="<%= index %>">
             <label> <%= s.name %>
-              <input type="checkbox" value=unchecked name="<%= s.name %>"
+              <input type="checkbox" name="<%= s.name %>"
               value="<%= s.id %>"
               data-symptoms-list-target="checkbox"
-              visibility: hidden
-               />
+              visibility: hidden />
+
             </label>
           </div>
           <% index += 1 %>

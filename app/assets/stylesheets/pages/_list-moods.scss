@@ -27,6 +27,13 @@
   font-size: 16px;
   line-height: 20px;
   color: #17BEBB;
+
+  &.selected {
+    color: #FBB143;
+    background-color: #ffffff;
+    border: 1px solid #FBB143;
+    border-radius: 28px;
+    }
 }
 .title.list-mood {
 color: white;

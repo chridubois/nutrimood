@@ -1,5 +1,5 @@
 class ConditionsController < ApplicationController
-  before_action :set_cache_headers, only: :update_condition_symptom
+  before_action :set_cache_headers, only: %i[list_moods list_symptoms]
 
   def list_moods
     @moods = Mood.all
