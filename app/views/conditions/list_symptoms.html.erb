@@ -10,7 +10,7 @@
         <% @symptoms.each do |s| %>
 
           <div class="symptom-item"
-               data-action="click->symptoms-list#buttonAppear"
+
                data-action="click->symptoms-list#symptomChosen"
                data-symptoms-list-target="item"
                data-symptoms-list-index-param="<%= index %>">

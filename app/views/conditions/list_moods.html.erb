@@ -5,20 +5,26 @@
      data-controller="moods-list">
   <br>
   <h1 class="title list-mood">Je suis plutôt...</h1>
-  <form action="list_moods" method="POST" data-turbo=false class="text-center">
+  <form action="list_moods" method="POST" data-turbo=false class="text-center"
+        <%# data-action="click->moods-list#btnAppear" %>
+        >
     <div class="moods-list">
 
+      <% idx = 0 %>
       <% @moods.each_with_index do |mood, index|%>
         <div class="mood-item"
-              data-action="click->moods-list#btnAppear"
               data-action="click->moods-list#selectAMood"
-              data-moods-list-target="item1">
+              data-moods-list-target="item1"
+              data-moods-list-idx-param="<%= idx %>">
           <label> <%= mood.name %>
-            <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>"  />
-            <%# visibility: hidden %>
+            <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>"
+                   data-moods-list-target="checkbox"
+                   visibility: hidden  />
           </label>
         </div>
+        <% idx += 1 %>
       <% end %>
+
     </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <br>
