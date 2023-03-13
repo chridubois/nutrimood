@@ -1,4 +1,6 @@
 class ConditionsController < ApplicationController
+  before_action :set_cache_headers, only: :update_condition_symptom
+
   def list_moods
     @moods = Mood.all
   end
@@ -41,5 +43,12 @@ class ConditionsController < ApplicationController
     end
 
     redirect_to recipes_path
+  end
+
+  private
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store"
+    response.headers["Pragma"] = "no-cache"
   end
 end
