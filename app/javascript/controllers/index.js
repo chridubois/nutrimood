@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import EnergyListController from "./energy_list_controller"
+application.register("energy-list", EnergyListController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

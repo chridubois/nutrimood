@@ -1,6 +1,6 @@
  <% content_for :navbar do %>
-      <%= render 'shared/navbar_blue' %>
- <% end %>
+  <%= render 'shared/navbar_blue' %>
+<% end %>
 <div class="layout list-mood"
      data-controller="moods-list">
   <br>
@@ -9,13 +9,12 @@
         <%# data-action="click->moods-list#btnAppear" %>
         >
     <div class="moods-list">
-
       <% idx = 0 %>
       <% @moods.each_with_index do |mood, index|%>
         <div class="mood-item"
               data-action="click->moods-list#selectAMood"
-              data-moods-list-target="item1"
-              data-moods-list-idx-param="<%= idx %>">
+          data-moods-list-target="item1"
+          data-moods-list-idx-param="<%= idx %>">
           <label> <%= mood.name %>
             <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>"
                    data-moods-list-target="checkbox"
@@ -24,7 +23,6 @@
         </div>
         <% idx += 1 %>
       <% end %>
-
     </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <br>

@@ -1,25 +1,40 @@
 <% content_for :meta_title, "Comment cuisiner  #{@recipe.name} ?" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
 
-<div class="layout">
+ <% content_for :navbar do %>
+      <%= render 'shared/navbar_green' %>
+ <% end %>
+<div class="layout-white">
   <div class="recipe-card">
-    <div class="recipe-img">
-      <img src="<%= @recipe.image %>" alt="">
+    <div class="recipe-img" style="background-image: url(<%= @recipe.image %>)">
     </div>
-    <div class="recipe-title">
-      <%= @recipe.name %>
+    <div class="text-content">
+      <div class="recipe-title-green">
+        <%= @recipe.name %>
+      </div>
+      <div class="recipe-tips">
+        <%= link_to recipe_infos_path(@recipe) do %>
+          <div class="anecdote-bloc">
+            <div class="anecdote">
+              <div class="pourquoi-green">
+                <% ingredients_by_symptoms = @recipe.ingredients_by_symptoms.sample %>
+                pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
+              </div>
+              <div class="anecdote-content-green">
+                <%= ingredients_by_symptoms.anecdote %>
+              </div>
+              <div class="plus-infos-green mt-3">
+                <i class="fa-solid fa-circle-info"></i> Pour plus d'infos
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="recipe-ingredients">
-      <% @recipe.ingredients.each do |ingredient| %>
-        <div class="ingredient-item">
-          <%= ingredient.name %>
-        </div>
-      <% end %>
-    </div>
-    <div class="recipe-submit-button mt-5">
-     <%= link_to recipe_steps_path(@recipe) , class: "to_shoplist-button" do %>
-        <i class="fa-solid fa-utensils"></i>EN CUISINE
-      <% end %>
-    </div>
+  </div>
+  <div class="recipe-shoplist-button" style="color:#17BEBB;">
+    <%= link_to recipe_path(@recipe), class: "to_shoplist-button-green" do %>
+      Ca me botte !
+    <% end %>
   </div>
 </div>

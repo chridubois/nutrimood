@@ -43,6 +43,13 @@
   text-decoration: none;
   color: white;
 }
+.to_shoplist-button-green {
+  padding: 20px;
+  background-color:#76B041;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
 .recipe-title {
   background-color: white;
   border-radius: 59px;
@@ -81,6 +88,18 @@
   background: #FFFFFF;
   border: 2px solid #E4572E;
   color: #E4572E;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-green {
+  background: #FFFFFF;
+  border: 2px solid #76B041;
+  color: #76B041;
   border-radius: 30px;
   padding: 5px;
   font-weight: bold;
@@ -138,6 +157,15 @@
     text-align: center;
     color: #E4572E;
   }
+  .pourquoi-green {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color:#76B041;
+  }
 }
 .anecdote-content {
   font-size: 12px;
@@ -157,6 +185,11 @@
   font-size: 12px;
   font-weight: lighter;
   color: #E4572E;
+}
+.anecdote-content-green {
+  font-size: 12px;
+  font-weight: lighter;
+  color:#76B041;
 }
 .recipe-shoplist-button {
   display: flex;
@@ -192,6 +225,9 @@
 }
 .plus-infos-red {
   color: #E4572E;
+}
+.plus-infos-green {
+  color: #76B041;
 }
 .carousel-item .indicators {
   margin-top: 45px;

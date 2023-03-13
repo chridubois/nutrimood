@@ -12,6 +12,10 @@ class ConditionsController < ApplicationController
     @symptoms = Symptom.all
   end
 
+  def recap
+    @condition = Condition.find_by(user: current_user)
+  end
+
   def create_condition
     @mood_id = params[:mood]
     @condition = Condition.create(mood_id: @mood_id, user: current_user)
@@ -41,8 +45,13 @@ class ConditionsController < ApplicationController
       @symptoms_association.symptom_id = s.id
       @symptoms_association.save
     end
+  end
 
-    # redirect_to recipes_path
+  def update_condition_recipe
+    @condition = Condition.find_by(user: current_user)
+    @condition.recipe_id = params[:recipe]
+    @condition.update(recipe_id: params[:recipe])
+    redirect_to recap_path
   end
 
   private
