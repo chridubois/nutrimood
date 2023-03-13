@@ -17,7 +17,7 @@ module Nutrimood
     config.load_defaults 7.0
 
     config.assets.initialize_on_precompile = false
-
+    config.assets.css_compressor = nil
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
