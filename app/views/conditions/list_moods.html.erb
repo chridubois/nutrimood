@@ -1,15 +1,19 @@
  <% content_for :navbar do %>
       <%= render 'shared/navbar_blue' %>
  <% end %>
-<div class="layout list-mood">
+<div class="layout list-mood"
+     data-controller="moods-list">
   <br>
   <h1 class="title list-mood">Je suis plutôt...</h1>
-  <form action="list_moods" method="POST" data-turbo=false class="text-center">
+  <form action="list_moods" method="POST" data-turbo=false class="text-center"
+        data-action="click->moods-list#buttonAppear">
     <div class="moods-list">
+
       <% @moods.each_with_index do |mood, index|%>
         <div class="mood-item">
           <label> <%= mood.name %>
-            <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>" visibility: hidden />
+            <input type="checkbox" name="<%= mood.name %>" value="<%= mood.id %>"  />
+            <%# visibility: hidden %>
           </label>
         </div>
       <% end %>
@@ -17,8 +21,9 @@
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <br>
     <br>
-    <input type="submit" value="Suivant" class="button list-mood" type="hidden"
-    data-moods-list-target="button" />
+    <input visibility: hidden type="submit" value="Suivant"
+      class="button list-mood"
+      data-moods-list-target="button" />
   </form>
 </div>
 <h1 class="title bottom list-mood">Ton mood ?</h1>

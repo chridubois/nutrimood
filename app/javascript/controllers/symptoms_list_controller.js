@@ -4,6 +4,7 @@ import { end } from "@popperjs/core";
 // Connects to data-controller="symptoms-list"
 export default class extends Controller {
   static targets = ["item", "button", "checkbox"]
+
   connect() {
     console.log("Hello from our first Stimulus controller")
   }

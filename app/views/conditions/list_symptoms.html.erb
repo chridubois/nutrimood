@@ -12,14 +12,14 @@
 
           <div class="symptom-item"
                data-action="click->symptoms-list#symptomChosen"
-               data-symptoms-list-target="item" data-symptoms-list-index-param="<%= index %>">
-          <label> <%= s.name %>
+               data-symptoms-list-target="item"
+               data-symptoms-list-index-param="<%= index %>">
+            <label> <%= s.name %>
               <input type="checkbox" value=unchecked name="<%= s.name %>"
               value="<%= s.id %>"
               data-symptoms-list-target="checkbox"
-               />
-               <%# visibility: hidden %>
-          </label>
+              visibility: hidden />
+            </label>
           </div>
           <% index += 1 %>
         <% end %>
