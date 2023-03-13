@@ -13,5 +13,8 @@ application.register("home-loader", HomeLoaderController)
 import SearchLoaderController from "./search_loader_controller"
 application.register("search-loader", SearchLoaderController)
 
+import MoodsListController from "./moods_list_controller"
+application.register("moods-list", MoodsListController)
+
 import SymptomsListController from "./symptoms_list_controller"
 application.register("symptoms-list", SymptomsListController)

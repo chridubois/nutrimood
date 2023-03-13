@@ -15,9 +15,10 @@
       <% end %>
     </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <input type="submit" value="Suivant" class="button list-mood" />
     <br>
     <br>
+    <input type="submit" value="Suivant" class="button list-mood" type="hidden"
+    data-moods-list-target="button" />
   </form>
 </div>
 <h1 class="title bottom list-mood">Ton mood ?</h1>
