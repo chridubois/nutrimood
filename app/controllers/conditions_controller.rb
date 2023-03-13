@@ -42,7 +42,7 @@ class ConditionsController < ApplicationController
       @symptoms_association.save
     end
 
-    redirect_to recipes_path
+    # redirect_to recipes_path
   end
 
   private

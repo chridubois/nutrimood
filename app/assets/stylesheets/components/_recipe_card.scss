@@ -22,6 +22,27 @@
   text-decoration: none;
   color: white;
 }
+.to_shoplist-button-blue {
+  padding: 20px;
+  background-color:#17BEBB;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
+.to_shoplist-button-yellow {
+  padding: 20px;
+  background-color:#FFC914;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
+.to_shoplist-button-red {
+  padding: 20px;
+  background-color:#E4572E;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
 .recipe-title {
   background-color: white;
   border-radius: 59px;
@@ -83,19 +104,65 @@
     color: black;
   }
   .pourquoi {
-    font-weight:900;
-    font-size: 14px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+  .pourquoi-blue {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #17BEBB;
+  }
+  .pourquoi-yellow {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFC914;
+  }
+  .pourquoi-red {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #E4572E;
   }
 }
 .anecdote-content {
   font-size: 12px;
   font-weight: lighter;
 }
+.anecdote-content-blue {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #17BEBB;
+}
+.anecdote-content-yellow {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #FFC914;
+}
+.anecdote-content-red {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #E4572E;
+}
 .recipe-shoplist-button {
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: -27px;
+  bottom: -25px;
   left: 105px;
   margin-bottom: 20px;
 }
@@ -116,4 +183,16 @@
 }
 .carousel-indicators [data-bs-target] {
   background-color: orange;
+}
+.plus-infos-blue {
+  color: #17BEBB;
+}
+.plus-infos-yellow {
+  color: #FFC914;
+}
+.plus-infos-red {
+  color: #E4572E;
+}
+.carousel-item .indicators {
+  margin-top: 45px;
 }

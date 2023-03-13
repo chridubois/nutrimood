@@ -10,14 +10,14 @@
         <%= link_to recipe_infos_path(recipe) do %>
           <div class="anecdote-bloc">
             <div class="anecdote">
-              <div class="pourquoi">
+              <div class="pourquoi-<%= color %>">
                 <% ingredients_by_symptoms = recipe.ingredients_by_symptoms.sample %>
-                Pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
+                pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
               </div>
-              <div class="anecdote-content">
+              <div class="anecdote-content-<%= color %>"">
                 <%= ingredients_by_symptoms.anecdote %>
               </div>
-              <div class="plus-infos mt-3">
+              <div class="plus-infos-<%= color %> mt-3">
                 <i class="fa-solid fa-circle-info"></i> Pour plus d'infos
               </div>
             </div>
@@ -26,9 +26,9 @@
       </div>
     </div>
   </div>
-  <div class="recipe-shoplist-button">
-    <%= link_to recipe_path(recipe), class: "to_shoplist-button" do %>
-      <i class="fa-solid fa-cart-plus"></i>SHOP LIST
+  <div class="recipe-shoplist-button" style="color:#17BEBB;">
+    <%= link_to recipe_path(recipe), class: "to_shoplist-button-#{color}" do %>
+      Ca me botte !
     <% end %>
   </div>
 </div>
