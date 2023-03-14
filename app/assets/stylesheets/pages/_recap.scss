@@ -1,0 +1,119 @@
+.small-message {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  width: 255px;
+  margin: auto;
+}
+.memory-bloc {
+  background: #FFFFFF;
+  border-radius: 19px;
+  width: 240px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 10px;
+
+  .memory-title {
+    font-family: 'Futura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+  }
+  .memory-content {
+    font-family: 'Futura';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+  }
+}
+.last-message{
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 25px;
+  color: #FFFFFF;
+}
+.recipe-name-header{
+  background: rgba(255, 255, 255, 0.84);
+  border-radius: 17px;
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+  padding: 4px;
+}
+.to_recipe {
+  background: #76B041;
+  border: 3px solid #FFFFFF;
+  border-radius: 59px;
+  padding: 17px;
+  text-decoration: none;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  height: 68px;
+  width: 144px;
+  position: relative;
+  top:34px;
+}
+.recipe-img-header{
+  border-radius: 42px 42px 0px 0px;
+  background-position: center;
+  background-size: cover;
+  height: 71px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-ampoule img {
+  transform: rotate(-24.89deg);
+  position: relative;
+  top:-148px;
+  left: -53px;
+  height: 71px;
+}
+.logo-miam img {
+  transform: rotate(17.64deg);
+  position: relative;
+  top:-114px;
+  right: -270px;
+  height: 61px;
+}
+.logo-ampoule {
+  height: 10px;
+}
+.logo-miam {
+  height: 10px;
+}
+.recipe-show-button{
+  display: flex;
+  justify-content: center;
+}
+.logo-fleche img {
+  transform: rotate(134.64deg);
+  position: relative;
+  top:-35px;
+  right: -190px;
+  height: 90px;
+}
+.logo-fleche {
+  height: 10px;
+}
