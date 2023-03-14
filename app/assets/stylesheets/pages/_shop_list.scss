@@ -4,20 +4,20 @@
 }
 
 .orange-close {
-  position: relative;
-  left: -86px;
-  top: -61px;
   color:#FBB143;
   background: white;
   border-radius: 100%;
+  position: absolute;
+  left: -16px;
+  top: -15px;
 }
+
 
 .person-number {
   padding: 16px;
   display: flex;
   justify-content: space-around;
 }
-
 .fa-carrot {
   color: #FBB143;
 }
@@ -29,23 +29,24 @@
   width: fit-content;
 }
 
-.ingredient-list {
-color: black;
-}
 
 .to_shoplist-button {
   color: white;
   text-align: center;
   background-color: #76B041;
   border: 2px solid white;
-  margin-left: auto;
-  margin-right: auto;
   padding: 15px;
-  width: 120px;
+  width: 132px;
+  height: 62px;
+  position: absolute;
+  bottom: -10%;
+  left: 32%;
+
   &:hover {
     background-color: #FBB143;
   }
 }
+
 
 
 input[type=checkbox] {
@@ -62,15 +63,13 @@ input[type=checkbox] {
   border: 1px solid #000000;
 }
 input[type="checkbox"]:checked {
-background: #FBB143;
-margin:5px;
-position: relative;
-&:before {
-  font-family: FontAwesome;
-  content: "🥑";
-  display: block;
-  color: rgb(0, 0, 0);
-  font-size: 13px;
-  position: absolute;
-}
+  background: #FBB143;
+  margin:5px;
+  &:before {
+    font-family: FontAwesome;
+    content: "🥑";
+    display: block;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+  }
 }

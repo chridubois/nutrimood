@@ -5,9 +5,11 @@
 <% end %>
 <div class="layout-green fond-shop">
 
-     <div class="person-number">
-      <div> <i class="fa-solid fa-circle-xmark fa-4xgitS orange-close"></i> </div>
+    <%= link_to recipe_path(@recipe), class: "orange-close" do %>
+      <i class="fa-solid fa-circle-xmark fa-3x"></i>
+    <% end %>
 
+     <div class="person-number">
       <div class="btn-minus nber"><i class="fa-solid fa-minus"></i></div>
       <div class="btn-carrot"><i class="fa-solid fa-carrot fa-2x"></i>
       <i class="fa-solid fa-carrot fa-3x"></i>
@@ -15,7 +17,7 @@
       <div class="btn-plus nber"><i class="fa-solid fa-plus"></i></div>
     </div>
 
-  <div class="content-bloc  justify-content-center">
+  <div class="content-bloc justify-content-center">
     <div class="ingredient-list">
       <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
         <div class="ingredient-checkbox">
@@ -31,9 +33,8 @@
       <% end %>
     </div>
   </div>
-  <div class="recipe-submit-button mt-5">
+
     <%= link_to show_detailed_path(@recipe), class: "to_shoplist-button" do %>
-      <i class="fa-solid fa-check"></i>J'AI TOUT
+      <i class="fa-solid fa-check"></i> J'AI TOUT
     <% end %>
-  </div>
 </div>
