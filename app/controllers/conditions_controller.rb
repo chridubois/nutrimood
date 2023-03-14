@@ -6,32 +6,40 @@ class ConditionsController < ApplicationController
   end
 
   def list_energy
+    @condition = Condition.find(params[:id])
   end
 
   def list_symptoms
     @symptoms = Symptom.all
+    @condition = Condition.find(params[:id])
   end
 
   def recap
-    @condition = Condition.find_by(user: current_user)
+    @condition = Condition.where(user: current_user).last
   end
 
   def create_condition
-    @mood_id = params[:mood]
-    @condition = Condition.create(mood_id: @mood_id, user: current_user)
-    redirect_to list_energy_path
+    @mood_id = params[:mood_id]
+    @condition = Condition.new(mood_id: @mood_id, user: current_user)
+    if @condition.save
+      redirect_to list_energy_path + "?id=#{@condition.id}"
+    else
+      render :list_moods, status: :unprocessable_entity
+    end
   end
 
   def update_condition_energy
-    @condition = Condition.find_by(user: current_user)
-    @condition.energy_level = params[:energy_level]
-    @condition.update(energy_level: params[:energy_level])
-    redirect_to list_symptoms_path
+    @condition = Condition.find(params[:id])
+    @condition.energy_level = params[:energy_level].to_i
+    @condition.update(energy_level: params[:energy_level].to_i)
+    redirect_to list_symptoms_path + "?id=#{@condition.id}"
   end
 
   def update_condition_symptom
+    sleep 3
     @selected_symptoms = []
-    @condition_id = Condition.find_by(user: current_user).id
+    @condition = Condition.find(params[:id])
+    @condition_id = @condition.id
 
     Symptom.all.each do |s|
       if params.include?(s.name)
@@ -43,12 +51,13 @@ class ConditionsController < ApplicationController
       @symptoms_association = SymptomsByCondition.new
       @symptoms_association.condition_id = @condition_id
       @symptoms_association.symptom_id = s.id
-      @symptoms_association.save
+      render :list_symptoms, status: :unprocessable_entity unless @symptoms_association.save
     end
+    redirect_to recipes_path
   end
 
   def update_condition_recipe
-    @condition = Condition.find_by(user: current_user)
+    @condition = Condition.where(user: current_user).last
     @condition.recipe_id = params[:recipe]
     @condition.update(recipe_id: params[:recipe])
     redirect_to recap_path

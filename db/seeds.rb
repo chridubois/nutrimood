@@ -155,7 +155,7 @@ end
 
 # Create user conditions
 p "Création des conditions"
-40.times do
+10.times do
   random_mood_offset = rand(mood_count)
   random_mood = Mood.offset(random_mood_offset).first
   random_user_offset = rand(user_count)
