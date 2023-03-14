@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attr_accessor :restricted_ingredient
+
   has_many :conditions
   has_many :restrictions_ingredients_users
   has_many :ingredients, through: :restrictions_ingredients_users
 
+  # accepts_nested_attributes_for :restrictions_ingredients_users
 
   def User.get_data_for_radar_chart
     @get_data_for_radar_chart ||= begin

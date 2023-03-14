@@ -102,7 +102,7 @@ while pages_count < 10
         quantity = ingredient.xpath('//span[@class="wprm-recipe-ingredient-amount"]').collect(&:text)[i].to_i
         quantity_calc = (quantity / count_people.to_f).ceil(2)
         unit = ingredient.xpath('//span[@class="wprm-recipe-ingredient-unit"]').collect(&:text)[i]
-        name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i]
+        name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i].trim
 
         if Ingredient.find_by(name: name).nil?
           ingredient = Ingredient.create({

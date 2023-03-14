@@ -8,3 +8,4 @@ export default class extends Controller {
     console.log('coucou c est stimulus !')
   }
 
+}
