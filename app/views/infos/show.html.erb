@@ -2,6 +2,16 @@
 <div class="layout">
 
     <div class="radar">
+      <%= radar_chart User.get_data_for_radar_chart,
+          class: 'box',
+            options: {
+              legend: {
+                data: ['Average Height', 'Maximum Height'],
+                orient: 'vertical',
+                left: '20%'
+              }
+            }
+      %>
     </div>
 
     <div class="button">
