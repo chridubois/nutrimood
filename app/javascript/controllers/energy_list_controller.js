@@ -12,7 +12,8 @@ export default class extends Controller {
     console.log('submit appear')
     this.buttonTarget.removeAttribute("hidden")
 
-    console.log(this.element)
+    console.log('select a mood and only one')
+    console.log(this.checkboxTargets[event.params["idx"]].checked)
 
     switch (expr) {
       case 'Oranges':
