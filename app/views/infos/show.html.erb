@@ -1,18 +1,20 @@
 
 <div class="layout">
 
-    <div class="radar">
-      <%= radar_chart User.get_data_for_radar_chart,
-          class: 'box',
-            options: {
-              legend: {
-                data: ['Average Height', 'Maximum Height'],
-                orient: 'vertical',
-                left: '20%'
+  <div class="maman-radar">
+      <div class="radar">
+        <%= radar_chart User.get_data_for_radar_chart,
+            class: 'box',
+              options: {
+                legend: {
+                  data: ['Average Height', 'Maximum Height'],
+                  orient: 'vertical',
+                  left: '20%'
+                }
               }
-            }
-      %>
-    </div>
+        %>
+      </div>
+  </div>
 
     <div class="button">
         <%= link_to recipes_path(@recipe) , class: "button" do %>
