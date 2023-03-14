@@ -43,16 +43,12 @@ class RecipesController < ApplicationController
     end
 
     # Select recipes with calories less than condition_energy AND with duration less than 25min
-    @recipes_query = Recipe.where("duration < ?", 50).where("calories_by_person < ?", 1000)
+    @recipes_query = Recipe.where("duration < ?", 100).where("calories_by_person < ?", 1000)
     @recipes_proposal = []
     @recipes_new = []
 
-    @recipes_query.each do |recipe|
-      @recipes_new << recipe unless @old_recipes.include?(recipe)
-    end
-
     # Select all recipes with good_ingredients
-    @recipes_new.each do |recipe|
+    @recipes_query.each do |recipe|
       @good_ingredients.each do |ingredient|
         @recipes_proposal << recipe if recipe.ingredients.include?(ingredient) && !@recipes_proposal.include?(recipe)
       end
@@ -65,7 +61,16 @@ class RecipesController < ApplicationController
       end
     end
 
-    @recipes_proposal = @recipes_proposal[0..2]
+    # Exclude recipe already chosen
+    @recipes_proposal.each do |recipe|
+      @recipes_new << recipe unless @old_recipes.include?(recipe)
+    end
+
+    if @recipes_new.empty?
+      @recipes_proposal = @recipes_proposal[0..2]
+    else
+      @recipes_proposal = @recipes_new[0..2]
+    end
   end
 
   def show

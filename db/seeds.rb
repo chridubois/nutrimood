@@ -17,10 +17,11 @@ Recipe.destroy_all
 
 # Création des moods
 p "Création des Moods"
-CSV.foreach(Rails.root.join('lib/moods.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('lib/moods.csv'), headers: true, :col_sep => ";") do |row|
   Mood.create({
     name: row[0],
-    logo: row[1]
+    logo: row[1],
+    description: row[2]
   })
 end
 
@@ -54,6 +55,9 @@ end
 pages_count = 1
 
 while pages_count < 20
+
+
+
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
