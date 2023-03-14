@@ -40,24 +40,33 @@ class RecipesController < ApplicationController
     @recipes_fast = Recipe.where("duration < ?", 50)
     @recipess = @recipes_fast.where("calories_by_person < ?", 1000)
     @recipe_proposal = []
+    @recipe_final = []
 
     # Exclude recipes already seen by the user
-    @recipes = @recipess.to_a.reject! { |recipe| @old_recipes.include?(recipe) }
+    # if @old_recipes.first.nil?
+    #   @recipes = @recipess
+    # else
+    #   @recipes = @recipess.to_a.reject! { |recipe| @old_recipes.include?(recipe) }
+    # end
+
+    @recipess.each do |recipe|
+      @recipe_proposal << recipe unless @old_recipes.include?(recipe)
+    end
 
     # Select all recipes with good_ingredients
-    @recipes.each do |recipe|
+    @recipe_proposal.each do |recipe|
       @good_ingredients.each do |ingredient|
-        @recipe_proposal << recipe if recipe.ingredients.include?(ingredient) && !@recipe_proposal.include?(recipe)
+        @recipe_final << recipe if recipe.ingredients.include?(ingredient) && !@recipe_proposal.include?(recipe)
       end
     end
 
     # Exclude all recipes with bad_ingredients
     @recipe_proposal.each do |recipe|
       @bad_ingredients.each do |ingredient|
-        @recipe_proposal.delete(recipe) if recipe.ingredients.include?(ingredient)
+        @recipe_final.delete(recipe) if recipe.ingredients.include?(ingredient)
       end
     end
-    @recipe_proposal = @recipe_proposal[0..2]
+    @recipe_final = @recipe_final[0..2]
   end
 
   def show
