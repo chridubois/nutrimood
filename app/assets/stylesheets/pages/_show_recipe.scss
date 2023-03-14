@@ -9,8 +9,14 @@
 .recipe-content {
   color: black;
   text-align: center;
+  height: 300px;
+  overflow: scroll;
 }
 
 .to_shoplist-button-green {
   background-color: #76B041;
+  &:hover {
+    background-color: #FBB143;
+    color: #76B041;
+  }
 }
