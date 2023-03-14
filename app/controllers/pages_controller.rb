@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def menu
     @conditions = Condition.where(user: current_user)
+    @recipes = Recipe.all.limit(3)
   end
 end

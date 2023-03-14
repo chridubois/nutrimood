@@ -16,6 +16,9 @@ module Nutrimood
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Ajout de ces lignes pour faire en sorte que la mise en prod fonctionne lors de la compilation de css
+    config.assets.initialize_on_precompile = false
+    config.assets.css_compressor = nil
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

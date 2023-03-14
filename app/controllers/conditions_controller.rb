@@ -1,4 +1,6 @@
 class ConditionsController < ApplicationController
+  before_action :set_cache_headers, only: %i[list_moods list_symptoms]
+
   def list_moods
     @moods = Mood.all
   end
@@ -8,6 +10,10 @@ class ConditionsController < ApplicationController
 
   def list_symptoms
     @symptoms = Symptom.all
+  end
+
+  def recap
+    @condition = Condition.find_by(user: current_user)
   end
 
   def create_condition
@@ -39,7 +45,19 @@ class ConditionsController < ApplicationController
       @symptoms_association.symptom_id = s.id
       @symptoms_association.save
     end
+  end
 
-    redirect_to recipes_path
+  def update_condition_recipe
+    @condition = Condition.find_by(user: current_user)
+    @condition.recipe_id = params[:recipe]
+    @condition.update(recipe_id: params[:recipe])
+    redirect_to recap_path
+  end
+
+  private
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store"
+    response.headers["Pragma"] = "no-cache"
   end
 end

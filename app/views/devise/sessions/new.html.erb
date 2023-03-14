@@ -1,5 +1,12 @@
-<div class="layout">
-  <div class="sign_in p-2">
+<div class="navbar_nutrimood green">
+  <%= link_to "/", class: "navbar-brand" do %>
+    <div class="logo green">nutrimood
+      <i class="fa-solid fa-user"></i>
+    </div>
+  <% end %>
+</div>
+<div class="layout-green">
+  <div class="sign_in new_user p-2">
     <%= link_to new_user_session_path, class: "google_oauth_link" do %>
       <div class="google_oauth mt-3">
         <i class="fa-brands fa-google"></i>Se connecter avec Google
@@ -31,4 +38,4 @@
     </div>
   </div>
 </div>
-<h1>Connecte toi !</h1>
+<h1 style="color:#76B041">Connecte toi !</h1>

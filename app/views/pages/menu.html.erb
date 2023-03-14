@@ -1,25 +1,38 @@
 <% content_for :meta_title, "Menu" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
-
-<div class="layout">
-  <div class="recipe-submit-button mt-5 mb-5">
-    <%= link_to list_moods_path, class: "to_shoplist-button" do %>
-      Qu'est ce qu'on mange ce soir ?
+<div class="navbar_nutrimood green">
+  <%= link_to "/menu", class: "navbar-brand" do %>
+    <div class="logo green">nutrimood
+      <i class="fa-solid fa-user"></i>
+    </div>
+  <% end %>
+</div>
+<div class="layout-green">
+  <br>
+  <h1 style="color: white; width: 200px; margin: auto">Alors, on commence ?</h1>
+  <div class="recipe-submit-button mt-3 mb-5">
+    <%= link_to list_moods_path, class: "let-go-btn" do %>
+      GO
     <% end %>
   </div>
-  <div class="last-mood-title mt-3">
-    <h2>Mes derniers moods</h2>
+  <div class="last-recipes-title text-center">
+    <h2>Mes dernières recettes</h2>
   </div>
-  <div class="conditions-list">
-    <% @conditions.each do |condition|  %>
-      <div class="condition-item">
-        <%= condition.created_at.strftime('%d %b %Y') %>
-        <% condition.symptoms.each do |symptom| %>
-          <%= symptom.name %>
-        <% end %>
-        <%= condition.mood.name %>
-      </div>
+  <div class="recipes-list">
+    <% @recipes.each do |recipe|  %>
+      <%= link_to "recipes/#{recipe.id}", class: "recipe-item-links" do %>
+        <div class="recipe-item d-flex">
+          <div class="days">
+            <%= recipe.created_at.strftime('%d %b %Y') %>
+          </div>
+          <div class="recipe-avatar" style="background-image: url(<%= recipe.image %>)">
+          </div>
+          <div class="recipe-name">
+            <%= recipe.name %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-<h1>Menu</h1>
+<h1 style="color:#76B041">Menu</h1>

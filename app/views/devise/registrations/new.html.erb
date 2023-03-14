@@ -1,4 +1,11 @@
-<div class="layout">
+<div class="navbar_nutrimood green">
+  <%= link_to "/", class: "navbar-brand" do %>
+    <div class="logo green">nutrimood
+      <i class="fa-solid fa-user"></i>
+    </div>
+  <% end %>
+</div>
+<div class="layout-green">
   <div class="sign_in p-2">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
       <%= f.error_notification %>
@@ -56,6 +63,12 @@
                 autofocus: true,
                 label: "Es-tu enceinte ?",
                 input_html: { autocomplete: "is_pregnant", class: "login-input" } %>
+        <%= f.input :height,
+                required: false,
+                autofocus: true,
+                collection: Ingredient.all.map{ |string| string.name},
+                label: "Intolérances / Aliments détestés",
+                input_html: {autocomplete: "restricted_element", class: "login-input", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Fini !", class: "login-button" %>
@@ -63,4 +76,4 @@
     <% end %>
   </div>
 </div>
-<h1>Inscris toi !</h1>
+<h1 style="color:#76B041">Inscris toi !</h1>

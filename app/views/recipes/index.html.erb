@@ -1,20 +1,37 @@
 <% content_for :meta_title, "Tes propositions de recettes !" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
 <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
   <div class="carousel-inner">
     <% @recipe_proposal.each_with_index do |recipe, index|%>
       <% if index == 0 %>
         <div class="carousel-item active">
-          <%= render 'recipes/recipe_card', recipe: recipe %>
+          <%= render 'shared/navbar_blue' %>
+          <%= render 'recipes/recipe_card', recipe: recipe, color: "blue" %>
+          <div class="indicators list-moods">
+            <div class="indicator-item active"></div>
+            <div class="indicator-item"></div>
+            <div class="indicator-item"></div>
+          </div>
+        </div>
+      <% elsif index == 1 %>
+        <div class="carousel-item">
+          <%= render 'shared/navbar_yellow' %>
+          <%= render 'recipes/recipe_card', recipe: recipe, color: "yellow" %>
+          <div class="indicators list-energy">
+            <div class="indicator-item"></div>
+            <div class="indicator-item active"></div>
+            <div class="indicator-item"></div>
+          </div>
         </div>
       <% else %>
         <div class="carousel-item">
-          <%= render 'recipes/recipe_card', recipe: recipe %>
+          <%= render 'shared/navbar_red' %>
+          <%= render 'recipes/recipe_card', recipe: recipe, color: "red" %>
+          <div class="indicators list-symptoms">
+            <div class="indicator-item"></div>
+            <div class="indicator-item"></div>
+            <div class="indicator-item active"></div>
+          </div>
         </div>
       <% end %>
     <% end %>
