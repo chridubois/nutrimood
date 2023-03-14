@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show show_detailed]
+  before_action :set_recipe, only: %i[show show_detailed shop_list]
 
   def index
     @condition = Condition.find_by(user: current_user)
@@ -48,11 +48,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def show_detailed
-    @recipe = Recipe.find(params[:id])
+  end
+
+  def shop_list
   end
 
   private

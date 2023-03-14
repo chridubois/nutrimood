@@ -1,0 +1,31 @@
+<% content_for :meta_title, "Liste d'ingrédients de la recette #{@recipe.name}" %>
+<% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
+<% content_for :navbar do %>
+  <%= render 'shared/navbar_green' %>
+<% end %>
+<div class="layout-green">
+  <div class="person-number">
+    Nombre de personnes
+  </div>
+  <div class="content-bloc d-flex justify-content-center">
+    <div class="ingredient-list">
+      <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
+        <div class="ingredient-checkbox">
+          <input type="checkbox" id="<%= recipes_ingredient.ingredient.id %>" name="<%= recipes_ingredient.ingredient.name %>" unchecked>
+          <% if recipes_ingredient.unit %>
+            <%= recipes_ingredient.quantity %>
+            <%= recipes_ingredient.unit %>
+            <%= recipes_ingredient.ingredient.name %>
+          <% else %>
+            <%= recipes_ingredient.ingredient.name %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="recipe-submit-button mt-5">
+    <%= link_to show_detailed_path(@recipe), class: "to_shoplist-button" do %>
+      <i class="fa-solid fa-check"></i>J'AI TOUT
+    <% end %>
+  </div>
+</div>

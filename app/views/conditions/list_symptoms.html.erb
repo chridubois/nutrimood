@@ -1,31 +1,50 @@
-<div class="layout container">
-
-
+<div class="symptom-page" data-controller="search-loader">
+  <div class="navbar_nutrimood red">
+    <%= link_to "/menu", class: "navbar-brand" do %>
+      <div class="logo red">nutrimood
+        <i class="fa-solid fa-user"></i>
+      </div>
+    <% end %>
+  </div>
+  <div class="layout-list-symptoms container">
+    <br>
+    <h1 style="color: white;">Autre chose à déclarer.. ?</h1>
     <form action="list_symptoms" method="POST" data-turbo=false class="symptoms-form"
     data-controller="symptoms-list">
 
       <div class="symptoms-list"
       data-action="click->symptoms-list#buttonAppear">
 
+        <% index = 0 %>
         <% @symptoms.each do |s| %>
-
           <div class="symptom-item"
+
                data-action="click->symptoms-list#symptomChosen"
-               data-symptoms-list-target="item">
-          <label> <%= s.name %>
-              <input type="checkbox" name="<%= s.name %>" value="<%= s.id %>" visibility: hidden />
-          </label>
+
+               data-symptoms-list-target="item"
+               data-symptoms-list-index-param="<%= index %>">
+            <label> <%= s.name %>
+              <input type="checkbox" name="<%= s.name %>"
+              value="<%= s.id %>"
+              data-symptoms-list-target="checkbox"
+              visibility: hidden />
+
+            </label>
           </div>
-
+          <% index += 1 %>
         <% end %>
-
-        </div>
-
+      </div>
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-      <input type="submit" value="Suivant" class="suivant" id="symptoms-submit-btn"
-      data-symptoms-list-target="button"/>
+      <div class="submit-button d-flex justify-content-center">
+        <input type="submit" value="Merci, mais non merci !" class="suivant" id="symptoms-submit-btn"
+      data-symptoms-list-target="button" data-action="click->search-loader#runSearch"/>
+      </div>
     </form>
-
-
+  </div>
+  <h1 class="title bottom list-symptoms">Tes symptômes ?</h1>
+  <div class="indicators list-symptoms">
+    <div class="indicator-item active"></div>
+    <div class="indicator-item active"></div>
+    <div class="indicator-item active"></div>
+  </div>
 </div>
-<h1>Tes symptômes ?</h1>

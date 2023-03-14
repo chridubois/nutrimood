@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "tom-select/dist/css/tom-select.min.css";
 
 // Your CSS partials
 @import "components/index";
@@ -24,11 +25,28 @@ body {
   min-height: 400px;
 }
 
+.layout-green {
+  background: #76B041;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 42px;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 400px;
+}
+
+.layout-white {
+  background:white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 42px;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 400px;
+}
+
 h1 {
-  font-size: 26px;
+  font-size: 29px;
   line-height: 33px;
   text-align: center;
-  color: #FBB143;
   font-family: 'Outfit';
   font-style: normal;
   font-weight: 700;
@@ -42,5 +60,32 @@ h1 {
   font-size: 30px;
   line-height: 38px;
   text-align: center;
-  color: #B1CDA6;
+  color: #76B041;
+}
+.logo.blue {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+  color: #17BEBB;
+}
+.logo.yellow {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+  color: #FFC914;
+}
+.logo.red {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+  color: #E4572E;
 }

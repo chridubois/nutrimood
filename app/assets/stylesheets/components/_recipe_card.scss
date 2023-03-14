@@ -22,6 +22,34 @@
   text-decoration: none;
   color: white;
 }
+.to_shoplist-button-blue {
+  padding: 20px;
+  background-color:#17BEBB;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
+.to_shoplist-button-yellow {
+  padding: 20px;
+  background-color:#FFC914;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
+.to_shoplist-button-red {
+  padding: 20px;
+  background-color:#E4572E;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
+.to_shoplist-button-green {
+  padding: 20px;
+  background-color:#76B041;
+  border-radius: 59px;
+  text-decoration: none;
+  color: white;
+}
 .recipe-title {
   background-color: white;
   border-radius: 59px;
@@ -29,6 +57,56 @@
   font-weight: bold;
   font-family: 'Outfit';
   text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-blue {
+  background: #FFFFFF;
+  border: 2px solid #17BEBB;
+  color: #17BEBB;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-yellow {
+  background: #FFFFFF;
+  border: 2px solid #FFC914;
+  color: #FFC914;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-red {
+  background: #FFFFFF;
+  border: 2px solid #E4572E;
+  color: #E4572E;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
+}
+.recipe-title-green {
+  background: #FFFFFF;
+  border: 2px solid #76B041;
+  color: #76B041;
+  border-radius: 30px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Outfit';
+  text-align: center;
+  font-size: 17px;
+  line-height: 21px;
 }
 .anecdote {
   font-family: 'Outfit';
@@ -45,19 +123,79 @@
     color: black;
   }
   .pourquoi {
-    font-weight:900;
-    font-size: 14px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+  .pourquoi-blue {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #17BEBB;
+  }
+  .pourquoi-yellow {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFC914;
+  }
+  .pourquoi-red {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #E4572E;
+  }
+  .pourquoi-green {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color:#76B041;
   }
 }
 .anecdote-content {
   font-size: 12px;
   font-weight: lighter;
 }
+.anecdote-content-blue {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #17BEBB;
+}
+.anecdote-content-yellow {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #FFC914;
+}
+.anecdote-content-red {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #E4572E;
+}
+.anecdote-content-green {
+  font-size: 12px;
+  font-weight: lighter;
+  color:#76B041;
+}
 .recipe-shoplist-button {
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: -27px;
+  bottom: -25px;
   left: 105px;
   margin-bottom: 20px;
 }
@@ -71,10 +209,26 @@
 }
 .carousel-item {
   margin-bottom: 20px;
+  transition: transform .2s ease, opacity .5s ease-out !important;
 }
 .carousel-indicators {
   bottom: -35px;
 }
 .carousel-indicators [data-bs-target] {
   background-color: orange;
+}
+.plus-infos-blue {
+  color: #17BEBB;
+}
+.plus-infos-yellow {
+  color: #FFC914;
+}
+.plus-infos-red {
+  color: #E4572E;
+}
+.plus-infos-green {
+  color: #76B041;
+}
+.carousel-item .indicators {
+  margin-top: 45px;
 }

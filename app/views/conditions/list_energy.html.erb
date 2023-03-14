@@ -1,14 +1,53 @@
-<div class="layout">
-  <form action="list_energy" method="POST" data-turbo=false>
-    <select name="energy_level" class="form-select" aria-label="Default select example">
-      <option selected>energy_level</option>
-      <option value="25">25</option>
-      <option value="50">50</option>
-      <option value="75">75</option>
-      <option value="100">100</option>
-    </select>
+ <% content_for :navbar do %>
+  <%= render 'shared/navbar_yellow' %>
+<% end %>
+<div class="layout-list-energy" data-controller="energy-list">
+  <br>
+  <h1 style="color: white;">Niveau énergie...</h1>
+  <form action="list_energy" method="POST" data-turbo=false class="text-center">
+    <div class="battery-main-bloc">
+      <div class="battery-head-bloc"></div>
+      <div class="battery-bloc">
+        <div class="battery">
+          <div class="battery-items">
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item1">
+              Je pète le feu
+              <input type="checkbox" name="100" value="100" visibility: hidden />
+            </div>
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item2">
+              En vrai, ça va
+              <input type="checkbox" name="75" value="75" visibility: hidden />
+            </div>
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item3">
+              Comme ci, comme ça
+              <input type="checkbox" name="50" value="50" visibility: hidden />
+            </div>
+            <div class="battery-level active"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item1">
+              Au bout du roul’s
+              <input type="checkbox" name="25" value="25" visibility: hidden />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <input type="submit" value="Suivant" />
+    <br>
+    <input visibility: hidden type="submit" value="Suivant" class="button list-energy" data-energy-list-target="button"/>
+    <br>
+    <br>
   </form>
 </div>
-<h1>Ton energie ?</h1>
+<h1 class="title bottom list-energy">Ton énergie ?</h1>
+<div class="indicators list-energy">
+  <div class="indicator-item active"></div>
+  <div class="indicator-item active"></div>
+  <div class="indicator-item"></div>
+</div>

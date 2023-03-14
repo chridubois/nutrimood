@@ -1,23 +1,23 @@
-<div class="layout">
+<div class="layout-white">
   <div class="recipe-card">
     <div class="recipe-img" style="background-image: url(<%= recipe.image %>)">
     </div>
     <div class="text-content">
-      <div class="recipe-title">
+      <div class="recipe-title-<%= color %>">
         <%= recipe.name %>
       </div>
       <div class="recipe-tips">
         <%= link_to recipe_infos_path(recipe) do %>
           <div class="anecdote-bloc">
             <div class="anecdote">
-              <div class="pourquoi">
+              <div class="pourquoi-<%= color %>">
                 <% ingredients_by_symptoms = recipe.ingredients_by_symptoms.sample %>
-                Pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
+                pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
               </div>
-              <div class="anecdote-content">
+              <div class="anecdote-content-<%= color %>"">
                 <%= ingredients_by_symptoms.anecdote %>
               </div>
-              <div class="plus-infos mt-3">
+              <div class="plus-infos-<%= color %> mt-3">
                 <i class="fa-solid fa-circle-info"></i> Pour plus d'infos
               </div>
             </div>
@@ -26,9 +26,11 @@
       </div>
     </div>
   </div>
-  <div class="recipe-shoplist-button">
-    <%= link_to recipe_path(recipe), class: "to_shoplist-button" do %>
-      <i class="fa-solid fa-cart-plus"></i>SHOP LIST
-    <% end %>
+  <div class="recipe-shoplist-button" style="color:#17BEBB;">
+    <form action="recap" method="POST" data-turbo=false>
+      <input name="recipe" type="hidden" value="<%= recipe.id %>" />
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <input type="submit" value="Ca me botte !" class="to_shoplist-button-<%= color %>" />
+    </form>
   </div>
 </div>

@@ -1,11 +1,20 @@
 <% content_for :meta_title, "Liste d'étapes de la recette #{@recipe.name}" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
-<div class="layout">
-  <div class="recipe-steps">
+<% content_for :navbar do %>
+  <%= render 'shared/navbar_green' %>
+<% end %>
+<div class="layout-green pt-2">
+  <div class="recipe-steps p-3">
     <% @recipe.recipes_steps.each do |step| %>
-      <div class="step-item">
-        <%= step.step_number %>
-        <%= step.step_description %>
+      <div class="step-item d-flex">
+        <div>
+          <div class="step-number">
+            <%= step.step_number %>
+          </div>
+        </div>
+        <div class="step-description">
+          <%= step.step_description %>
+        </div>
       </div>
     <% end %>
   </div>
