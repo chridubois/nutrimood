@@ -27,9 +27,22 @@ class RecipesController < ApplicationController
         @bad_ingredients << item.ingredient
       end
     end
-    # Select all recipes
-    @recipes = Recipe.all
+
+    # Get Recipe already seen for the user
+    @recipes_to_search = []
+    @old_recipes = []
+    @user_condition = Condition.where(user: current_user)
+    @user_condition.each do |condition|
+      @old_recipes << condition.recipe unless @old_recipes.include?(condition.recipe)
+    end
+
+    # Select recipes with calories less than condition_energy AND with duration less than 25min
+    @recipes_fast = Recipe.where("duration < ?", 50)
+    @recipess = @recipes_fast.where("calories_by_person < ?", 1000)
     @recipe_proposal = []
+
+    # Exclude recipes already seen by the user
+    @recipes = @recipess.to_a.reject! { |recipe| @old_recipes.include?(recipe) }
 
     # Select all recipes with good_ingredients
     @recipes.each do |recipe|
