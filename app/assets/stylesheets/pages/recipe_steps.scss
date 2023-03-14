@@ -3,11 +3,24 @@
   width: 80%;
   border-radius: 32px;
   margin: auto;
+  margin-top: 8%;
+  margin-bottom: 24%;
+  position: relative;
 }
 .step-number {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  background-color: white;
-  border: solid;
+  background-color: #77b04192;
+  margin-top: 100%;
+  text-align: center;
+}
+.step-description {
+  margin-top: 8%;
+  margin-left: 12%;
+}
+.to_shoplist-button {
+  position: absolute;
+  left: 36%;
+  bottom: 16%;
 }
