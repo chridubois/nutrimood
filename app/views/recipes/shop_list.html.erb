@@ -3,11 +3,19 @@
 <% content_for :navbar do %>
   <%= render 'shared/navbar_green' %>
 <% end %>
-<div class="layout-green">
-  <div class="person-number">
-    Nombre de personnes
-  </div>
-  <div class="content-bloc d-flex justify-content-center">
+<div class="layout-green fond-shop">
+
+     <div class="person-number">
+      <div> <i class="fa-solid fa-circle-xmark fa-4x orange-close"></i> </div>
+
+      <div class="btn-minus nber"><i class="fa-solid fa-minus"></i></div>
+      <div class="btn-carrot"><i class="fa-solid fa-carrot fa-2x"></i>
+      <i class="fa-solid fa-carrot fa-3x"></i>
+      <i class="fa-solid fa-carrot fa-2x"></i></div>
+      <div class="btn-plus nber"><i class="fa-solid fa-plus"></i></div>
+    </div>
+
+  <div class="content-bloc  justify-content-center">
     <div class="ingredient-list">
       <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
         <div class="ingredient-checkbox">
