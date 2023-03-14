@@ -1,0 +1,41 @@
+.container-blue {
+  height: 371px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: grey
+}
+
+.box-btns {
+  display: flex;
+  flex-direction: column;
+  padding: 110px 150px;
+  border-radius: 16px;
+  background: #ecf0f3;
+  box-shadow:
+    4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #FFF inset
+  ;
+}
+
+.btn-groupe {
+  width: 300px;
+  margin: 8px 0;
+}
+
+.radio-btn-hide{
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.label-plus-btn {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: aquamarine;
+}
