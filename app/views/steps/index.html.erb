@@ -3,7 +3,12 @@
 <% content_for :navbar do %>
   <%= render 'shared/navbar_green' %>
 <% end %>
-<div class="layout-green pt-2">
+
+<div class="layout-green pt-2 mama-cross">
+  <%= link_to recipe_path(@recipe), class: "orange-cross" do %>
+    <i class="fa-solid fa-circle-xmark fa-3x"></i>
+  <% end %>
+
   <div class="recipe-steps p-3">
     <% @recipe.recipes_steps.each do |step| %>
       <div class="step-item d-flex">
@@ -19,7 +24,7 @@
     <% end %>
   </div>
   <div class="recipe-submit-button mt-5">
-    <%= link_to menu_path, class: "to_shoplist-button" do %>
+    <%= link_to menu_path, class: "to_shoplist-button btn-steps" do %>
       <i class="fa-solid fa-cookie-bite fa-2x"></i> À TABLE !
     <% end %>
   </div>

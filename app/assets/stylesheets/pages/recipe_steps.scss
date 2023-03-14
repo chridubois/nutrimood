@@ -6,6 +6,8 @@
   margin-top: 8%;
   margin-bottom: 24%;
   position: relative;
+  overflow: scroll;
+  height: 530px;
 }
 .step-number {
   border-radius: 50%;
@@ -19,8 +21,28 @@
   margin-top: 8%;
   margin-left: 12%;
 }
-.to_shoplist-button {
+.btn-steps {
+  color: white;
+  text-align: center;
+  background-color: #76B041;
+  border: 2px solid white;
+  padding: 12px;
+  width: fit-content !important;
+  height: 62px;
   position: absolute;
-  left: 36%;
-  bottom: 16%;
+  bottom: 8% !important;
+  left: 32% !important;
+}
+
+.fa-cookie-bite {
+  color: #FBB143;
+}
+
+.orange-cross {
+  color:#FBB143;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  left: 10px;
+  top: 48px;
 }
