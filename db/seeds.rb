@@ -17,9 +17,10 @@ Recipe.destroy_all
 
 # Création des moods
 p "Création des Moods"
-CSV.foreach(Rails.root.join('lib/moods.csv'), headers: false) do |row|
+CSV.foreach(Rails.root.join('lib/moods.csv'), headers: true) do |row|
   Mood.create({
-    name: row[0]
+    name: row[0],
+    logo: row[1]
   })
 end
 
@@ -102,7 +103,7 @@ while pages_count < 10
         quantity = ingredient.xpath('//span[@class="wprm-recipe-ingredient-amount"]').collect(&:text)[i].to_i
         quantity_calc = (quantity / count_people.to_f).ceil(2)
         unit = ingredient.xpath('//span[@class="wprm-recipe-ingredient-unit"]').collect(&:text)[i]
-        name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i].trim
+        name = ingredient.xpath('//span[@class="wprm-recipe-ingredient-name"]').collect(&:text)[i]
 
         if Ingredient.find_by(name: name).nil?
           ingredient = Ingredient.create({
