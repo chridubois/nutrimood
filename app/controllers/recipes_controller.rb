@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show show_detailed shop_list]
 
   def index
-    @condition = Condition.find_by(user: current_user)
+    @condition = Condition.find(params[:id])
     @good_ingredients = []
     @bad_ingredients = []
     # Get Good ingredients from Mood
