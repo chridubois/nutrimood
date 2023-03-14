@@ -2,6 +2,16 @@
 <div class="layout">
 
     <div class="radar">
+      <%= radar_chart User.get_data_for_radar_chart,
+          class: 'box',
+            options: {
+              legend: {
+                data: ['Average Height', 'Maximum Height'],
+                orient: 'vertical',
+                left: '20%'
+              }
+            }
+      %>
     </div>
 
     <div class="button">
@@ -24,7 +34,7 @@
           <div class= "astuces"><b>Quelques astuces :</b></div>
           <div class= "anecdotes">
           <% @recipe.ingredients_by_symptoms.sample(3).each do |ingredient| %>
-          <div class= "anecdote3"><p><%= ingredient.anecdote %></p></div>
+          <div class= "anecdote3"><p class= "anecd"><%= ingredient.anecdote %></p></div>
           <% end %>
             </div>
         </div>
