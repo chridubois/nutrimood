@@ -42,14 +42,13 @@
     </div>
 
 </div>
-=======
  <% content_for :navbar do %>
   <%= render 'shared/navbar_yellow' %>
 <% end %>
 <div class="layout-list-energy" data-controller="energy-list">
   <br>
   <h1 style="color: white;">Niveau énergie...</h1>
-  <form action="list_energy" method="POST" data-turbo=false class="text-center">
+  <form action="list_energy?id=<%= @condition.id %>" method="POST" data-turbo=false class="text-center">
     <div class="battery-main-bloc">
       <div class="battery-head-bloc"></div>
       <div class="battery-bloc">
@@ -84,6 +83,7 @@
       </div>
     </div>
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <input name="energy_level" type="hidden" value="50" />
     <br>
     <input visibility: hidden type="submit" value="Suivant" class="button list-energy" data-energy-list-target="button"/>
     <br>
@@ -96,4 +96,3 @@
   <div class="indicator-item active"></div>
   <div class="indicator-item"></div>
 </div>
-
