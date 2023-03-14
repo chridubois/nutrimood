@@ -155,7 +155,7 @@ end
 
 # Create user conditions
 p "Création des conditions"
-40.times do
+10.times do
   random_mood_offset = rand(mood_count)
   random_mood = Mood.offset(random_mood_offset).first
   random_user_offset = rand(user_count)
@@ -224,8 +224,8 @@ Mood.all.each do |mood|
       mood: mood,
       ingredient: random_ingredient,
       anecdote: "Manger #{random_ingredient.name} est très bon pour le mood #{mood.name}",
-      is_good: false,
-      is_bad: true
+      is_good: true,
+      is_bad: false
     })
   end
 
@@ -237,8 +237,8 @@ Mood.all.each do |mood|
       mood: mood,
       ingredient: random_ingredient,
       anecdote: "Manger #{random_ingredient.name} est très mauvais pour le mood #{mood.name}",
-      is_good: true,
-      is_bad: false
+      is_good: false,
+      is_bad: true
     })
   end
 end

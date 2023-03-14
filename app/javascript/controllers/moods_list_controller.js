@@ -9,16 +9,10 @@ export default class extends Controller {
   }
 
   selectAMood(event) {
-    console.log('submit appear')
     this.btnTarget.removeAttribute("hidden")
-
-    console.log('select a mood and only one')
-    console.log(this.checkboxTargets[event.params["idx"]].checked)
-
     if (this.checkboxTargets[event.params["idx"]].checked) {
       this.item1Targets[event.params["idx"]].classList.add("selected")
     }
-
     else {
      this.item1Targets[event.params["idx"]].classList.remove("selected")
     }

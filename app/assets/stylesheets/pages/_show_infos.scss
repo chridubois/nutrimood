@@ -1,8 +1,12 @@
+.maman-radar {
+  height: 200px;
+}
+
 .radar {
-  height: 160px;
   background-color: white;
   border-radius: 30px;
   margin: 10px;
+  height: 100%
 }
 
 .bloc-blanc {
@@ -26,8 +30,9 @@
   text-align: center;
   text-decoration: none;
   color: white;
-
 }
+
+
 
 .condition-mood {
   font-size: 14px;

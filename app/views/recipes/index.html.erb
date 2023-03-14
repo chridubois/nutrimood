@@ -1,5 +1,6 @@
 <% content_for :meta_title, "Tes propositions de recettes !" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
+<% if !@recipe_proposal.empty? %>
 <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
   <div class="carousel-inner">
     <% @recipe_proposal.each_with_index do |recipe, index|%>
@@ -45,3 +46,6 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<% else %>
+NO RESULT
+<% end  %>
