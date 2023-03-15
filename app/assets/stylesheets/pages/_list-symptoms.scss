@@ -55,11 +55,12 @@
   .title.bottom.list-symptoms {
     color: #E4572E;
   }
-  .indicators.list-symptoms {
+  .indicators.list-symptoms{
     display: flex;
     justify-content: space-around;
     width: 177px;
     margin: auto;
+    margin-top: 50px;
     .indicator-item {
       width: 55px;
       height: 4px;

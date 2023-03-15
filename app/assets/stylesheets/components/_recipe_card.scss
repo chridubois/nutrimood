@@ -111,6 +111,7 @@
 .anecdote {
   font-family: 'Outfit';
   text-align: center;
+  align-items: center;
 }
 .text-content {
   margin: 10px;
@@ -195,8 +196,8 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: -25px;
-  left: 105px;
+  left: 87px;
+  bottom: -55px;
   margin-bottom: 20px;
 }
 .anecdote-bloc {
@@ -205,7 +206,7 @@
   border-radius: 30px;
   padding: 8px;
   margin-top: 10px;
-  width: 80%;
+  width: 90%;
 }
 .carousel-item {
   margin-bottom: 20px;
@@ -231,4 +232,13 @@
 }
 .carousel-item .indicators {
   margin-top: 45px;
+}
+.duration img {
+  width: 30px;
+}
+.calories img {
+  width: 30px;
+}
+.info-logo{
+  font-size: 43px;
 }
