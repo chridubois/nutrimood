@@ -54,7 +54,7 @@ end
 # Create recipes
 pages_count = 1
 
-while pages_count < 20
+while pages_count < 10
 
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
@@ -63,6 +63,18 @@ while pages_count < 20
   # Get all recipes
   p "Création des Recettes page #{pages_count}"
   recipe_urls = html_doc.xpath('//article//a/@href').map {|attr| attr.value}
+  recipe_urls << "https://recettehealthy.com/guacamole-avocat-haricots-blancs/"
+  recipe_urls << "https://recettehealthy.com/houmous-petits-pois-tomates-confites/"
+  recipe_urls << "https://recettehealthy.com/wrap-poulet-mozzarella-curry/"
+  recipe_urls << "https://recettehealthy.com/burger-vegetarien-pois-chiches/"
+  recipe_urls << "https://recettehealthy.com/salade-de-chou-kale-butternut-parmesan/"
+  recipe_urls << "https://recettehealthy.com/pois-chiches-rotis-herbes/"
+  recipe_urls << "https://recettehealthy.com/falafel-au-pois-chiche-brocolis/"
+  recipe_urls << "https://recettehealthy.com/porridge-sale-poulet-creme-moutarde/"
+  recipe_urls << "https://recettehealthy.com/salade-de-pate-au-jambon-sec-et-melon/"
+  recipe_urls << "https://recettehealthy.com/salade-mangue-avocat-crevette/"
+  recipe_urls << "https://recettehealthy.com/pancake-proteine-whey/"
+  recipe_urls << "https://recettehealthy.com/salade-pate-grecque-feta/"
 
   recipe_urls.each do |url|
     # For each recipe, get recipe infos
@@ -221,9 +233,29 @@ p "Création des vrais Ingredients by symptom"
 CSV.foreach(Rails.root.join('lib/ingredients_by_symptom.csv'), headers: true, :col_sep => ",") do |row|
   symptom = Symptom.where(name: row[0].downcase).first
   ingredient = Ingredient.where(name: row[1].downcase).first
+  p "Création de l'ingrédient #{row[0]} pour symptom: #{row[1]}"
   if !symptom.nil? && !ingredient.nil?
+    p "Création de l'ingrédient #{ingredient.name} pour symptome:#{symptom.name}"
     IngredientsBySymptom.create({
       symptom: symptom,
+      ingredient: ingredient,
+      anecdote: row[2],
+      is_good: true,
+      is_bad: false
+    })
+  end
+end
+
+# Create real good Ingredients by mood
+p "Création des vrais Ingredients by symptom"
+CSV.foreach(Rails.root.join('lib/ingredients_by_mood.csv'), headers: true, :col_sep => ",") do |row|
+  mood = Mood.where(name: row[0].downcase).first
+  ingredient = Ingredient.where(name: row[1].downcase).first
+  p "Création de l'ingrédient #{row[0]} pour mood: #{row[1]}"
+  if !mood.nil? && !ingredient.nil?
+    p "Création de l'ingrédient #{ingredient.name} pour mood: #{mood.name}"
+    IngredientsByMood.create({
+      mood: mood,
       ingredient: ingredient,
       anecdote: row[2],
       is_good: true,
