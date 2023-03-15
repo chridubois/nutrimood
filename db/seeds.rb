@@ -56,8 +56,6 @@ pages_count = 1
 
 while pages_count < 20
 
-
-
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
@@ -176,17 +174,17 @@ end
 # end
 
 # Create Symptom by condition
-p "Création des Symptom by condition"
-Condition.all.each do |condition|
-  2.times do
-    random_symptom_offset = rand(symptom_count)
-    random_symptom = Symptom.offset(random_symptom_offset).first
-    SymptomsByCondition.create({
-      symptom: random_symptom,
-      condition: condition
-    })
-  end
-end
+# p "Création des Symptom by condition"
+# Condition.all.each do |condition|
+#   2.times do
+#     random_symptom_offset = rand(symptom_count)
+#     random_symptom = Symptom.offset(random_symptom_offset).first
+#     SymptomsByCondition.create({
+#       symptom: random_symptom,
+#       condition: condition
+#     })
+#   end
+# end
 
 # Create fake Ingredients by symptom
 p "Création des Ingredients by symptom"
@@ -205,13 +203,29 @@ Symptom.all.each do |symptom|
   end
 
   # Create good ingredients
-  3.times do
-    random_ingredient_offset = rand(ingredient_count)
-    random_ingredient = Ingredient.offset(random_ingredient_offset).first
+  # 3.times do
+  #   random_ingredient_offset = rand(ingredient_count)
+  #   random_ingredient = Ingredient.offset(random_ingredient_offset).first
+  #   IngredientsBySymptom.create({
+  #     symptom: symptom,
+  #     ingredient: random_ingredient,
+  #     anecdote: "Manger #{random_ingredient.name} vous guérit immédiatement du symptôme #{symptom.name}",
+  #     is_good: true,
+  #     is_bad: false
+  #   })
+  # end
+end
+
+# Create real good Ingredients by symptom
+p "Création des vrais Ingredients by symptom"
+CSV.foreach(Rails.root.join('lib/ingredients_by_symptom.csv'), headers: true, :col_sep => ",") do |row|
+  symptom = Symptom.where(name: row[0].downcase).first
+  ingredient = Ingredient.where(name: row[1].downcase).first
+  if !symptom.nil? && !ingredient.nil?
     IngredientsBySymptom.create({
       symptom: symptom,
-      ingredient: random_ingredient,
-      anecdote: "Manger #{random_ingredient.name} vous guérit immédiatement du symptôme #{symptom.name}",
+      ingredient: ingredient,
+      anecdote: row[2],
       is_good: true,
       is_bad: false
     })
