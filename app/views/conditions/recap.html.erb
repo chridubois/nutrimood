@@ -1,4 +1,4 @@
-<% content_for :meta_title, "Recap" %>
+<% content_for :meta_title, "Très bon choix !" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
 <div class="navbar_nutrimood green">
   <%= link_to "/menu", class: "navbar-brand" do %>
@@ -8,22 +8,43 @@
   <% end %>
 </div>
 <div class="layout-green">
-  <br>
-  <h1 style="color: white; width: 200px; margin: auto">Très bon choix !</h1>
-  <br>
-  <div class="last-recipes-title text-center">
-    <h2>Ma recette</h2>
-  </div>
-  <div class="recipe-bloc">
-    <div class="recipe-img" style="background-image: url(<%= @condition.recipe.image %>)">
-      <%= @condition.recipe.name %>
+  <div class="recipe-img-header" style="background-image: url(<%= @condition.recipe.image %>)">
+    <div class="recipe-name-header">
+      <%= @condition.recipe.name %>?
     </div>
   </div>
-  <p>Retrouve toutes les infos de préparation de la recette</p>
-  <%= link_to "/recipes/#{@condition.recipe.id}" do %>
-    ICI
-  <% end %>
-  <p>Tu peux aussi relancer un Mood</p>
- <%= link_to "/menu" do %>
-    ICI
-  <% end %>
+  <div class="intro-text">
+    <div class="big-message">
+      <h1 class="title list-mood mt-3">Très bon choix !</h1>
+    </div>
+    <div class="small-message mb-3">
+      Ce plat va t’apporter tout ce dont ton corps a besoin et en plus,
+      tu vas te RE-GA-LER
+    </div>
+    <div class="logo-miam">
+      <img src="https://images.emojiterra.com/google/android-pie/512px/1f60b.png" alt="">
+    </div>
+  </div>
+  <div class="memory-bloc">
+    <div class="memory-title">
+      A retenir quand tu es <%= @condition.mood.name %>
+    </div>
+    <div class="memory-content mt-2">
+      <%= @condition.mood.description %>
+    </div>
+    <div class="logo-ampoule">
+      <img src="https://icones.pro/wp-content/uploads/2021/02/icone-ampoule-et-idee2.png" alt="">
+    </div>
+  </div>
+  <div class="last-message mt-5 ps-4">
+    Retrouves toutes les infos de ta recette
+  </div>
+  <div class="logo-fleche">
+      <img src="https://i.ibb.co/vDSNyNj/fleche-droite.png" alt="">
+    </div>
+  <div class="recipe-show-button">
+    <%= link_to recipe_path(@condition.recipe), class: "to_recipe" do %>
+      Ma recette
+    <% end %>
+  </div>
+</div>

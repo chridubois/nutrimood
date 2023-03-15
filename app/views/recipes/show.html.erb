@@ -11,40 +11,41 @@
       <div class="recipe-title-green">
         <%= @recipe.name %>
       </div>
-      <div class="recipe-tips">
-        <%= link_to recipe_infos_path(@recipe) do %>
-          <div class="anecdote-bloc">
-            <div class="anecdote">
-              <div class="pourquoi-green">
-                <% ingredients_by_symptoms = @recipe.ingredients_by_symptoms.sample %>
-                pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
-              </div>
-              <div class="anecdote-content-green">
-                <%= ingredients_by_symptoms.anecdote %>
-              </div>
-              <div class="plus-infos-green mt-3">
-                <i class="fa-solid fa-circle-info"></i> Pour plus d'infos
-              </div>
+
+      <div class="recipe-content">
+<%# contenu à changer, cf figma %>
+        <h1>Ingrédients</h1>
+        <div class="ingredient-list">
+          <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
+            <div class="ingredient-item">
+              <% if recipes_ingredient.unit %>
+                <%= recipes_ingredient.quantity %>
+                <%= recipes_ingredient.unit %>
+                <%= recipes_ingredient.ingredient.name %>
+              <% else %>
+                <%= recipes_ingredient.ingredient.name %>
+              <% end %>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
+
     </div>
   </div>
-  <div class="buttons-bloc d-flex">
-    <div style="color:#17BEBB;">
+  <div class="buttons-bloc d-flex justify-content-around">
+    <div>
       <%= link_to shop_list_path(@recipe), class: "to_shoplist-button-green" do %>
-        Shoplist
+        <i class="fa-solid fa-basket-shopping fa-2x"></i>
       <% end %>
     </div>
-    <div style="color:#17BEBB;">
+    <div>
       <%= link_to recipe_infos_path(@recipe), class: "to_shoplist-button-green" do %>
-        Infos
+        <i class="fa-solid fa-circle-info fa-2x"></i>
       <% end %>
     </div>
-    <div style="color:#17BEBB;">
+    <div>
       <%= link_to recipe_steps_path(@recipe), class: "to_shoplist-button-green" do %>
-        Etapes
+        <i class="fa-solid fa-rectangle-list fa-2x"></i>
       <% end %>
     </div>
   </div>

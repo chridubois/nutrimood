@@ -52,7 +52,7 @@ class ConditionsController < ApplicationController
       @symptoms_association.symptom_id = s.id
       render :list_symptoms, status: :unprocessable_entity unless @symptoms_association.save
     end
-    redirect_to recipes_path
+    redirect_to recipes_path + "?id=#{@condition.id}"
   end
 
   def update_condition_recipe

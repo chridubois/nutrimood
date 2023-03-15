@@ -356,7 +356,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  font-awesome-sass (~> 6.1)
+  font-awesome-sass (~> 6.3)
   inline_svg
   jbuilder
   jsbundling-rails
