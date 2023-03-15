@@ -16,13 +16,15 @@ class RecipesController < ApplicationController
       @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
     end
     # Get Good ingredients from Symptom
-    @symptom_by_conditon = SymptomsByCondition.where(condition: @condition)
-    @symptom_by_conditon.each do |symptom|
-      @good_ingredients_by_symptom = IngredientsBySymptom.where(symptom: symptom, is_good: true)
+    @symptom_by_conditon = SymptomsByCondition.where(condition: @condition).to_a
+    @symptom_by_conditon.each do |symptom_condition|
+
+      @good_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_good: true).to_a
       @good_ingredients_by_symptom.each do |item|
-        @good_ingredients << item.ingredient if @good_ingredients.include?(item.ingredient)
+        @good_ingredients << item.ingredient unless @good_ingredients.include?(item.ingredient)
       end
-      @bad_ingredients_by_symptom = IngredientsBySymptom.where(symptom: symptom, is_bad: true)
+
+      @bad_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_bad: true).to_a
       @bad_ingredients_by_symptom.each do |item|
         @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
       end
@@ -50,14 +52,14 @@ class RecipesController < ApplicationController
     # Select all recipes with good_ingredients
     @recipes_query.each do |recipe|
       @good_ingredients.each do |ingredient|
-        @recipes_proposal << recipe if recipe.ingredients.include?(ingredient) && !@recipes_proposal.include?(recipe)
+        @recipes_proposal << recipe if recipe.ingredients.to_a.include?(ingredient) && !@recipes_proposal.include?(recipe)
       end
     end
 
     # Exclude all recipes with bad_ingredients
     @recipes_proposal.each do |recipe|
       @bad_ingredients.each do |ingredient|
-        @recipes_proposal.delete(recipe) if recipe.ingredients.include?(ingredient)
+        @recipes_proposal.delete(recipe) if recipe.ingredients.to_a.include?(ingredient)
       end
     end
 
