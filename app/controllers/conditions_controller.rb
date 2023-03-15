@@ -6,7 +6,6 @@ class ConditionsController < ApplicationController
   end
 
   def list_energy
-    @condition = Condition.find(params[:id])
   end
 
   def list_symptoms

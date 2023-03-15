@@ -7,5 +7,4 @@ export default class extends Controller {
   connect() {
     console.log('coucou c est stimulus !')
   }
-
 }
