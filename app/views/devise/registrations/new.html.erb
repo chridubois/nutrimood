@@ -63,12 +63,12 @@
                 autofocus: true,
                 label: "Es-tu enceinte ?",
                 input_html: { autocomplete: "is_pregnant", class: "login-input" } %>
-        <%= f.input :height,
+        <%= f.input :restricted_ingredient,
                 required: false,
                 autofocus: true,
-                collection: Ingredient.all.map{ |string| string.name},
+                collection: Ingredient.order('name ASC').map{ |string| string.name},
                 label: "Intolérances / Aliments détestés",
-                input_html: {autocomplete: "restricted_element", class: "login-input", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
+                input_html: {autocomplete: "restricted_element", class: "login-input", id: "input-tags", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Fini !", class: "login-button" %>

@@ -11,11 +11,10 @@
           <div class="anecdote-bloc">
             <div class="anecdote">
               <div class="pourquoi-<%= color %>">
-                <% ingredients_by_symptoms = recipe.ingredients_by_symptoms.sample %>
-                pourquoi le <%= ingredients_by_symptoms.ingredient.name %> ?
+                pourquoi le <%= recipe.anecdotes(@condition)[1][:ingredient].name %>
               </div>
-              <div class="anecdote-content-<%= color %>"">
-                <%= ingredients_by_symptoms.anecdote %>
+              <div class="anecdote-content-<%= color %>">
+                <%= recipe.anecdotes(@condition)[1][:anecdote] %>
               </div>
               <div class="plus-infos-<%= color %> mt-3">
                 <i class="fa-solid fa-circle-info"></i> Pour plus d'infos

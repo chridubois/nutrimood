@@ -17,9 +17,11 @@ Recipe.destroy_all
 
 # Création des moods
 p "Création des Moods"
-CSV.foreach(Rails.root.join('lib/moods.csv'), headers: false) do |row|
+CSV.foreach(Rails.root.join('lib/moods.csv'), headers: true, :col_sep => ";") do |row|
   Mood.create({
-    name: row[0]
+    name: row[0],
+    logo: row[1],
+    description: row[2]
   })
 end
 
@@ -52,7 +54,10 @@ end
 # Create recipes
 pages_count = 1
 
-while pages_count < 10
+while pages_count < 20
+
+
+
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
@@ -154,21 +159,21 @@ User.all.each do |user|
 end
 
 # Create user conditions
-p "Création des conditions"
-10.times do
-  random_mood_offset = rand(mood_count)
-  random_mood = Mood.offset(random_mood_offset).first
-  random_user_offset = rand(user_count)
-  random_user = User.offset(random_user_offset).first
-  random_recipe_offset = rand(recipe_count)
-  random_recipe = Recipe.offset(random_recipe_offset).first
-  Condition.create({
-    user: random_user,
-    mood: random_mood,
-    recipe: random_recipe,
-    energy_level: [25, 50, 75, 100].sample
-  })
-end
+# p "Création des conditions"
+# 10.times do
+#   random_mood_offset = rand(mood_count)
+#   random_mood = Mood.offset(random_mood_offset).first
+#   random_user_offset = rand(user_count)
+#   random_user = User.offset(random_user_offset).first
+#   random_recipe_offset = rand(recipe_count)
+#   random_recipe = Recipe.offset(random_recipe_offset).first
+#   Condition.create({
+#     user: random_user,
+#     mood: random_mood,
+#     recipe: random_recipe,
+#     energy_level: [25, 50, 75, 100].sample
+#   })
+# end
 
 # Create Symptom by condition
 p "Création des Symptom by condition"
@@ -224,8 +229,8 @@ Mood.all.each do |mood|
       mood: mood,
       ingredient: random_ingredient,
       anecdote: "Manger #{random_ingredient.name} est très bon pour le mood #{mood.name}",
-      is_good: false,
-      is_bad: true
+      is_good: true,
+      is_bad: false
     })
   end
 
@@ -237,8 +242,8 @@ Mood.all.each do |mood|
       mood: mood,
       ingredient: random_ingredient,
       anecdote: "Manger #{random_ingredient.name} est très mauvais pour le mood #{mood.name}",
-      is_good: true,
-      is_bad: false
+      is_good: false,
+      is_bad: true
     })
   end
 end

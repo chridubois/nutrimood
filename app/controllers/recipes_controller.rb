@@ -2,30 +2,36 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show show_detailed shop_list]
 
   def index
-    @condition = Condition.find_by(user: current_user)
+    @condition = Condition.find(params[:id])
     @good_ingredients = []
     @bad_ingredients = []
     # Get Good ingredients from Mood
     @good_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_good: true)
     @good_ingredients_by_mood.each do |item|
-      @good_ingredients << item.ingredient
+      @good_ingredients << item.ingredient unless @good_ingredients.include?(item.ingredient)
     end
     # Get Bad ingredients from Mood
     @bad_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_bad: true)
     @bad_ingredients_by_mood.each do |item|
-      @bad_ingredients << item.ingredient
+      @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
     end
     # Get Good ingredients from Symptom
     @symptom_by_conditon = SymptomsByCondition.where(condition: @condition)
     @symptom_by_conditon.each do |symptom|
       @good_ingredients_by_symptom = IngredientsBySymptom.where(symptom: symptom, is_good: true)
       @good_ingredients_by_symptom.each do |item|
-        @good_ingredients << item.ingredient
+        @good_ingredients << item.ingredient if @good_ingredients.include?(item.ingredient)
       end
       @bad_ingredients_by_symptom = IngredientsBySymptom.where(symptom: symptom, is_bad: true)
       @bad_ingredients_by_symptom.each do |item|
-        @bad_ingredients << item.ingredient
+        @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
       end
+    end
+
+    # Get Ingredients restrictions from User
+    @restrictions_ingredients = RestrictionsIngredientsUser.where(user: @current_user)
+    @restrictions_ingredients.each do |item|
+      @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
     end
 
     # Get Recipe already seen for the user
@@ -37,27 +43,34 @@ class RecipesController < ApplicationController
     end
 
     # Select recipes with calories less than condition_energy AND with duration less than 25min
-    @recipes_fast = Recipe.where("duration < ?", 50)
-    @recipess = @recipes_fast.where("calories_by_person < ?", 1000)
-    @recipe_proposal = []
-
-    # Exclude recipes already seen by the user
-    @recipes = @recipess.to_a.reject! { |recipe| @old_recipes.include?(recipe) }
+    @recipes_query = Recipe.where("duration < ?", 100).where("calories_by_person < ?", 1000)
+    @recipes_proposal = []
+    @recipes_new = []
 
     # Select all recipes with good_ingredients
-    @recipes.each do |recipe|
+    @recipes_query.each do |recipe|
       @good_ingredients.each do |ingredient|
-        @recipe_proposal << recipe if recipe.ingredients.include?(ingredient) && !@recipe_proposal.include?(recipe)
+        @recipes_proposal << recipe if recipe.ingredients.include?(ingredient) && !@recipes_proposal.include?(recipe)
       end
     end
 
     # Exclude all recipes with bad_ingredients
-    @recipe_proposal.each do |recipe|
+    @recipes_proposal.each do |recipe|
       @bad_ingredients.each do |ingredient|
-        @recipe_proposal.delete(recipe) if recipe.ingredients.include?(ingredient)
+        @recipes_proposal.delete(recipe) if recipe.ingredients.include?(ingredient)
       end
     end
-    @recipe_proposal = @recipe_proposal[0..2]
+
+    # Exclude recipe already chosen
+    @recipes_proposal.each do |recipe|
+      @recipes_new << recipe unless @old_recipes.include?(recipe)
+    end
+
+    if @recipes_new.empty?
+      @recipes_proposal = @recipes_proposal[0..2]
+    else
+      @recipes_proposal = @recipes_new[0..2]
+    end
   end
 
   def show

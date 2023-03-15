@@ -3,11 +3,49 @@
   width: 80%;
   border-radius: 32px;
   margin: auto;
+  margin-top: 8%;
+  margin-bottom: 24%;
+  overflow: scroll;
+  height: 530px;
 }
 .step-number {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  background-color: white;
-  border: solid;
+  background-color: #77b04192;
+  margin-top: 100%;
+  text-align: center;
+}
+.step-description {
+  margin-top: 8%;
+  margin-left: 12%;
+}
+
+.mama-steps {
+  position: relative;
+}
+.btn-steps {
+  color: white;
+  text-align: center;
+  background-color: #76B041;
+  border: 2px solid white;
+  padding: 12px;
+  width: fit-content !important;
+  height: 62px;
+  position: absolute;
+  bottom: 8% !important;
+  left: 32% !important;
+}
+
+.fa-cookie-bite {
+  color: #FBB143;
+}
+
+.orange-cross {
+  color:#FBB143;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  left: 10px;
+  top: 48px;
 }
