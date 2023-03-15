@@ -1,13 +1,12 @@
-
-
- <% content_for :navbar do %>
+<% content_for :navbar do %>
   <%= render 'shared/navbar_yellow' %>
 <% end %>
+
+
 <div class="layout2">
-    <div class="battery-container">
-      <div class="box-battery">
-      </div>
+    <div class="box-battery">
     </div>
+
 
     <form action="list_energy" method="POST" data-turbo=false class="text-center">
         <div class="container-blue">
@@ -20,7 +19,8 @@
                 name="btn-neo" id="a" value="100">
                 <label for="a" class="label-plus-btn">
                   <span class="text">100% 💥</span>
-                  <div class="indicator"></div>
+                  <div class="indicator">
+                  </div>
                 </label>
               </div>
 
@@ -30,7 +30,8 @@
                 name="btn-neo" id="b" value="75">
                 <label for="b" class="label-plus-btn">
                   <span class="text">75% 🥦</span>
-                  <div class="indicator"></div>
+                  <div class="indicator">
+                  </div>
                 </label>
               </div>
 
@@ -46,23 +47,37 @@
 
               <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
                     data-energy-list-target="item4">
+
+
                 <input type="radio" class="radio-btn-hide"
                 name="btn-neo" id="d" value="25">
+
+
                 <label for="d" class="label-plus-btn">
                   <span class="text">25% 🧻</span>
-                  <div class="indicator"></div>
+
+                  <div class="indicator">
+                  </div>
+
                 </label>
+
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+                <input type="submit" value="Suivant" class="button-list-energy" data-energy-list-target="btn" />
               </div>
 
-              <h1 class="title-list-energy">Tes énergie ?</h1>
-              <div class="indicators-list-energy">
-              <div class="indicator-item2 active"></div>
-              <div class="indicator-item2 active"></div>
-              <div class="indicator-item active"></div>
-
-              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-              <input type="submit" value="Suivant"
-              class="button-list-energy"
-              data-moods-list-target="btn" />
+            </div>
+        </div>
     </form>
 </div>
+
+
+
+
+
+      <div class="title-list-energy">Ton énergie ? </div>
+      
+        <div class="indicators-list-energy">
+          <div class="indicator-item2-active"></div>
+          <div class="indicator-item2-active"></div>
+          <div class="indicator-item2"></div>
+        </div>
