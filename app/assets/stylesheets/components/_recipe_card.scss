@@ -112,6 +112,41 @@
   font-family: 'Outfit';
   text-align: center;
   align-items: center;
+  border: 2px solid #76B041;
+  color: #76B041;
+  border-radius: 30px;
+}
+.anecdote-blue {
+  font-family: 'Outfit';
+  text-align: center;
+  align-items: center;
+  border: 2px solid #17BEBB;
+  color: #17BEBB;
+  border-radius: 30px;
+}
+.anecdote-yellow {
+  font-family: 'Outfit';
+  text-align: center;
+  align-items: center;
+  border: 2px solid #FFC914;
+  color: #FFC914;
+  border-radius: 30px;
+}
+.anecdote-red {
+  font-family: 'Outfit';
+  text-align: center;
+  align-items: center;
+  border: 2px solid #E4572E;
+  color: #E4572E;
+  border-radius: 30px;
+}
+.anecdote-green {
+  font-family: 'Outfit';
+  text-align: center;
+  align-items: center;
+  border: 2px solid #76B041;
+  color: #76B041;
+  border-radius: 30px;
 }
 .text-content {
   margin: 10px;
@@ -127,7 +162,7 @@
     font-family: 'Outfit';
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     text-align: center;
   }
@@ -135,7 +170,7 @@
     font-family: 'Outfit';
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     text-align: center;
     color: #17BEBB;
@@ -144,7 +179,7 @@
     font-family: 'Outfit';
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     text-align: center;
     color: #FFC914;
@@ -153,7 +188,7 @@
     font-family: 'Outfit';
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     text-align: center;
     color: #E4572E;
@@ -162,7 +197,7 @@
     font-family: 'Outfit';
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     text-align: center;
     color:#76B041;
@@ -205,7 +240,6 @@
   background-color: white;
   border-radius: 30px;
   padding: 8px;
-  margin-top: 10px;
   width: 90%;
 }
 .carousel-item {

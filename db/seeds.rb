@@ -75,6 +75,10 @@ while pages_count < 20
   recipe_urls << "https://recettehealthy.com/salade-mangue-avocat-crevette/"
   recipe_urls << "https://recettehealthy.com/pancake-proteine-whey/"
   recipe_urls << "https://recettehealthy.com/salade-pate-grecque-feta/"
+  recipe_urls << "https://recettehealthy.com/houmous-aux-poivrons-facile/"
+  recipe_urls << "https://recettehealthy.com/gnocchis-facile-creme-parmesan-herbe/"
+  recipe_urls << "https://recettehealthy.com/chakchouka-oeufs-sauce-tamari/"
+  recipe_urls << "https://recettehealthy.com/pancake-sale-avocat-aubergine/"
 
   recipe_urls.each do |url|
     # For each recipe, get recipe infos

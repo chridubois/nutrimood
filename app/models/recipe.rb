@@ -9,11 +9,15 @@ class Recipe < ApplicationRecord
 
   def anecdotes(condition)
     @anecdotes = {}
+    unique_ingredients = []
     i = 1
     ingredients.to_a.each do |ingredient|
       ingredient_by_moods = IngredientsByMood.where(ingredient: ingredient, is_good: true, mood: condition.mood).to_a
       ingredient_by_moods.each do |item|
-        @anecdotes[i] = { ingredient: ingredient, anecdote: item.anecdote }
+        unless unique_ingredients.include?(ingredient)
+          @anecdotes[i] = { ingredient: ingredient, anecdote: item.anecdote }
+          unique_ingredients << ingredient
+        end
         i += 1
       end
     end
@@ -24,12 +28,18 @@ class Recipe < ApplicationRecord
       symptoms_by_conditions.each do |symptoms_by_condition|
         ingredient_by_symptom = IngredientsBySymptom.where(ingredient: ingredient, is_good: true, symptom: symptoms_by_condition.symptom).to_a
         ingredient_by_symptom.each do |item|
-          @anecdotes[i] = { ingredient: ingredient, anecdote: item.anecdote }
+          unless unique_ingredients.include?(ingredient)
+            @anecdotes[i] = { ingredient: ingredient, anecdote: item.anecdote }
+            unique_ingredients << ingredient
+          end
           i += 1
         end
       end
     end
-
     return @anecdotes
+  end
+
+  def anecdotes_number(condition)
+    return anecdotes(condition).count
   end
 end

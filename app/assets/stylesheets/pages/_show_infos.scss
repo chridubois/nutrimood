@@ -18,6 +18,10 @@
   width: 90%;
   margin: 14px;
   padding: 26px 12px 12px 15px;
+  margin-bottom: 21px;
+  p {
+    font-size: 14px;
+  }
 }
 
 .font-alim {
@@ -27,16 +31,25 @@
   border-radius: 30px;
 }
 
-.floatting-title1 {
+.floatting-left {
   left: -18px;
   top: -25px;
 }
 
-.floatting-title2 {
-  left: 185px;
-  top: -53px;
+.floatting-right {
+  left: 209px;
+  top: -20px;
 }
 
 .show-infos-title {
   color: #76B041;
+}
+
+.orange-cross-infos {
+  color:#FBB143;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  left: -18px;
+  top: -15px;
 }

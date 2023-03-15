@@ -3,29 +3,37 @@
 <% content_for :navbar do %>
   <%= render 'shared/navbar_green' %>
 <% end %>
-
 <div class="layout-green mama global-info pt-2">
-
+  <% if params[:cid] %>
+    <%= link_to recipes_path + "?id=#{@condition.id}", class: "orange-cross-infos" do %>
+      <i class="fa-solid fa-circle-xmark fa-3x"></i>
+    <% end %>
+  <% else  %>
+    <%= link_to recipe_path(@recipe), class: "orange-cross-infos" do %>
+      <i class="fa-solid fa-circle-xmark fa-3x"></i>
+    <% end %>
+  <% end  %>
   <div class="pourquoi">
     <h1>Pourquoi cette recette ?</h1>
     <p>Car elle contient des aliments parfaitement adaptés à ton mood pardis !</p>
   </div>
-
-  <div class="mama white-div">
-    <% anecd = @recipe.anecdotes(@condition) %>
-
-    <div class="font-alim floatting-title1">
-      <h2><%= anecd[1][:ingredient][:name] %> </h2>
-    </div>
-    <p> <%= anecd[1][:anecdote] %> </p>
+  <div class="anecdotes-list mt-5">
+    <% i = 1  %>
+    <% @recipe.anecdotes(@condition).each do |anecdote| %>
+      <div class="mama white-div">
+        <% if i % 2 == 0  %>
+          <div class="font-alim floatting-right">
+            <%= anecdote.last[:ingredient][:name] %>
+          </div>
+        <% else %>
+          <div class="font-alim floatting-left">
+            <%= anecdote.last[:ingredient][:name] %>
+          </div>
+        <% end %>
+        <p> <%= anecdote.last[:anecdote] %> </p>
+      </div>
+      <% i += 1  %>
+    <% end %>
   </div>
-  <div class="mama white-div">
-    <div class="font-alim floatting-title2">
-       <h2><%= anecd[2][:ingredient][:name] %> </h2>
-    </div>
-    <p> <%= anecd[2][:anecdote] %> </p>
-  </div>
-
 </div>
-
 <h1 class="show-infos-title"><b>Infos Nutrition</b></h1>

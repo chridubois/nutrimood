@@ -1,7 +1,11 @@
 class InfosController < ApplicationController
 
   def show
-    @condition = Condition.find_by(user: current_user)
     @recipe = Recipe.find(params[:id])
+    if params[:cid]
+      @condition = Condition.find(params[:cid])
+    else
+      @condition = Condition.where(user: current_user, recipe: @recipe).first
+    end
   end
 end
