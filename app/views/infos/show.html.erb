@@ -1,47 +1,45 @@
+<% content_for :meta_title, "nformations de la recette #{@recipe.name}" %>
+<% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
+<% content_for :navbar do %>
+  <%= render 'shared/navbar_green' %>
+<% end %>
 
-<div class="layout">
 
-  <div class="maman-radar">
-      <div class="radar">
-        <%= radar_chart User.get_data_for_radar_chart,
-            class: 'box',
-              options: {
-                legend: {
-                  data: ['Average Height', 'Maximum Height'],
-                  orient: 'vertical',
-                  left: '20%'
-                }
-              }
-        %>
-      </div>
+<div class="layout-green mama global-info pt-2">
+
+  <div class="pourquoi">
+    <h1>Pourquoi cette recette ?</h1>
+    <p>Car elle contient des aliments parfaitement adaptés à ton mood pardis !</p>
   </div>
 
-    <div class="button">
-        <%= link_to recipes_path(@recipe) , class: "button" do %>
-        x
-        <% end %>
+  <div class="mama white-div">
+    <div class="font-alim floatting-title1">
+      <h2> épinards </h2>
     </div>
+    <p>Les épinards sont riches en magnésium, qui aide à réguler la dilatation des vaisseaux sanguins dans le cerveau, réduisant ainsi les symptômes de la migraine et du mal de tête.</p>
+  </div>
 
-    <div class= "bloc-blanc">
-
-        <div class= "condition-mood">
-          <b>Ton Mood: <%= @condition.mood.name %> <b>
-        </div>
-
-        <div class= "mood-ingredient">
-          <%= @condition.mood.ingredients_by_moods.first.anecdote %>
-        </div>
-
-        <div class= "symptom-ingredient">
-          <div class= "astuces"><b>Quelques astuces :</b></div>
-          <div class= "anecdotes">
-          <% @recipe.ingredients_by_symptoms.sample(3).each do |ingredient| %>
-          <div class= "anecdote3"><p class= "anecd"><%= ingredient.anecdote %></p></div>
-          <% end %>
-            </div>
-        </div>
-
+  <div class="mama white-div">
+    <div class="font-alim floatting-title2">
+      <h2>bidule truc</h2>
     </div>
+    <p>Les épinards sont riches en magnésium, qui aide à réguler la d.</p>
+  </div>
+
+
+
+  <div class="mama white-div">
+    <div class="font-alim floatting-title1">
+      <h2>
+      </h2>
+    </div>
+    <% @recipe.anecdotes(@condition) %>
+    <p>
+    </p>
+  </div>
+
+
+
 </div>
 
 <h1 class="show-infos-title"><b>Infos Nutrition</b></h1>
