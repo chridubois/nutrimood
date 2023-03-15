@@ -4,7 +4,7 @@
   <%= render 'shared/navbar_green' %>
 <% end %>
 <div class="layout-white">
-  <div class="recipe-card">
+  <div class="recipe-card card-longer">
     <div class="recipe-img" style="background-image: url(<%= @recipe.image %>)">
     </div>
     <div class="text-content">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="recipe-content">
-<%# contenu à changer, cf figma %>
+
         <h1>Ingrédients</h1>
         <div class="ingredient-list">
           <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
@@ -34,18 +34,18 @@
   </div>
   <div class="buttons-bloc d-flex justify-content-around">
     <div>
-      <%= link_to shop_list_path(@recipe), class: "to_shoplist-button-green" do %>
-        <i class="fa-solid fa-basket-shopping fa-2x"></i>
+      <%= link_to shop_list_path(@recipe) do %>
+        <i class="fa-solid fa-basket-shopping fa-2x btn-rond"></i>
       <% end %>
     </div>
     <div>
-      <%= link_to recipe_infos_path(@recipe), class: "to_shoplist-button-green" do %>
-        <i class="fa-solid fa-circle-info fa-2x"></i>
+      <%= link_to recipe_infos_path(@recipe) do %>
+        <i class="fa-solid fa-circle-info fa-2x btn-rond"></i>
       <% end %>
     </div>
     <div>
-      <%= link_to recipe_steps_path(@recipe), class: "to_shoplist-button-green" do %>
-        <i class="fa-solid fa-rectangle-list fa-2x"></i>
+      <%= link_to recipe_steps_path(@recipe) do %>
+        <i class="fa-solid fa-rectangle-list fa-2x btn-rond"></i>
       <% end %>
     </div>
   </div>

@@ -5,12 +5,31 @@
   padding: 15px 15px 15px 15px;
   margin: 15px;
 }
+.card-longer {
+  height: 83vh !important;
+  position: relative;
+}
 
 .recipe-content {
   color: black;
   text-align: center;
+  overflow: scroll;
+  height: 300px;
+}
+.buttons-bloc {
+  position: absolute;
+  left: 20%;
+  bottom: 5%;
 }
 
-.to_shoplist-button-green {
+// .to_shoplist-button-green {
+//   background-color: #76B041;
+// => class suppr dans button-bloc, rempla par btn-rond}
+.btn-rond {
   background-color: #76B041;
+  padding: 18px;
+  margin: 3px;
+  border-radius: 48px;
+  text-decoration: none;
+  color: white;
 }
