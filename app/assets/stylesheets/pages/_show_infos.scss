@@ -1,73 +1,38 @@
-.maman-radar {
-  height: 200px;
+.mama {
+  position: relative;
 }
 
-.radar {
-  background-color: white;
-  border-radius: 30px;
-  margin: 10px;
-  height: 100%
+.global-info {
+  padding: 15px;
+  margin: 15px;
 }
 
-.bloc-blanc {
-  background-color: white;
-  border-radius: 30px;
-  margin: 10px;
-  font-size: 9px;
-  padding: 10px;
-  width: 85%;
-  display: block;
-  padding: 25px;
-  margin-left: 7%;
-  font-family:'Outfit';
-}
-
-.button {
-  background-color: #FBB143;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
+.pourquoi {
   color: white;
-}
-
-
-
-.condition-mood {
-  font-size: 14px;
-  margin-top: 10px;
   text-align: center;
 }
 
-.mood-ingredient {
-  font-size: 12px;
-  text-align: left;
-  margin-top: 10px;
+.white-div {
+  background-color: white;
+  border-radius: 30px;
+  width: 90%;
+  margin: 14px;
+  padding: 26px 12px 12px 15px;
 }
 
-.astuces {
-  color: #FBB143;
-  font-size: 12px;
-  margin-top: 5px;
-  text-align: left;
+.font-alim {
+  position: absolute;
+  background-color: #FFC914;
+  padding: 8px;
+  border-radius: 30px;
 }
 
-.anecdotes {
-  display: inline-block;
+.floatting-title1 {
+  left: -18px;
+  top: -25px;
 }
 
-.anecdote3 p {
-  font-size: 10px;
-  text-align: center;
-  margin-bottom: -5px;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #D9D9D9;
-  border-radius: 20px;
-}
-
-.show-infos-title h1 {
-  font-family:'Outfit';
-  color: #FBB143;
+.floatting-title2 {
+  left: 185px;
+  top: -53px;
 }
