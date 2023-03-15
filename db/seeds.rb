@@ -54,7 +54,7 @@ end
 # Create recipes
 pages_count = 1
 
-while pages_count < 10
+while pages_count < 20
 
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
@@ -151,6 +151,8 @@ while pages_count < 10
   end
   pages_count += 1
 end
+
+
 # Create user ingredient restrictions
 p "Création des User restrictions"
 ingredient_count = Ingredient.count
@@ -233,9 +235,9 @@ p "Création des vrais Ingredients by symptom"
 CSV.foreach(Rails.root.join('lib/ingredients_by_symptom.csv'), headers: true, :col_sep => ",") do |row|
   symptom = Symptom.where(name: row[0].downcase).first
   ingredient = Ingredient.where(name: row[1].downcase).first
-  p "Création de l'ingrédient #{row[0]} pour symptom: #{row[1]}"
+  # p "Création de l'ingrédient #{row[0]} pour symptom: #{row[1]}"
   if !symptom.nil? && !ingredient.nil?
-    p "Création de l'ingrédient #{ingredient.name} pour symptome:#{symptom.name}"
+    # p "Création de l'ingrédient #{ingredient.name} pour symptome:#{symptom.name}"
     IngredientsBySymptom.create({
       symptom: symptom,
       ingredient: ingredient,
@@ -247,13 +249,13 @@ CSV.foreach(Rails.root.join('lib/ingredients_by_symptom.csv'), headers: true, :c
 end
 
 # Create real good Ingredients by mood
-p "Création des vrais Ingredients by symptom"
+p "Création des vrais Ingredients by mood"
 CSV.foreach(Rails.root.join('lib/ingredients_by_mood.csv'), headers: true, :col_sep => ",") do |row|
   mood = Mood.where(name: row[0].downcase).first
   ingredient = Ingredient.where(name: row[1].downcase).first
-  p "Création de l'ingrédient #{row[0]} pour mood: #{row[1]}"
+  # p "Création de l'ingrédient #{mood} pour mood: #{ingredient}"
   if !mood.nil? && !ingredient.nil?
-    p "Création de l'ingrédient #{ingredient.name} pour mood: #{mood.name}"
+    # p "Création de l'ingrédient #{ingredient.name} pour mood: #{mood.name}"
     IngredientsByMood.create({
       mood: mood,
       ingredient: ingredient,
@@ -275,8 +277,8 @@ Mood.all.each do |mood|
       mood: mood,
       ingredient: random_ingredient,
       anecdote: "Manger #{random_ingredient.name} est très bon pour le mood #{mood.name}",
-      is_good: true,
-      is_bad: false
+      is_good: false,
+      is_bad: true
     })
   end
 
