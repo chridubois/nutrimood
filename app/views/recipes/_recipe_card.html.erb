@@ -11,7 +11,7 @@
           <div class="anecdote-bloc">
             <div class="anecdote">
               <div class="pourquoi-<%= color %>">
-                pourquoi le <%= recipe.anecdotes(@condition)[1][:ingredient].name %>
+                Pourquoi le <%= recipe.anecdotes(@condition)[1][:ingredient].name %> ?
               </div>
               <div class="anecdote-content-<%= color %>">
                 <%= recipe.anecdotes(@condition)[1][:anecdote] %>
@@ -29,7 +29,7 @@
     <form action="recap" method="POST" data-turbo=false>
       <input name="recipe" type="hidden" value="<%= recipe.id %>" />
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-      <input type="submit" value="Ca me botte !" class="to_shoplist-button-<%= color %>" />
+      <input type="submit" value="Ça me botte !" class="to_shoplist-button-<%= color %>" />
     </form>
   </div>
 </div>
