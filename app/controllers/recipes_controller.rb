@@ -71,7 +71,13 @@ class RecipesController < ApplicationController
     if @recipes_new.empty?
       @recipes_proposal = @recipes_proposal[0..2]
     else
-      @recipes_proposal = @recipes_new[0..2]
+      @recipe_sorted = {}
+      @recipes_new.each do |recipe|
+        @recipe_sorted[recipe] = recipe.anecdotes_number(@condition)
+      end
+      @recipes_new = @recipe_sorted.sort_by { |_key, value| -value }.to_h
+
+      @recipes_proposal = @recipes_new.keys[0..2]
     end
   end
 

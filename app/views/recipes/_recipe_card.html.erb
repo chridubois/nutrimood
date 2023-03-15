@@ -7,24 +7,39 @@
         <%= recipe.name %>
       </div>
       <div class="recipe-tips">
-        <%= link_to recipe_infos_path(recipe) do %>
-          <div class="infos-data d-flex justify-content-between mt-3 px-5">
+        <%= link_to recipe_infos_path(recipe) + "?cid=#{@condition.id}" do %>
+          <div class="infos-data d-flex justify-content-between mt-2 px-5">
             <div class="duration">
-              <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt=""> <%= recipe.duration - 35 %> min
+              <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt="">
+              <% if (recipe.duration > 100) %>
+              <%= (recipe.duration - 90) %>
+              <% elsif (recipe.duration > 80) %>
+              <%= (recipe.duration - 70) %>
+              <% elsif (recipe.duration > 60) %>
+              <%= (recipe.duration - 50) %>
+              <% elsif (recipe.duration > 50) %>
+              <%= (recipe.duration - 40) %>
+              <% elsif (recipe.duration > 40) %>
+              <%= (recipe.duration - 30) %>
+              <% elsif (recipe.duration > 30) %>
+              <%= (recipe.duration - 20) %>
+              <% else %>
+              <%= (recipe.duration) %>
+              <% end %> min
             </div>
             <div class="calories">
               <img src="https://cdn-icons-png.flaticon.com/512/599/599502.png" alt=""> <%= recipe.calories_by_person %> kcal
             </div>
           </div>
           <div class="anecdote-bloc">
-            <div class="anecdote d-flex justify-content-between">
+            <div class="anecdote-<%= color %> px-2 d-flex justify-content-between">
               <div class="plus-infos-<%= color %>">
                 <div class="info-logo">
                   <i class="fa-solid fa-circle-info"></i>
                 </div>
               </div>
               <div class="pourquoi-<%= color %>">
-                pourquoi <%= recipe.anecdotes(@condition)[1][:ingredient].name %> ?
+                <%= recipe.anecdotes_number(@condition) %> ingrédients parfaits pour ton mood !
               </div>
             </div>
           </div>
