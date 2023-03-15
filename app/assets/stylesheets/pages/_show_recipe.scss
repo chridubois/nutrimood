@@ -9,8 +9,17 @@
 .recipe-content {
   color: black;
   text-align: center;
+  overflow: scroll;
+  height: 320px;
 }
 
-.to_shoplist-button-green {
+// .to_shoplist-button-green {
+//   background-color: #76B041;
+// }
+.btn-rond {
   background-color: #76B041;
+  padding: 18px;
+  border-radius: 48px;
+  text-decoration: none;
+  color: white;
 }
