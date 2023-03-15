@@ -2,82 +2,89 @@
   <%= render 'shared/navbar_yellow' %>
 <% end %>
 
+<div class="list-energy-wrapper">
+  <div class="layout2">
+      <div class="box-battery">
+      </div>
 
-<div class="layout2">
-    <div class="box-battery">
-    </div>
+      <form action="list_energy?id=<%= @condition.id %>" method="POST" data-turbo=false class="text-center">
 
-    <form action="list_energy?id=<%= @condition.id %>" method="POST" data-turbo=false class="text-center">
+          <div class="container-blue">
 
-        <div class="container-blue">
+              <div class="box-btns">
 
-            <div class="box-btns">
+                <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
+                      data-energy-list-target="item1">
+                  <input type="radio" class="radio-btn-hide"
+                  name="btn-neo" id="a" value="100">
+                  <label for="a" class="label-plus-btn">
+                    <div class="text">
+                        <span class= "text-percentage">100% 💥</span>
+                    </div>
+                    <div class="indicator">
+                    </div>
+                  </label>
+                </div>
 
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item1">
-                <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="a" value="100">
-                <label for="a" class="label-plus-btn">
-                  <span class="text">100% 💥</span>
-                  <div class="indicator">
-                  </div>
-                </label>
+                <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
+                      data-energy-list-target="item2">
+                  <input type="radio" class="radio-btn-hide"
+                  name="btn-neo" id="b" value="75">
+                  <label for="b" class="label-plus-btn">
+                  <div class="text">
+                        <span class= "text-percentage">75% 🥦</span>
+                    </div>
+                    <div class="indicator">
+                    </div>
+                  </label>
+                </div>
+
+                <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
+                      data-energy-list-target="item3">
+                  <input type="radio" class="radio-btn-hide"
+                  name="btn-neo" id="c" value="50">
+                  <label for="c" class="label-plus-btn">
+                    <div class="text">
+                        <span class= "text-percentage">50% 🦥</span>
+                    </div>
+                    <div class="indicator"></div>
+                  </label>
+                </div>
+
+                <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
+                      data-energy-list-target="item4">
+                  <input type="radio" class="radio-btn-hide"
+                  name="btn-neo" id="d" value="25">
+
+
+                  <label for="d" class="label-plus-btn">
+                    <div class="text">
+                        <span class= "text-percentage">25% 🧻</span>
+                    </div>
+                    <div class="indicator">
+                    </div>
+                  </label>
+                </div>
+
+
+                <div class="submit-list-energy">
+                    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+                    <input type="submit" value="Suivant" class="button-list-energy" data-energy-list-target="btn" />
+                </div>
               </div>
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item2">
-                <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="b" value="75">
-                <label for="b" class="label-plus-btn">
-                  <span class="text">75% 🥦</span>
-                  <div class="indicator">
-                  </div>
-                </label>
-              </div>
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item3">
-                <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="c" value="50">
-                <label for="c" class="label-plus-btn">
-                  <span class="text">50% 🦥</span>
-                  <div class="indicator"></div>
-                </label>
-              </div>
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item4">
+          </div>
+      </form>
+  </div>
 
 
-                <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="d" value="25">
 
 
-                <label for="d" class="label-plus-btn">
-                  <span class="text">25% 🧻</span>
 
-                  <div class="indicator">
-                  </div>
+        <div class="title-list-energy">Ton énergie ? </div>
 
-                </label>
-
-                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-                <input type="submit" value="Suivant" class="button-list-energy" data-energy-list-target="btn" />
-              </div>
-
-            </div>
-        </div>
-    </form>
+          <div class="indicators-list-energy">
+            <div class="indicator-item2-active"></div>
+            <div class="indicator-item2-active"></div>
+            <div class="indicator-item2"></div>
+          </div>
 </div>
-
-
-
-
-
-      <div class="title-list-energy">Ton énergie ? </div>
-
-        <div class="indicators-list-energy">
-          <div class="indicator-item2-active"></div>
-          <div class="indicator-item2-active"></div>
-          <div class="indicator-item2"></div>
-        </div>

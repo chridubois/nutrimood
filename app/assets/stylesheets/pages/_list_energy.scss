@@ -2,8 +2,10 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;
   background-color: #FFCC4D;
-  padding: 15px;
-  height: 480px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 10px 0;
+  min-height: 510px;
 }
 
 .title-list-energy {
@@ -39,13 +41,14 @@
 .box-battery {
   margin-left: 58px;
   margin-top: 15px;
+  margin-bottom: 10px;
   box-shadow:
     4px 4px 4px 0px #f2dfae inset,
    -4px -4px 4px 0px #f8efd7 inset;
   background-color: #ecf0f3;
   border-radius: 6px;
   padding: 5px;
-  height: 40px;
+  height: 31px;
   width: 203px;
   display: flex;
   justify-content: center;
@@ -55,45 +58,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
-}
-
-
-
-.box-btns {
-  width: 317px;
-  height: 374px;
-  padding: 16px;
-  margin-top: -16px;
-  padding-top: 18px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 40px;
   background: #ecf0f3;
-  box-shadow:
-    4px 4px 4px 0px #f2dfae inset,
-    -4px -4px 4px 0px #f8efd7 inset
-  ;
+  box-shadow: 4px 4px 4px 0px #f2dfae inset, -4px -4px 4px 0px #f8efd7 inset;
+  border-radius: 40px;
+  width: 90%;
+  margin: 0 auto;
 }
+
+
+.list-energy-wrapper {
+  min-height: 100vh;
+}
+
 
 .btn-groupe {
   width: 300px;
-  margin: 8px 0;
 }
 
 .radio-btn-hide{
-  position: absolute;
-  top: 0;
-  right: 0;
   pointer-events: none;
   opacity: 0;
 }
 
 .label-plus-btn {
-  width: 80%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center;;
   cursor: pointer;
   color: grey;
 }
@@ -101,17 +90,16 @@
 .text {
   color: white;
   font-family: 'Outfit';
-  font-size: 25px;
+  font-size: 20px;
   margin-left: 30px;
   text-align: center;
   opacity: 0,6;
-  transition: all 0.2s;
   border: solid 2px white;
   box-shadow:
   -4px -2px 4px 0px #d1d9e6,
   4px 2px 8px 0px #fff;
   width: 160px;
-  height: 50px;
+  height: 36px;
   margin-top: 8px;
   background-color:#FFCC4D;
   border-radius: 25px;
@@ -165,10 +153,7 @@
   transform: translate(-8px);
 }
 
-.label-plus-btn:hover .text {
-  opacity: 1;
-  font-size: 20pt;
-}
+
 
 .button-list-energy {
   border: solid 2px white;
@@ -176,8 +161,7 @@
   -4px -2px 4px 0px #d1d9e6,
   4px 2px 8px 0px #fff;
   width: 215px;
-  height: 32px;
-  margin-top: 10px;
+  padding: 4px;
   background-color:#FFCC4D;
   border-radius: 25px;
   text-align: center;
@@ -185,5 +169,14 @@
   color: white;
   font-size: 14px;
   font-family: 'Outfit' ;
-  margin-left: -25px;
+}
+
+.text-percentage {
+  font-size: 16px;
+}
+
+
+.submit-list-energy {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
