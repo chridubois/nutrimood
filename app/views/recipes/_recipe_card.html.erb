@@ -1,4 +1,4 @@
-<div class="layout-white">
+<div class="layout-white position-relative">
   <div class="recipe-card">
     <div class="recipe-img" style="background-image: url(<%= recipe.image %>)">
     </div>
@@ -8,16 +8,23 @@
       </div>
       <div class="recipe-tips">
         <%= link_to recipe_infos_path(recipe) do %>
+          <div class="infos-data d-flex justify-content-between mt-3 px-5">
+            <div class="duration">
+              <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt=""> <%= recipe.duration - 35 %> min
+            </div>
+            <div class="calories">
+              <img src="https://cdn-icons-png.flaticon.com/512/599/599502.png" alt=""> <%= recipe.calories_by_person %> kcal
+            </div>
+          </div>
           <div class="anecdote-bloc">
-            <div class="anecdote">
+            <div class="anecdote d-flex justify-content-between">
+              <div class="plus-infos-<%= color %>">
+                <div class="info-logo">
+                  <i class="fa-solid fa-circle-info"></i>
+                </div>
+              </div>
               <div class="pourquoi-<%= color %>">
-                pourquoi <%= recipe.anecdotes(@condition)[1][:ingredient].name %>
-              </div>
-              <div class="anecdote-content-<%= color %>">
-                <%= recipe.anecdotes(@condition)[1][:anecdote] %>
-              </div>
-              <div class="plus-infos-<%= color %> mt-3">
-                <i class="fa-solid fa-circle-info"></i> Pour plus d'infos
+                pourquoi <%= recipe.anecdotes(@condition)[1][:ingredient].name %> ?
               </div>
             </div>
           </div>
@@ -25,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="recipe-shoplist-button" style="color:#17BEBB;">
+  <div class="recipe-shoplist-button">
     <form action="recap" method="POST" data-turbo=false>
       <input name="recipe" type="hidden" value="<%= recipe.id %>" />
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
