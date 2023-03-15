@@ -4,7 +4,6 @@
   <%= render 'shared/navbar_green' %>
 <% end %>
 
-
 <div class="layout-green mama global-info pt-2">
 
   <div class="pourquoi">
@@ -13,32 +12,19 @@
   </div>
 
   <div class="mama white-div">
-    <div class="font-alim floatting-title1">
-      <h2> épinards </h2>
-    </div>
-    <p>Les épinards sont riches en magnésium, qui aide à réguler la dilatation des vaisseaux sanguins dans le cerveau, réduisant ainsi les symptômes de la migraine et du mal de tête.</p>
-  </div>
+    <% anecd = @recipe.anecdotes(@condition) %>
 
+    <div class="font-alim floatting-title1">
+      <h2><%= anecd[1][:ingredient][:name] %> </h2>
+    </div>
+    <p> <%= anecd[1][:anecdote] %> </p>
+  </div>
   <div class="mama white-div">
     <div class="font-alim floatting-title2">
-      <h2>bidule truc</h2>
+       <h2><%= anecd[2][:ingredient][:name] %> </h2>
     </div>
-    <p>Les épinards sont riches en magnésium, qui aide à réguler la d.</p>
+    <p> <%= anecd[2][:anecdote] %> </p>
   </div>
-
-
-
-  <div class="mama white-div">
-    <div class="font-alim floatting-title1">
-      <h2>
-      </h2>
-    </div>
-    <% @recipe.anecdotes(@condition) %>
-    <p>
-    </p>
-  </div>
-
-
 
 </div>
 
