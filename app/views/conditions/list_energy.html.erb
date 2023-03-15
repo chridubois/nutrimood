@@ -8,7 +8,6 @@
       <div class="box-battery">
       </div>
     </div>
-
     <form action="list_energy?id=<%= @condition.id %>" method="POST" data-turbo=false class="text-center">
         <div class="container-blue">
 
@@ -17,7 +16,7 @@
               <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
                     data-energy-list-target="item1">
                 <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="a" value="100">
+                name="energy_level" id="a" value="100">
                 <label for="a" class="label-plus-btn">
                   <span class="text">100% 💥</span>
                   <div class="indicator"></div>
@@ -27,7 +26,7 @@
               <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
                     data-energy-list-target="item2">
                 <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="b" value="75">
+                name="energy_level" id="b" value="75">
                 <label for="b" class="label-plus-btn">
                   <span class="text">75% 🥦</span>
                   <div class="indicator"></div>
@@ -37,7 +36,7 @@
               <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
                     data-energy-list-target="item3">
                 <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="c" value="50">
+                name="energy_level" id="c" value="50">
                 <label for="c" class="label-plus-btn">
                   <span class="text">50% 🦥</span>
                   <div class="indicator"></div>
@@ -47,7 +46,7 @@
               <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
                     data-energy-list-target="item4">
                 <input type="radio" class="radio-btn-hide"
-                name="btn-neo" id="d" value="25">
+                name="energy_level" id="d" value="25">
                 <label for="d" class="label-plus-btn">
                   <span class="text">25% 🧻</span>
                   <div class="indicator"></div>
