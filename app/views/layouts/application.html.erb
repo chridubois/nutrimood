@@ -18,10 +18,19 @@
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
+    <!-- Prepare app for A2HS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+    <!-- Favicon -->
     <%= favicon_link_tag asset_path('favicon.ico') %>
+    <!-- Meta tags Management -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- Turbo -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>

@@ -3,3 +3,4 @@
 //= link_tree ../builds
 //= require echarts.min.js
 //= require echarts/theme/dark.js
+//= link manifest.json
