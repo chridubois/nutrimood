@@ -21,7 +21,7 @@ class ConditionsController < ApplicationController
   def create_condition
     @mood_id = params[:mood_id]
     @condition = Condition.new(mood_id: @mood_id, user: current_user)
-    if @condition.save
+    if @condition.save!
       redirect_to list_energy_path + "?id=#{@condition.id}"
     else
       render :list_moods, status: :unprocessable_entity

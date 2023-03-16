@@ -18,7 +18,7 @@ Recipe.destroy_all
 # Création des moods
 p "Création des Moods"
 CSV.foreach(Rails.root.join('lib/moods.csv'), headers: true, :col_sep => ";") do |row|
-  Mood.create({
+  Mood.create!({
     name: row[0],
     logo: row[1],
     description: row[2]

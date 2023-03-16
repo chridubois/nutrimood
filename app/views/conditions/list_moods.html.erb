@@ -2,32 +2,31 @@
   <%= render 'shared/navbar_blue' %>
 <% end %>
 <div class="layout list-mood"
-     data-controller="moods-list">
+     data-controller="moods-list"
+     data-moods-list-mood-id-value="0"
+     data-moods-list-urls-value="<%= @moods.map{|m| {id: m.id, url: m.logo}}.to_json %>">
   <br>
   <h1 class="title list-mood">Je suis plutôt...</h1>
   <form action="list_moods" method="POST" data-turbo=false class="text-center">
     <div class="moods-list">
-      <% idx = 0 %>
-      <% @moods.each_with_index do |mood, index|%>
+      <% @moods.each do |mood|%>
         <div class="mood-item"
           data-action="click->moods-list#selectAMood"
           data-moods-list-target="item1"
-          data-moods-list-idx-param="<%= idx %>"
+          data-moods-list-idx-param="<%= mood.id %>"
           data-moods-list-url-param="<%= mood.logo %>">
-          <label> <%= mood.name %>
-            <input type="checkbox" name="mood_id" value="<%= mood.id %>"
-                  data-moods-list-target="checkbox"
-                  visibility: hidden  />
-          </label>
+          <label> <%= mood.name %></label>
         </div>
-        <% idx += 1 %>
       <% end %>
     </div>
+    <input type="number" name="mood_id"
+                  data-moods-list-target="input"
+                  hidden  />
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <div class="emoticone">
-      <img src="https://www.pngmart.com/files/19/Sad-Emoticon-PNG-File.png" id="emoticone" visibility: hidden data-moods-list-target="emoticone">
+    <div class="emoticone" data-moods-list-target="smiley">
+      <img src="https://www.pngmart.com/files/19/Sad-Emoticon-PNG-File.png" id="emoticone" hidden data-moods-list-target="emoticone">
     </div>
-    <input visibility: hidden type="submit" value="Suivant"
+    <input hidden type="submit" value="Suivant"
       class="button list-mood"
       data-moods-list-target="btn" />
   </form>
