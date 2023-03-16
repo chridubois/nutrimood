@@ -1,5 +1,5 @@
 <div class="global_page" data-controller="search-loader">
-  <div class="home_font_size" data-search-loader-target="animation">
+  <div class="home_font_size d-none" data-search-loader-target="animation">
     <div class="logo centered-element search">
       <p>On recherche les 3 meilleures recettes pour toi...</p>
     </div>
@@ -20,7 +20,9 @@
       <h1 style="color: white;">Autre chose à déclarer.. ?</h1>
       <form action="/list_symptoms?id=<%= @condition.id %>" method="POST" data-turbo=false
     class="symptoms-form"
-    data-controller="symptoms-list">
+    data-controller="symptoms-list"
+    data-action="submit->search-loader#runSearch"
+    >
         <div class="symptoms-list">
           <% index = 0 %>
           <% @symptoms.each do |s| %>
@@ -42,7 +44,7 @@
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
         <div class="submit-button d-flex justify-content-center">
           <input type="submit" value="Merci, mais non merci !" class="suivant" id="symptoms-submit-btn"
-      data-symptoms-list-target="button" data-action="click->search-loader#runSearch"/>
+      data-symptoms-list-target="button"/>
         </div>
       </form>
     </div>

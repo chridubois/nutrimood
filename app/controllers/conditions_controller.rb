@@ -36,7 +36,7 @@ class ConditionsController < ApplicationController
   end
 
   def update_condition_symptom
-    sleep 3
+    # sleep 3
     @selected_symptoms = []
     @condition = Condition.find(params[:id])
     @condition_id = @condition.id
