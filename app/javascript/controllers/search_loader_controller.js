@@ -7,8 +7,12 @@ export default class extends Controller {
   connect() {
       console.log("Hellowwwwwww connecte");
   }
-  runSearch() {
+  runSearch(e) {
+    e.preventDefault();
     this.formTarget.classList.add("d-none")
     this.animationTarget.classList.remove("d-none")
+    setTimeout(() => {
+      e.target.submit()
+    }, 3000);
   }
 }
