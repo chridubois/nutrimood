@@ -1,38 +1,28 @@
 <% content_for :meta_title, "Menu" %>
 <% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
-<div class="navbar_nutrimood green">
-  <%= link_to "/menu", class: "navbar-brand" do %>
-    <div class="logo green">nutrimood
-      <i class="fa-solid fa-user"></i>
-    </div>
-  <% end %>
+<div class="navbar_nutrimood d-flex justify-content-center green">
+  <div class="bloc-navbar d-flex">
+    <%= link_to "/menu", class: "navbar-brand" do %>
+      <div class="logo green">nutrimood
+      </div>
+    <% end %>
+    <%= link_to "/profil", class: "avatar" do %>
+      <div class="logo green">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    <% end %>
+  </div>
 </div>
+
 <div class="layout-green">
   <br>
-  <h1 style="color: white; width: 200px; margin: auto">Alors, on commence ?</h1>
+  <h1 style="color: white; width: 250px; margin: auto">Hola <%= current_user.firstname %> !</h1>
+  <br>
+  <p class="intro">Nutrimood est l'app incontournable pour manger en pleine conscience ! Donnes moi ton mood et je te fais une suggestion de 3 recettes parfaitement adaptées à ton mood !</p>
+  <h1 style="color: white; width: 310px; margin: auto">Alors, on commence ?</h1>
   <div class="recipe-submit-button mt-3 mb-5">
     <%= link_to list_moods_path, class: "let-go-btn" do %>
       GO
     <% end %>
   </div>
-  <div class="last-recipes-title text-center">
-    <h2>Mes dernières recettes</h2>
-  </div>
-  <div class="recipes-list">
-    <% @recipes.each do |recipe|  %>
-      <%= link_to "recipes/#{recipe.id}", class: "recipe-item-links" do %>
-        <div class="recipe-item d-flex">
-          <div class="days">
-            <%= recipe.created_at.strftime('%d %b %Y') %>
-          </div>
-          <div class="recipe-avatar" style="background-image: url(<%= recipe.image %>)">
-          </div>
-          <div class="recipe-name">
-            <%= recipe.name %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
 </div>
-<h1 style="color:#76B041">Menu</h1>

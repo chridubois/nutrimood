@@ -1,0 +1,49 @@
+<% content_for :meta_title, "Mon profil" %>
+<% content_for :meta_description, "Nutrimood, app incroyable pour savoir comment mieux manger" %>
+<div class="navbar_nutrimood d-flex justify-content-center green">
+  <div class="bloc-navbar d-flex">
+    <%= link_to "/menu", class: "navbar-brand" do %>
+      <div class="logo green">nutrimood
+      </div>
+    <% end %>
+    <%= link_to "/profil", class: "avatar" do %>
+      <div class="logo green">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="layout-green">
+ <br>
+  <div class="last-recipes-title text-center">
+    <h2>Mes aliments interdits</h2>
+  </div>
+  <div class="ingredients-list">
+    <% current_user.ingredients.each do |ingredient| %>
+      <div class="excluded-ingredient">
+        <%= ingredient.name %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div class="last-recipes-title text-center">
+    <h2>Mes dernières recettes</h2>
+  </div>
+  <div class="recipes-list">
+    <% @recipes.each do |recipe|  %>
+      <%= link_to "recipes/#{recipe.id}", class: "recipe-item-links" do %>
+        <div class="recipe-item d-flex">
+          <div class="days">
+            <%= recipe.created_at.strftime('%d %b %Y') %>
+          </div>
+          <div class="recipe-avatar" style="background-image: url(<%= recipe.image %>)">
+          </div>
+          <div class="recipe-name">
+            <%= recipe.name %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<h1 style="color:#76B041">Profil</h1>

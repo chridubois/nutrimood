@@ -1,7 +1,13 @@
-<div class="navbar_nutrimood blue">
-  <%= link_to "/menu", class: "navbar-brand" do %>
-    <div class="logo blue">nutrimood
-      <i class="fa-solid fa-user"></i>
-    </div>
-  <% end %>
+<div class="navbar_nutrimood d-flex justify-content-center blue">
+  <div class="bloc-navbar d-flex">
+    <%= link_to "/menu", class: "navbar-brand" do %>
+      <div class="logo blue">nutrimood
+      </div>
+    <% end %>
+    <%= link_to "/profil", class: "avatar" do %>
+      <div class="logo blue">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 .recipes-list {
   overflow:hidden;
   overflow-y:scroll;
+  height: 273px;
 }
 .recipe-item {
   background-color: white;
@@ -12,12 +13,14 @@
 .let-go-btn {
   padding: 35px;
   font-size: 30px;
-  border-radius: 50%;
+  border-radius: 0px 0px 39px 39px;
   background-color: #FFC914;
   color: white;
   margin: auto;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
 .recipe-submit-button {
   display: flex;
@@ -35,4 +38,14 @@
   height: 38px;
   border-radius: 50%;
   background-size: cover;
+}
+.intro {
+  color: white;
+  width: 285px;
+  margin: auto;
+  font-size: 14px;
+  border: solid;
+  border-radius: 39px;
+  padding: 15px;
+  margin-bottom: 88px;
 }

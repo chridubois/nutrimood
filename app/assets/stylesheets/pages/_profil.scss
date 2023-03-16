@@ -1,0 +1,12 @@
+.excluded-ingredient {
+  background-color: white;
+  border-radius: 39px;
+  padding: 10px;
+  width: fit-content;
+}
+.ingredients-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+}

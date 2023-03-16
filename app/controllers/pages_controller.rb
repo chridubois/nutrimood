@@ -4,13 +4,16 @@ class PagesController < ApplicationController
   def home
   end
 
-  def menu
+  def profil
     @recipes = []
     @conditions = Condition.where(user: current_user).order('created_at DESC')
     @conditions = @conditions.where.not(recipe_id: nil)
     @conditions.each do |condition|
       @recipes << condition.recipe
     end
-    @recipes = @recipes[0..2]
+    @recipes = @recipes[0..10]
+  end
+
+  def menu
   end
 end
