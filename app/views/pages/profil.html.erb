@@ -14,6 +14,17 @@
   </div>
 </div>
 <div class="layout-green">
+ <br>
+  <div class="last-recipes-title text-center">
+    <h2>Mes aliments interdits</h2>
+  </div>
+  <div class="ingredients-list">
+    <% current_user.ingredients.each do |ingredient| %>
+      <div class="excluded-ingredient">
+        <%= ingredient.name %>
+      </div>
+    <% end %>
+  </div>
   <br>
   <div class="last-recipes-title text-center">
     <h2>Mes dernières recettes</h2>
@@ -35,4 +46,4 @@
     <% end %>
   </div>
 </div>
-<h1 style="color:#76B041">Menu</h1>
+<h1 style="color:#76B041">Profil</h1>

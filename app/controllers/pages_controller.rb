@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     @conditions.each do |condition|
       @recipes << condition.recipe
     end
-    @recipes = @recipes[0..6]
+    @recipes = @recipes[0..10]
   end
 
   def menu
