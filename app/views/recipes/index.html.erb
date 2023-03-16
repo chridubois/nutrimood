@@ -47,5 +47,24 @@
   </button>
 </div>
 <% else %>
-NO RESULT
+<div class="navbar_nutrimood d-flex justify-content-center green">
+  <div class="bloc-navbar d-flex">
+    <%= link_to "/menu", class: "navbar-brand" do %>
+      <div class="logo green">nutrimood
+      </div>
+    <% end %>
+    <%= link_to "/profil", class: "avatar" do %>
+      <div class="logo green">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="layout-green">
+  <br>
+  <h1 style="color: white; width: 250px; margin: auto">Aucunes recettes ne conviennent </h1>
+  <br>
+</div>
+
 <% end  %>
