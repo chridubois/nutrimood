@@ -6,7 +6,7 @@
   margin-top: 8%;
   margin-bottom: 24%;
   overflow: scroll;
-  height: 444px;
+  height: 420px;
 }
 .step-number {
   border-radius: 50%;
@@ -25,21 +25,23 @@
 .mama-steps {
   position: relative;
 }
-.btn-steps {
+.to_shoplist-button.btn-steps {
   color: white;
   text-align: center;
-  background-color: #76B041;
+  background-color: #fbb143;
   border: 2px solid white;
   padding: 12px;
   width: fit-content !important;
   height: 62px;
   position: absolute;
-  bottom: 8% !important;
+  bottom: 6% !important;
   left: 32% !important;
+  display: flex;
+  align-items: center;
 }
 
 .fa-cookie-bite {
-  color: #FBB143;
+  color: white;
 }
 
 .orange-cross {
