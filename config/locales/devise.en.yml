@@ -46,8 +46,8 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
-      signed_in: "C'est good, tu es connecté(e) !"
-      signed_out: "Tu es deconnecté ! Allez ciao"
+      signed_in: "C'est good, tu es connecté.e !"
+      signed_out: "Tu es deconnecté.e ! Allez ciao"
       already_signed_out: "Signed out successfully."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
