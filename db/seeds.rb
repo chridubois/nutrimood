@@ -10,10 +10,10 @@ IngredientsByMood.destroy_all
 Mood.destroy_all
 Symptom.destroy_all
 User.destroy_all
-# RecipesIngredient.destroy_all
-# RecipesStep.destroy_all
-# Ingredient.destroy_all
-# Recipe.destroy_all
+RecipesIngredient.destroy_all
+RecipesStep.destroy_all
+Ingredient.destroy_all
+Recipe.destroy_all
 
 # Création des moods
 p "Création des Moods"
@@ -54,7 +54,7 @@ end
 # Create recipes
 pages_count = 1
 
-while pages_count < 2
+while pages_count < 20
 
   url = "https://recettehealthy.com/les-recette-salee/plat-complet/page/#{pages_count}/"
   html_file = URI.open(url).read
