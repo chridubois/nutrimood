@@ -47,7 +47,9 @@
 }
 
 .ingredient-checkbox {
-  margin-bottom: 5px;;
+  margin-bottom: 5px;
+  display: flex;
+  gap: 3px;
 }
 
 .content-bloc {
@@ -57,9 +59,6 @@
 }
 
 .ingredient-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   overflow-y: scroll;
 }
 
@@ -85,4 +84,9 @@ input[type="checkbox"]:checked {
     color: rgb(0, 0, 0);
     font-size: 13px;
   }
+}
+#map {
+  width: 250px;
+  height: 250px;
+  margin: auto;
 }

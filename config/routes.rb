@@ -4,12 +4,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # Devise routes
-  # devise_for :users do
-  #   get '/users/sign_out' => 'devise/sessions#destroy'
-  #   # get '/users/sign_up' => 'users/registrations#new'
-  #   # post '/users/sign_up' => 'users/registrations#create'
-  # end
-
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
 
   # Condition routes
