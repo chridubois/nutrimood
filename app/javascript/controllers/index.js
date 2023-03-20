@@ -22,6 +22,9 @@ application.register("moods-list", MoodsListController)
 import SearchLoaderController from "./search_loader_controller"
 application.register("search-loader", SearchLoaderController)
 
+import ShoppingMapController from "./shopping_map_controller"
+application.register("shopping-map", ShoppingMapController)
+
 import SymptomsListController from "./symptoms_list_controller"
 application.register("symptoms-list", SymptomsListController)
 
