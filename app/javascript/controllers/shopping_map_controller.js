@@ -9,7 +9,7 @@ export default class extends Controller {
     const successCallback = (position) => {
       const keyword = "amap"
       const radius = "1500"
-      const key = "AIzaSyBh1bduGpilr6Oyl-ktDWhSDbSuENPx7-A"
+      const key = ENV["GOOGLE_API_KEY"]
       const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=${keyword}&location=${position.coords.latitude},${position.coords.longitude}&radius=${radius}&key=${key}`;
 
       const callback = (results, status) => {
