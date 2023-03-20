@@ -4,16 +4,25 @@
   <%= render 'shared/navbar_green' %>
 <% end %>
 <div class="layout-green fond-shop">
-  <div data-controller="carrot shopping-map">
+  <div data-controller="carrot shopping-map" data-carrot-number-value="1">
     <%= link_to recipe_path(@recipe), class: "orange-close" do %>
       <i class="fa-solid fa-circle-xmark fa-3x"></i>
     <% end %>
     <div class="person-number">
-      <div class="btn-minus nber"><i class="fa-solid fa-minus"></i></div>
-      <div class="btn-carrot"><i class="fa-solid fa-carrot fa-2x"></i>
-        <i class="fa-solid fa-carrot fa-3x"></i>
-        <i class="fa-solid fa-carrot fa-2x"></i></div>
-      <div class="btn-plus nber"><i class="fa-solid fa-plus"></i></div>
+      <div class="btn-minus nber"
+      data-action="click->carrot#decrease"
+      data-carrot-target="btnMoins">
+        <i class="fa-solid fa-minus"></i>
+      </div>
+      <div class="btn-carrot"
+      data-carrot-target="btnCarrot">
+        <i class="fa-solid fa-carrot fa-2x" id="carrot-1"></i>
+      </div>
+      <div class="btn-plus nber"
+      data-carrot-target="btnPlus"
+      data-action="click->carrot#increase">
+        <i class="fa-solid fa-plus"></i>
+      </div>
     </div>
     <div class="content-bloc justify-content-center">
       <div class="ingredient-list">

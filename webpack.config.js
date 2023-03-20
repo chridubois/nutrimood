@@ -7,6 +7,13 @@ module.exports = {
   entry: {
     application: "./app/javascript/application.js"
   },
+  resolve: {
+    fallback: {
+      "fs": false,
+      "os": false,
+      "path": false
+    }
+  },
   output: {
     filename: "[name].js",
     sourceMapFilename: "[file].map",

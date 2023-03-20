@@ -6,17 +6,21 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
-
     "chart.js": "^4.2.1",
+    "dotenv": "^16.0.3",
     "echarts": "^5.4.1",
-
+    "requirejs": "^2.3.6",
     "select-pure": "^2.1.4",
     "tom-select": "^2.2.2",
-
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
