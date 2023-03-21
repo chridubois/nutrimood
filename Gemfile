@@ -38,6 +38,12 @@ gem "omniauth"
 # Use rails Admin
 gem "rails_admin", "3.0"
 
+# Use Bullet
+gem 'bullet', group: 'development'
+
+# Use Blazer
+gem "blazer"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

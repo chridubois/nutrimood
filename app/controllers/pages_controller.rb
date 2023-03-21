@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def profil
     @recipes = []
-    @conditions = Condition.where(user: current_user).order('created_at DESC')
+    @conditions = Condition.where(user: current_user).order('created_at DESC').includes([:recipe])
     @conditions = @conditions.where.not(recipe_id: nil)
     @conditions.each do |condition|
       @recipes << condition.recipe
