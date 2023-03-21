@@ -16,7 +16,7 @@
 
         <h1>Ingrédients</h1>
         <div class="ingredient-list">
-          <% @recipe.recipes_ingredients.each do |recipes_ingredient| %>
+          <% @recipe.recipes_ingredients.includes([:ingredient]).each do |recipes_ingredient| %>
             <div class="ingredient-item">
               <% if recipes_ingredient.unit %>
                 <%= recipes_ingredient.quantity %>

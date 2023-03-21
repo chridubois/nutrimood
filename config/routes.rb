@@ -31,4 +31,9 @@ Rails.application.routes.draw do
   get '/menu', to: 'pages#menu'
   get '/home', to: 'pages#home'
   get '/profil', to: 'pages#profil'
+
+  # Enable Blazer routes
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
 end

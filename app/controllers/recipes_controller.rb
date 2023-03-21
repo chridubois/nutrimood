@@ -6,12 +6,12 @@ class RecipesController < ApplicationController
     @good_ingredients = []
     @bad_ingredients = []
     # Get Good ingredients from Mood
-    @good_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_good: true)
+    @good_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_good: true).includes([:ingredient])
     @good_ingredients_by_mood.each do |item|
       @good_ingredients << item.ingredient unless @good_ingredients.include?(item.ingredient)
     end
     # Get Bad ingredients from Mood
-    @bad_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_bad: true)
+    @bad_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_bad: true).includes([:ingredient])
     @bad_ingredients_by_mood.each do |item|
       @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
     end
@@ -19,12 +19,12 @@ class RecipesController < ApplicationController
     @symptom_by_conditon = SymptomsByCondition.where(condition: @condition).to_a
     @symptom_by_conditon.each do |symptom_condition|
 
-      @good_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_good: true).to_a
+      @good_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_good: true).includes([:ingredient]).to_a
       @good_ingredients_by_symptom.each do |item|
         @good_ingredients << item.ingredient unless @good_ingredients.include?(item.ingredient)
       end
 
-      @bad_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_bad: true).to_a
+      @bad_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_bad: true).includes([:ingredient]).to_a
       @bad_ingredients_by_symptom.each do |item|
         @bad_ingredients << item.ingredient unless @bad_ingredients.include?(item.ingredient)
       end
@@ -39,13 +39,13 @@ class RecipesController < ApplicationController
     # Get Recipe already seen for the user
     @recipes_to_search = []
     @old_recipes = []
-    @user_condition = Condition.where(user: current_user)
+    @user_condition = Condition.where(user: current_user).includes([:recipe])
     @user_condition.each do |condition|
       @old_recipes << condition.recipe unless @old_recipes.include?(condition.recipe)
     end
 
     # Select recipes with calories less than condition_energy AND with duration less than 25min
-    @recipes_query = Recipe.where("duration < ?", 100).where("calories_by_person < ?", 1000)
+    @recipes_query = Recipe.where("duration < ?", 100).where("calories_by_person < ?", 1000).includes([:ingredients])
     @recipes_proposal = []
     @recipes_new = []
 
