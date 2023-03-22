@@ -1,67 +1,60 @@
-
-
- <% content_for :navbar do %>
+<% content_for :navbar do %>
   <%= render 'shared/navbar_yellow' %>
 <% end %>
-<div class="layout2">
-    <div class="battery-container">
-      <div class="box-battery">
+<div class="layout-yellow" data-controller="energy-list">
+  <br>
+  <h1 style="color: white;">Niveau énergie...</h1>
+  <form action="list_energy?id=<%= @condition.id %>" method="POST" data-turbo=false class="text-center">
+    <div class="battery-main-bloc">
+      <div class="battery-head-bloc"></div>
+      <div class="battery-bloc">
+        <div class="battery">
+          <div class="battery-items">
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item1"
+            data-energy-list-level-param="100">
+              Je pète le feu
+              <input visibility: hidden type="radio" id="100" class="radio-btn-hide"
+                name="energy_level" value="100">
+            </div>
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item2"
+            data-energy-list-level-param="75">
+              En vrai, ça va
+              <input visibility: hidden type="radio" id="75" class="radio-btn-hide"
+                name="energy_level" value="75">
+            </div>
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item3"
+            data-energy-list-level-param="50">
+              Comme ci, comme ça
+              <input visibility: hidden type="radio" id="50" class="radio-btn-hide"
+                name="energy_level" value="50">
+            </div>
+            <div class="battery-level"
+            data-action="click->energy-list#selectEnergy"
+            data-energy-list-target="item4"
+            data-energy-list-level-param="25">
+              Au bout du roul’s
+              <input visibility: hidden type="radio" id="25" class="radio-btn-hide"
+                name="energy_level" value="25">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <form action="list_energy?id=<%= @condition.id %>" method="POST" data-turbo=false class="text-center">
-        <div class="container-blue">
-
-            <div class="box-btns">
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item1">
-                <input type="radio" class="radio-btn-hide"
-                name="energy_level" id="a" value="100">
-                <label for="a" class="label-plus-btn">
-                  <span class="text">100% 💥</span>
-                  <div class="indicator"></div>
-                </label>
-              </div>
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item2">
-                <input type="radio" class="radio-btn-hide"
-                name="energy_level" id="b" value="75">
-                <label for="b" class="label-plus-btn">
-                  <span class="text">75% 🥦</span>
-                  <div class="indicator"></div>
-                </label>
-              </div>
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item3">
-                <input type="radio" class="radio-btn-hide"
-                name="energy_level" id="c" value="50">
-                <label for="c" class="label-plus-btn">
-                  <span class="text">50% 🦥</span>
-                  <div class="indicator"></div>
-                </label>
-              </div>
-
-              <div class="btn-groupe" data-action="click->energy-list#selectEnergy"
-                    data-energy-list-target="item4">
-                <input type="radio" class="radio-btn-hide"
-                name="energy_level" id="d" value="25">
-                <label for="d" class="label-plus-btn">
-                  <span class="text">25% 🧻</span>
-                  <div class="indicator"></div>
-                </label>
-              </div>
-
-              <h1 class="title-list-energy">Ton énergie ?</h1>
-              <div class="indicators-list-energy">
-              <div class="indicator-item2 active"></div>
-              <div class="indicator-item2 active"></div>
-              <div class="indicator-item active"></div>
-
-              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-              <input type="submit" value="Suivant"
-              class="button-list-energy"
-              data-moods-list-target="btn" />
-    </form>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <br>
+    <input visibility: hidden type="submit" value="Suivant" class="button list-energy" data-energy-list-target="button"/>
+  </form>
+  <br>
+</div>
+<h1 class="title bottom list-energy">Ton énergie ?</h1>
+<div class="indicators list-energy">
+  <div class="indicator-item active"></div>
+  <div class="indicator-item active"></div>
+  <div class="indicator-item"></div>
 </div>
