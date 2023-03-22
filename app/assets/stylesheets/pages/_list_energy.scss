@@ -1,3 +1,45 @@
+.battery {
+  border: 4px solid white;
+  width: 70%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.battery-level {
+  border: 4px solid white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  margin: 15px 10px 15px 20px
+}
+
+.battery-level.active {
+  border: 4px solid white;
+  background-color: #17BEBB;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  margin: 15px 10px 15px 20px
+}
+
+.battery-head-bloc {
+  height: 30px;
+  border: 4px solid white;
+  width: 30%;
+  margin: auto;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: none;
+}
+
+
 .layout2{
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;
@@ -6,7 +48,7 @@
 
 }
 
-.title-list-energy {
+.title.list-energy {
   margin-top: 10px;
   color: #FFCC4D;
 }
@@ -16,12 +58,12 @@
   justify-content: space-around;
   width: 177px;
   margin: auto;
-  .indicator-item2 {
+  .indicator-item {
     width: 55px;
     height: 4px;
     background: rgba(177, 205, 166, 0.3);
   }
-  .indicator-item2.active {
+  .indicator-item.active {
     width: 55px;
     height: 4px;
     background-color: #FFCC4D;
@@ -161,14 +203,10 @@
   font-size: 20pt;
 }
 
-.button-list-energy {
+.button.list-energy {
   border: solid 2px white;
-  box-shadow:
-  -4px -2px 4px 0px #d1d9e6,
-  4px 2px 8px 0px #fff;
   width: 160px;
   height: 50px;
-  margin-top: 8px;
   background-color:#FFCC4D;
   border-radius: 25px;
   text-align: center;
