@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'web_scrappers/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Root route
   root to: "pages#home"
@@ -35,5 +36,11 @@ Rails.application.routes.draw do
   # Enable Blazer routes
   authenticate :user, ->(user) { user.admin? } do
     mount Blazer::Engine, at: "blazer"
+  end
+
+  # Enable Sidekiq routes only for Admin
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 end
