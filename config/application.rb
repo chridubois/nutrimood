@@ -19,6 +19,9 @@ module Nutrimood
     # Ajout de ces lignes pour faire en sorte que la mise en prod fonctionne lors de la compilation de css
     config.assets.initialize_on_precompile = false
     config.assets.css_compressor = nil
+
+    # Faire en sorte que Sidekiq fonctionne
+    config.active_job.queue_adapter = :sidekiq
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
