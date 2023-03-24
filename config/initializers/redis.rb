@@ -1,5 +1,4 @@
 require 'redis'
-require 'redis/objects'
 
 $redis = Redis.new
 
