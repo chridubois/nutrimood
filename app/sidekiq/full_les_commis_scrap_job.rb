@@ -44,7 +44,7 @@ class FullLesCommisScrapJob
 
       # Get all recipes
       p "Création des Recettes de la page #{pages_count}"
-      recipe_urls = html_doc.xpath('//recipe-name//a/@href').map { |attr| attr.value unless old_recipes_url.include?(attr.value) }.compact
+      recipe_urls = html_doc.xpath('//article//a/@href').map { |attr| attr.value unless old_recipes_url.include?(attr.value) }.compact
       p recipe_urls
 
       recipe_urls.each do |url|
