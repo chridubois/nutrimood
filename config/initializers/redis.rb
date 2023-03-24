@@ -1,3 +1,6 @@
+require 'redis'
+require 'redis/objects'
+
 $redis = Redis.new
 
 url = ENV["REDISCLOUD_URL"]
