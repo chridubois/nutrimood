@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_23_134047) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_115011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_134047) do
     t.index ["user_id"], name: "index_conditions_on_user_id"
   end
 
+  create_table "families", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "families_by_moods", force: :cascade do |t|
+    t.bigint "family_id", null: false
+    t.bigint "mood_id", null: false
+    t.string "anecdote"
+    t.boolean "is_good"
+    t.boolean "is_bad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_families_by_moods_on_family_id"
+    t.index ["mood_id"], name: "index_families_by_moods_on_mood_id"
+  end
+
+  create_table "families_by_symptoms", force: :cascade do |t|
+    t.bigint "family_id", null: false
+    t.bigint "symptom_id", null: false
+    t.string "anecdote"
+    t.boolean "is_good"
+    t.boolean "is_bad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_families_by_symptoms_on_family_id"
+    t.index ["symptom_id"], name: "index_families_by_symptoms_on_symptom_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -111,6 +142,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_134047) do
     t.boolean "is_bad"
     t.index ["ingredient_id"], name: "index_ingredients_by_symptoms_on_ingredient_id"
     t.index ["symptom_id"], name: "index_ingredients_by_symptoms_on_symptom_id"
+  end
+
+  create_table "ingredients_families", force: :cascade do |t|
+    t.bigint "family_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_ingredients_families_on_family_id"
+    t.index ["ingredient_id"], name: "index_ingredients_families_on_ingredient_id"
   end
 
   create_table "moods", force: :cascade do |t|
@@ -146,8 +186,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_134047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration"
-    t.string "website_source", null: false
-    t.string "website_url", null: false
+    t.string "website_source"
+    t.string "website_url"
   end
 
   create_table "recipes_ingredients", force: :cascade do |t|
@@ -218,10 +258,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_134047) do
   add_foreign_key "conditions", "moods"
   add_foreign_key "conditions", "recipes"
   add_foreign_key "conditions", "users"
+  add_foreign_key "families_by_moods", "families"
+  add_foreign_key "families_by_moods", "moods"
+  add_foreign_key "families_by_symptoms", "families"
+  add_foreign_key "families_by_symptoms", "symptoms"
   add_foreign_key "ingredients_by_moods", "ingredients"
   add_foreign_key "ingredients_by_moods", "moods"
   add_foreign_key "ingredients_by_symptoms", "ingredients"
   add_foreign_key "ingredients_by_symptoms", "symptoms"
+  add_foreign_key "ingredients_families", "families"
+  add_foreign_key "ingredients_families", "ingredients"
   add_foreign_key "nutrient_by_ingredients", "ingredients"
   add_foreign_key "nutrient_by_ingredients", "nutrients"
   add_foreign_key "recipes_ingredients", "ingredients"

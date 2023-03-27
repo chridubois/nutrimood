@@ -1,0 +1,247 @@
+family;ingredient
+agrumes;orange
+agrumes;pamplemousse
+agrumes;citron
+agrumes;lime
+agrumes;mandarine
+agrumes;clémentine
+agrumes;bergamote
+agrumes;citron vert
+agrumes;kumquat
+agrumes;tangelo
+agrumes;citrange
+agrumes;pomelo
+agrumes;tangerine
+agrumes;ugli fruit
+baies;fraise
+baies;myrtille
+baies;mûre
+baies;framboise
+baies;groseille
+baies;cassis
+baies;canneberge
+baies;raisin
+baies;tomate
+baies;grenade
+baies;kiwi
+céréales complètes;blé entier
+céréales complètes;orge
+céréales complètes;avoine entière
+céréales complètes;riz brun
+céréales complètes;sarrasin
+céréales complètes;millet
+céréales complètes;quinoa
+céréales complètes;épeautre
+céréales complètes;kamut
+céréales complètes;sorgho
+champignons;champignon de paris
+champignons;shiitake
+champignons;pleurote
+champignons;morille
+champignons;girolle
+champignons;truffe
+champignons;chanterelle
+champignons;cèpe
+champignons;pied de mouton
+champignons;trompette de la mort
+champignons;mousseron
+champignons;bolet
+fruits de mer;crevette
+fruits de mer;crabe
+fruits de mer;homard
+fruits de mer;langouste
+fruits de mer;moule
+fruits de mer;huître
+fruits de mer;palourde
+fruits de mer;coque
+fruits de mer;bulot
+fruits de mer;bigorneau
+fruits de mer;pétoncle
+fruits de mer;calmar
+fruits de mer;pieuvre
+fruits de mer;seiche
+fruits de mer;écrevisse
+fruits de mer;bernard l'ermite
+fruits de mer;araignée de mer
+fruits de mer;ormeau
+fruits de mer;langoustine
+fruits de mer;couteau
+fruits de mer;crevette grise
+fruits rouges;fraise
+fruits rouges;framboise
+fruits rouges;groseille
+fruits rouges;cassis
+fruits rouges;mûre
+fruits rouges;cerise
+fruits rouges;cranberry
+fruits rouges;grenade
+fruits rouges;baie d'açaï
+fruits rouges;baie de goji
+graines;graine de blé
+graines;graine d'orge
+graines;graine d'avoine
+graines;graine de riz
+graines;graine de maïs
+graines;graine de tournesol
+graines;graine de sésame
+graines;graine de pavot
+graines;graine de lin
+graines;graine de chia
+graines;graine de quinoa
+graines;graine de millet
+graines;graine de sorgho
+graines;graine de courge
+graines;graine de chanvre
+huiles végétales;huile d'olive
+huiles végétales;huile de tournesol
+huiles végétales;huile de colza (ou canola)
+huiles végétales;huile de soja
+huiles végétales;huile de maïs
+huiles végétales;huile d'arachide (ou cacahuète)
+huiles végétales;huile de sésame
+huiles végétales;huile de pépins de raisin
+huiles végétales;huile de noix
+huiles végétales;huile de noisette
+huiles végétales;huile d'avocat
+huiles végétales;huile de coco
+légumes crucifères;brocoli
+légumes crucifères;chou fleur
+légumes crucifères;chou de bruxelles
+légumes crucifères;chou rouge
+légumes crucifères;chou frisé
+légumes crucifères;chou kale
+légumes crucifères;chou rave
+légumes crucifères;navet
+légumes crucifères;rutabaga
+légumes crucifères;radis
+légumes crucifères;moutarde
+légumes crucifères;cresson
+légumes crucifères;wasabi
+légumes crucifères;chou navet
+légumes racines;carotte
+légumes racines;navet
+légumes racines;betterave
+légumes racines;panais
+légumes racines;radis noir
+légumes racines;gingembre
+légumes racines;racine de céleri
+légumes racines;radis blanc
+légumes racines;taro
+légumes racines;igname
+légumes racines;topinambour
+légumes racines;daikon
+légumes verts;brocoli
+légumes verts;chou frisé
+légumes verts;chou kale
+légumes verts;épinard
+légumes verts;laitue
+légumes verts;roquette
+légumes verts;cresson
+légumes verts;chou vert
+légumes verts;poireau
+légumes verts;blette
+légumes verts;chou de bruxelles
+légumes verts;asperge
+légumes verts;courgette
+légumes verts;haricot vert
+légumes verts;fenouil
+légumes verts;artichaut
+légumineuses;pois chiche
+légumineuses;haricot rouge
+légumineuses;haricot blanc
+légumineuses;lentille
+légumineuses;pois cassé
+légumineuses;fève
+légumineuses;soja
+légumineuses;tofu
+légumineuses;lait de soja
+légumineuses;arachide
+légumineuses;pois mange-tout
+légumineuses;haricot mungo
+légumineuses;pois azuki
+légumineuses;pois sec
+poissons gras;saumon
+poissons gras;maquereau
+poissons gras;sardine
+poissons gras;thon
+poissons gras;hareng
+poissons gras;truite arc-en-ciel
+poissons gras;anchois
+poissons gras;anguille
+poissons gras;flétan
+poissons gras;bar commun
+poissons gras;makaira
+poissons gras;loup
+poissons gras;marlin
+produits céréaliers;pain
+produits céréaliers;pâte
+produits céréaliers;riz
+produits céréaliers;semoule de blé
+produits céréaliers;farine
+produits céréaliers;flocon d'avoine
+produits céréaliers;biscotte
+produits céréaliers;galette de riz
+produits céréaliers;galette de maïs soufflé
+produits céréaliers;cornflake
+produits céréaliers;polenta
+produits céréaliers;quinoa
+produits céréaliers;sarrasin
+produits céréaliers;boulgour
+produits céréaliers;pâte à pizza
+produits laitiers;lait de vache
+produits laitiers;yaourt
+produits laitiers;fromage
+produits laitiers;gruyère râpé
+produits laitiers;gruyère
+produits laitiers;crème fraîche
+produits laitiers;beurre
+produits laitiers;fromage blanc
+produits laitiers;lait de chèvre
+produits laitiers;lait de brebis
+produits laitiers;fromage de chèvre
+produits laitiers;fromage de brebis
+produits laitiers;kéfir
+produits laitiers;petit suisse
+viandes blanches;volaille
+viandes blanches;lapin
+viandes blanches;veau
+viandes blanches;poulet
+viandes blanches;filet de poulet
+viandes blanches;dinde
+viandes blanches;pintade
+viandes blanches;caille
+viandes blanches;filet mignon
+viandes blanches;filet de porc
+viandes maigres;volaille
+viandes maigres;lapin
+viandes maigres;veau
+viandes maigres;poulet
+viandes blanches;filet de poulet
+viandes maigres;dinde
+viandes maigres;pintade
+viandes maigres;caille
+viandes maigres;filet mignon
+viandes maigres;filet de porc
+viandes maigres;rumsteak
+viandes maigres;faux-filet
+viandes rouges;boeuf
+viandes rouges;agneau
+viandes rouges;mouton
+viandes rouges;cheval
+viandes rouges;bison
+viandes rouges;cerf
+viandes rouges;sanglier
+viandes rouges;kangourou
+fruits secs oléagineux;amande
+fruits secs oléagineux;noisette
+fruits secs oléagineux;noix
+fruits secs oléagineux;noix de cajou
+fruits secs oléagineux;noix de pécan
+fruits secs oléagineux;pistache
+fruits secs oléagineux;noix du brésil
+fruits secs oléagineux;noix de macadamia
+fruits secs oléagineux;graine de tournesol
+fruits secs oléagineux;graine de courge
+fruits secs oléagineux;graine de sésame
+fruits secs oléagineux;graine de lin
+fruits secs oléagineux;cacahuète

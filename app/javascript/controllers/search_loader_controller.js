@@ -13,6 +13,6 @@ export default class extends Controller {
     this.animationTarget.classList.remove("d-none")
     setTimeout(() => {
       e.target.submit()
-    }, 3000);
+    }, 100);
   }
 }

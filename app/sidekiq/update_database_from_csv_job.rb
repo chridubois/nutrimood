@@ -13,6 +13,41 @@ class UpdateDatabaseFromCsvJob
         })
       end
     end
+
+    # Création of ingredients/families
+    p "Création des Families/Ingredients"
+    CSV.foreach(Rails.root.join('lib/ingredients_by_family.csv'), headers: true, :col_sep => ";") do |item|
+      ingredient = Ingredient.find_by(name: item["ingredient"])
+      family = Family.find_by(name: item["family"])
+      if family.nil?
+        family = Family.create({
+          name: item["family"]
+        })
+        if ingredient.nil?
+          ingredient = Ingredient.create({
+            name: item["ingredient"]
+          })
+        end
+        IngredientsFamily.create({
+          ingredient: ingredient,
+          family: family
+        })
+      else
+        if ingredient.nil?
+          ingredient = Ingredient.create({
+            name: item["ingredient"]
+          })
+        end
+        ingredients_family = IngredientsFamily.find_by(ingredient: ingredient, family: family)
+        if ingredients_family.nil?
+          IngredientsFamily.create({
+            ingredient: ingredient,
+            family: family
+          })
+        end
+      end
+    end
+
     # Création of only new recipes
     p "Création des Recipes"
     CSV.foreach(Rails.root.join('lib/recipes.csv'), headers: true, :col_sep => ";") do |row|
@@ -112,8 +147,27 @@ class UpdateDatabaseFromCsvJob
             mood: mood,
             ingredient: ingredient,
             anecdote: row[2],
-            is_good: true,
-            is_bad: false
+            is_good: row[3] == "true",
+            is_bad: row[4] == "false"
+          })
+        end
+      end
+    end
+
+    # Create real good Families by mood
+    p "Création des vrais Families by mood"
+    CSV.foreach(Rails.root.join('lib/families_by_mood.csv'), headers: true, :col_sep => ";") do |row|
+      mood = Mood.where(name: row[0].downcase).first
+      family = Family.where(name: row[1].downcase).first
+      p "Création du mood #{mood} pour la famille: #{family}"
+      if !mood.nil? && !family.nil?
+        if FamiliesByMood.where(mood: mood, family: family).empty?
+          FamiliesByMood.create({
+            mood: mood,
+            family: family,
+            anecdote: row[2],
+            is_good: row[3] == "true",
+            is_bad: row[4] == "false"
           })
         end
       end

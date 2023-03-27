@@ -4,6 +4,11 @@ class Recipe < ApplicationRecord
   has_many :conditions
   has_many :ingredients, through: :recipes_ingredients
   has_many :ingredients_by_symptoms, through: :ingredients
+  has_many :ingredients_by_moods, through: :ingredients
+  has_many :ingredients_families, through: :ingredients
+  has_many :families, through: :ingredients_families
+  has_many :families_by_symptoms, through: :families
+  has_many :families_by_moods, through: :families
 
   validates :name, uniqueness: true
 
@@ -20,6 +25,16 @@ class Recipe < ApplicationRecord
         end
         i += 1
       end
+      ingredient.families.each do |family|
+        families_by_moods = FamiliesByMood.where(family: family, is_good: true, mood: condition.mood).to_a
+        families_by_moods.each do |item|
+          unless unique_ingredients.include?(item.family)
+            @anecdotes[i] = { family: item.family, anecdote: item.anecdote }
+            unique_ingredients << item.family
+          end
+          i += 1
+        end
+      end
     end
 
     @symptom_anecdotes = []
@@ -33,6 +48,16 @@ class Recipe < ApplicationRecord
             unique_ingredients << ingredient
           end
           i += 1
+        end
+        ingredient.families.each do |family|
+          families_by_symptom = FamiliesBySymptom.where(family: family, is_good: true, symptom: symptoms_by_condition.symptom).to_a
+          families_by_symptom.each do |item|
+            unless unique_ingredients.include?(item.family)
+              @anecdotes[i] = { family: item.family, anecdote: item.anecdote }
+              unique_ingredients << item.family
+            end
+            i += 1
+          end
         end
       end
     end
