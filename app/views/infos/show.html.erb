@@ -23,11 +23,11 @@
       <div class="mama white-div">
         <% if i % 2 == 0  %>
           <div class="font-alim floatting-right">
-            <%= anecdote.last[:ingredient][:name] %>
+            <%= anecdote.last.values.first[:name] %>
           </div>
         <% else %>
           <div class="font-alim floatting-left">
-            <%= anecdote.last[:ingredient][:name] %>
+            <%= anecdote.last.values.first[:name] %>
           </div>
         <% end %>
         <p> <%= anecdote.last[:anecdote] %> </p>

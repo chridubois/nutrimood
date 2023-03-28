@@ -1,6 +1,6 @@
 id;name;image
 1;poireau
-2;saumon frais
+2;saumon
 3;oeuf
 4;moutarde
 5;lait d'avoine
@@ -12,8 +12,8 @@ id;name;image
 11;eau
 12;carotte
 13;filet de poulet
-14;pois chiche cuit
-15;oignon jaune
+14;pois chiche
+15;oignon
 16;bouillon de légumes bio en poudre
 17;ail
 18;huile d'olive
@@ -28,24 +28,24 @@ id;name;image
 27;pâte au blé complet
 28;pate de curry
 29;bouillon de volaille
-30;gingembre en poudre
+30;gingembre
 31;wrap
 32;paprika fumé
 33;tomate concassée
 34;tomate séchée
 35;sucre complet
 36;jus de citron
-37;chou de Bruxelles
-38;champignon de Paris
+37;chou de bruxelles
+38;champignon de paris
 39;graine de moutarde
 40;courge spaghetti
 41;comté
 42;thym
-43;noix de Grenoble
+43;noix
 44;butternut
 45;riz
 46;chou romanesco
-47;farine de blé T80
+47;farine
 48;chèvre frais
 49;yaourt à la grecque
 50;ciboulette
@@ -60,12 +60,12 @@ id;name;image
 59;olive verte
 60;mozzarella
 61;oignon rouge
-62;feuille d’épinard fraîche
+62;épinard
 63;quinoa
 64;pomme de terre
 65;beurre clarifié
 66;brocoli
-67;chou-fleur
+67;chou fleur
 68;crème de coco
 69;beurre de cacahuète
 70;petit pois
@@ -86,16 +86,16 @@ id;name;image
 85;feuille de brick
 86;pain complet
 87;amande
-88;Rocamadour
+88;rocamadour
 89;jambon sec
 90;pecorino
-91;fromage frais type St Moret
-92;Reblochon fermier
-93;Roquette
+91;fromage frais
+92;reblochon fermier
+93;roquette
 94;lumaconi
 95;rigatoni
 96;tagliatelle de riz complet
-97;levure de boulanger instantanée
+97;levure
 98;chou kale
 99;tagliatelle
 100;chou pak choi
@@ -105,9 +105,9 @@ id;name;image
 104;crozet
 105;pain
 106;levure maltée
-107;"lait d&#039;avoine"
+107;lait d'avoine
 108;levure chimique
-109;buche de fromage de chèvre
+109;fromage de chèvre
 110;pâte à lasagne
 111;sauce soja sucrée
 112;miel
@@ -117,10 +117,10 @@ id;name;image
 116;mâche
 117;cabillaud
 118;bière blonde
-119;"huile d&#039;arachide"
+119;huile d'arachide
 120;chou rouge
 121;chou blanc
-122;mayonnaise bio
+122;mayonnaise
 123;vinaigre de cidre
 124;saumon fumé
 125;viande de taureau
@@ -128,8 +128,8 @@ id;name;image
 127;salade
 128;abricot
 129;curcuma
-130;feuilles de basilic
-131;crevette entière
+130;basilic
+131;crevette
 132;citron vert
 133;poudre de fenouil
 134;mascarpone
@@ -142,67 +142,67 @@ id;name;image
 141;ail des ours
 142;noix de cajou nature non salée
 143;graine de sésame
-144; oignon jaune
+144;oignon jaune
 145;gingembre
 146;coque
-147;coriandre fraîche
+147;coriandre
 148;poudre d'écorce de citron
 149;piment doux en poudre
 150;garam masala
 151;coriandre
 152;pistache non salée
-153; curry
+153;curry
 154;cardamome
 155;cannelle
 156;confit de canard
 157;patate douce
-158;noix de muscade en poudre
+158;noix de muscade
 159;crème entière
 160;estragon
 161;noix de Saint-Jacques
 162;safran
-163;pâte feuilletée 
+163;pâte feuilletée
 164;dinde
 165;moutarde au miel
 166;fleur de sel
 167;diot
 168;rutabaga
-169; Beaufort
+169;beaufort
 170;diots de Savoie fumé
-171;vin blanc La Villageoise en Cuisine
+171;vin blanc
 172;huile de pépin de raisin
-173;cèpe frais
+173;cèpe
 174;chou chinois
 175;topinambour
-176;ail déshydraté
-177;citrouille Jack Be Little
-178; chou cabus
-179;Roquefort
-180;beurre clarifié 
+176;ail
+177;citrouille
+178;chou cabus
+179;roquefort
+180;beurre
 181;pâte fraîche farcie
 182;crème d'avoine
 183;filet de saumon
 184;tempeh
-185;poivre du Timut
+185;poivre du timut
 186;feta
 187;huile de sésame
 188;vinaigre balsamique
 189;patisson de taille moyenne
 190;tomme de Yenne
 191;oignon rouge ou jaune
-192;poivrons rouges
+192;poivron rouge
 193;pesto
 194;farfale au blé complet
 195;basilic et sauge fraîche
 196;truite fraiche
-197;pommes de terre de Noirmoutier
+197;pommes de terre
 198;gros sel
 199;romarin
 200;concombre
 201;pâte de curry
 202;épices Korma
 203;artichaut violet
-204;oeuf poché
+204;oeuf
 205;filet de julienne
 206;feuille de sauge fraîche
 207;huile d'arachide
@@ -213,65 +213,65 @@ id;name;image
 212;pancetta
 213;farine de blé semi complète T110
 214;puree de sesame
-215;feuille d'épinard fraîche
+215;épinard
 216;feuille de riz
 217;tomate
-218;lait amande
+218;lait d'amande
 219;chou frisé
 220;cornichon
 221;mélange d'épices pour poisson
 222;Comté
 223;potimarron
-224;Comte
+224;Comté
 225;flocon d'avoine
 226;conchiglioni
-227;Cantal
+227;cantal
 228;reblochon fermier
 229;fromage à raclette
 230;cerfeuil
-231;fromage à raclette 
+231;fromage à raclette
 232;fromage à pâte pressée
 233;cannelloni
 234;huile d’olive
-235;pousses de bambou
+235;pousse de bambou
 236;zeste de citron
 237;flocon de pois chiches
 238;ail fumé
-239;moutarde 
+239;moutarde
 240;miso d'orge
 241;noix de Saint Jacques
 242;panch phoron
 243;dorade
 244;moutarde à l'ancienne
 245;caille
-246;echalote
+246;échalote
 247;crème de riz
 248;pain au sésame bio
 249;tomme de montagne
 250;sirop d'agave
 251;tomme de brebis
 252;semoule de blé dur fine complète
-253;viande de cuisses de poulet désossé
+253;cuisse de poulet
 254;oignon blanc
-255;mozzarella 
+255;mozzarella
 256;fond de volaille
 257;graine de fenouil en poudre
 258;bleu d'Auvergne
-259; huile d'olive
+259;huile d'olive
 260;sauce tamari
-261;ail 
+261;ail
 262;piment de Cayenne
-263;potiron 
+263;potiron
 264;paleron de boeuf
 265;fond de rôti
-266;rubans à l'ail et au basilic
+266;ruban à l'ail et au basilic
 267;pintade fermière
 268;châtaigne
 269;panais
 270;betterave jaune
 271;patisson
 272;crème de millet
-273;Ruban au petit épeautre
+273;ruban au petit épeautre
 274;moutarde à l’ancienne
 275;magret de canard
 276;crème d'amande
@@ -283,14 +283,14 @@ id;name;image
 282;mélange d'épices pour volaille
 283;thon cuit
 284;blanc d'oeuf
-285; olive noire
+285;olive noire
 286;pâte à l'épeautre
 287;crème à 4% de MG
-288; crème à 4% de MG
+288;crème à 4% de MG
 289;tofu soyeux
 290;courge muscade
 291;lait demi écrémé
-292; blette
+292;blette
 293;fromage blanc
 294;pomme
 295;flocon d'orge
@@ -299,17 +299,17 @@ id;name;image
 298;farine de seigle T130
 299;crème à 18% de MG
 300;flocon de sarrasin
-301; huile d’olive
+301;huile d’olive
 302;avocat
-303; courgette
+303;courgette
 304;radis rose
-305; jus de citron
+305;jus de citron
 306;son d’avoine
 307;cebette
 308;curcuma frais
 309;Ras el Hanout
-310; graine de sésame
-311;morilles
+310;graine de sésame
+311;morille
 312;Frutti di Mare Escal
 313;pâte brisée
 314;olive noire
@@ -324,9 +324,9 @@ id;name;image
 323;menthe fraîche
 324;pâte filo
 325;lev'Blé Bio
-326;fécule de pomme de terre 
+326;fécule de pomme de terre
 327;tapenade d'olive noire
-328; mozzarella
+328;mozzarella
 329;graine de courge
 330;lait de soja
 331;protéine de soja
@@ -338,8 +338,8 @@ id;name;image
 337;potiron
 338;cuisse de poulet
 339;camembert
-340;petit suisse
-341;pois chiche sec
+340;petit-suisse
+341;pois chiche
 342;bicarbonate
 343;farine de blé complète T150
 344;persillade
@@ -348,9 +348,9 @@ id;name;image
 347;purée de sésame
 348;truite fumée
 349;farine de kamut
-350; lait de soja
+350;lait de soja
 351;menthe fraiche
-352; chèvre frais
+352;chèvre frais
 353;arrow root
 354;pâte à l’épeautre
 355;raviole du dauphiné
@@ -359,49 +359,49 @@ id;name;image
 358;brocolis
 359;bleu des causses
 360;compote de pomme
-361;butternut 
+361;butternut
 362;crème d'ail
 363;flocon de quinoa
-364;Cancoillotte
-365;Ruban au curcuma et aux épices
-366; carotte
+364;cancoillotte
+365;ruban au curcuma et aux épices
+366;carotte
 367;blanc d’oeuf
-368;citrouille Jack be Little
+368;citrouille
 369;crème d’amande
 370;yaourt nature
 371;pain de campagne
 372;moutarde aux fines herbes
 373;blanc de poulet
 374;pain de mie complet
-375;Abondance
+375;abondance
 376;mélange d'épice à grillade
-377; sel
+377;sel
 378;buns
 379;sauce tomate maison
 380;anchois
-381;salade au choix
+381;salade
 382;pesto bio aux artichauts
 383;coppa
 384;roquette
 385;poivre du Sichuan
-386;Huile d'olive
-387;graines germées
+386;huile d'olive
+387;graine germée
 388;haricot vert
-389;curry 
+389;curry
 390;mélange de jeune pousse
 391;mélange d'épices italienne
 392;moutarde douce en poudre
 393;mélange de jeunes pousses
-394;Maïzena
+394;maïzena
 395;melon
 396;mangue
 397;tofu fumé
 398;hareng fumé
 399;cabecou
 400;cacahuète non salée
-401;mâche/roquette/salade autre
+401;roquette
 402;thon fumé
-403;"courgette verte ""classique"""
+403;courgette
 404;courgette longue de Nice
 405;courgette libanaise blanche
 406;anchoïade
@@ -409,32 +409,32 @@ id;name;image
 408;radi rose
 409;poudre d’écorce d’orange
 410;vermicelle de riz
-411;tranches d'orange
+411;tranche d'orange
 412;fêta
 413;jus d'orange
 414;croûton de pain
 415;pécorino
 416;crème fleurette
-417;jus de citron 
+417;jus de citron
 418;agar agar
 419;Feta
 420;betterave cuite
 421;yaourt au lait de chèvre
 422;tahiné
 423;sauce Tamari
-424; concombre
-425; jus de citron 
+424;concombre
+425;jus de citron
 426;biscotte complète
-427; graines de pavot
-428; sirop d'agave
-429;menthe fraiche 
+427;graines de pavot
+428;sirop d'agave
+429;menthe fraiche
 430;chair de crabe
 431;maïs
 432;sauce cocktail
-433; vinaigre balsamique
-434; feta
-435; beurre de cacahuète
-436;pain complet 
+433;vinaigre balsamique
+434;feta
+435;beurre de cacahuète
+436;pain complet
 437;houmous de lentille corail maison
 438;raisins secs
 439;cranberry

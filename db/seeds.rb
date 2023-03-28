@@ -107,15 +107,15 @@ Mood.all.each do |mood|
   end
 
   # Create good ingredients
-  3.times do
-    random_ingredient_offset = rand(ingredient_count)
-    random_ingredient = Ingredient.offset(random_ingredient_offset).first
-    IngredientsByMood.create({
-      mood: mood,
-      ingredient: random_ingredient,
-      anecdote: "Manger #{random_ingredient.name} est très mauvais pour le mood #{mood.name}",
-      is_good: false,
-      is_bad: true
-    })
-  end
+  # 3.times do
+  #   random_ingredient_offset = rand(ingredient_count)
+  #   random_ingredient = Ingredient.offset(random_ingredient_offset).first
+  #   IngredientsByMood.create({
+  #     mood: mood,
+  #     ingredient: random_ingredient,
+  #     anecdote: "Manger #{random_ingredient.name} est très mauvais pour le mood #{mood.name}",
+  #     is_good: false,
+  #     is_bad: true
+  #   })
+  # end
 end

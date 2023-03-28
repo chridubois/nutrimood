@@ -5,6 +5,20 @@ class RecipesController < ApplicationController
     @condition = Condition.find(params[:id])
     @good_ingredients = []
     @bad_ingredients = []
+    # Get Good families from Mood
+    @good_families_by_mood = FamiliesByMood.where(mood: @condition.mood, is_good: true).includes([:family, :ingredients])
+    @good_families_by_mood.each do |family_mood|
+      family_mood.ingredients.each do |ingredient|
+        @good_ingredients << ingredient unless @good_ingredients.include?(ingredient)
+      end
+    end
+    # Get Bad families from Mood
+    @bad_families_by_mood = FamiliesByMood.where(mood: @condition.mood, is_bad: true).includes([:family, :ingredients])
+    @bad_families_by_mood.each do |family_mood|
+      family_mood.ingredients.each do |ingredient|
+        @bad_ingredients << ingredient unless @bad_ingredients.include?(ingredient)
+      end
+    end
     # Get Good ingredients from Mood
     @good_ingredients_by_mood = IngredientsByMood.where(mood: @condition.mood, is_good: true).includes([:ingredient])
     @good_ingredients_by_mood.each do |item|
@@ -18,6 +32,20 @@ class RecipesController < ApplicationController
     # Get Good ingredients from Symptom
     @symptom_by_conditon = SymptomsByCondition.where(condition: @condition).to_a
     @symptom_by_conditon.each do |symptom_condition|
+
+      @good_families_by_symptom = FamiliesBySymptom.where(symptom_id: symptom_condition.symptom.id, is_good: true).includes([:family, :ingredients])
+      @good_families_by_symptom.each do |family_symptom|
+        family_symptom.ingredients.each do |ingredient|
+          @good_ingredients << ingredient unless @good_ingredients.include?(ingredient)
+        end
+      end
+
+      @bad_families_by_symptom = FamiliesBySymptom.where(symptom_id: symptom_condition.symptom.id, is_bad: true).includes([:family, :ingredients])
+      @bad_families_by_symptom.each do |family_symptom|
+        family_symptom.ingredients.each do |ingredient|
+          @bad_ingredients << ingredient unless @bad_ingredients.include?(ingredient)
+        end
+      end
 
       @good_ingredients_by_symptom = IngredientsBySymptom.where(symptom_id: symptom_condition.symptom.id, is_good: true).includes([:ingredient]).to_a
       @good_ingredients_by_symptom.each do |item|
