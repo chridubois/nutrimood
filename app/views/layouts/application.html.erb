@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render "shared/google_tag_manager_tag_in_head" %>
+
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
     <!-- Facebook Open Graph data -->
@@ -30,15 +32,6 @@
     <!-- Meta tags Management -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!-- Google Tag Manager -->
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-WFFZVRB');
-    </script>
-    <!-- End Google Tag Manager -->
     <!-- Google Places API -->
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzFHycWdF5P8sdmtJx_Qsf8ko_31M23nQ&libraries=places"></script>
@@ -47,10 +40,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFFZVRB"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <%= render "shared/google_tag_manager_tag_in_body" %>
+
     <% unless ( (controller_name == "pages" && action_name == "home") || (controller_name == "recipes" && action_name == "index") ) %>
       <% if content_for?(:navbar) %>
         <%= yield(:navbar) %>
