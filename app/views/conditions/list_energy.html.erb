@@ -1,3 +1,5 @@
+<% content_for :meta_title, "Choix du niveau d'énergie" %>
+<% content_for :meta_description, "Sélectionne le niveau d'énergie qui te correspond le mieux en ce moment même" %>
 <% content_for :navbar do %>
   <%= render 'shared/navbar_yellow' %>
 <% end %>
@@ -12,32 +14,32 @@
           <div class="battery-items">
             <div class="battery-level"
             data-action="click->energy-list#selectEnergy"
-            data-energy-list-target="item1"
-            data-energy-list-level-param="100">
+              data-energy-list-target="item1"
+              data-energy-list-level-param="100">
               Je pète le feu
               <input visibility: hidden type="radio" id="100" class="radio-btn-hide"
                 name="energy_level" value="100">
             </div>
             <div class="battery-level"
             data-action="click->energy-list#selectEnergy"
-            data-energy-list-target="item2"
-            data-energy-list-level-param="75">
+              data-energy-list-target="item2"
+              data-energy-list-level-param="75">
               En vrai, ça va
               <input visibility: hidden type="radio" id="75" class="radio-btn-hide"
                 name="energy_level" value="75">
             </div>
             <div class="battery-level"
             data-action="click->energy-list#selectEnergy"
-            data-energy-list-target="item3"
-            data-energy-list-level-param="50">
+              data-energy-list-target="item3"
+              data-energy-list-level-param="50">
               Comme ci, comme ça
               <input visibility: hidden type="radio" id="50" class="radio-btn-hide"
                 name="energy_level" value="50">
             </div>
             <div class="battery-level"
             data-action="click->energy-list#selectEnergy"
-            data-energy-list-target="item4"
-            data-energy-list-level-param="25">
+              data-energy-list-target="item4"
+              data-energy-list-level-param="25">
               Au bout du roul’s
               <input visibility: hidden type="radio" id="25" class="radio-btn-hide"
                 name="energy_level" value="25">

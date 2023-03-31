@@ -1,3 +1,5 @@
+<% content_for :meta_title, "Choix des symptomes" %>
+<% content_for :meta_description, "Sélectionne les symptômes que tu as en ce moment même" %>
 <div class="global_page" data-controller="search-loader">
   <div class="home_font_size d-none" data-search-loader-target="animation">
     <div class="logo centered-element search">
@@ -22,7 +24,7 @@
     class="symptoms-form"
     data-controller="symptoms-list"
     data-action="submit->search-loader#runSearch"
-    >
+        >
         <div class="symptoms-list">
           <% index = 0 %>
           <% @symptoms.each do |s| %>
