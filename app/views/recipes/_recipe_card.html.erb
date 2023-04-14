@@ -8,7 +8,7 @@
       </div>
       <div class="recipe-tips">
         <%= link_to recipe_infos_path(recipe) + "?cid=#{@condition.id}" do %>
-          <div class="infos-data d-flex justify-content-between mt-2 px-5">
+          <div class="infos-data d-flex justify-content-between mt-2 px-3">
             <div class="duration">
               <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt="">
               <% if (recipe.duration > 100) %>
