@@ -1,21 +1,17 @@
 <% content_for :meta_title, "Connectes toi" %>
 <% content_for :meta_description, "Connectes toi pour commencer ton expérience Nutrimood !" %>
-<div class="navbar_nutrimood green">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <div class="logo green">nutrimood
-      <i class="fa-solid fa-user"></i>
-    </div>
-  <% end %>
-</div>
+<% content_for :navbar do %>
+  <%= render 'shared/navbar_green' %>
+<% end %>
 <div class="layout-green">
+  <h1 class="title list-mood">Ta première fois ?</h1>
+  <div class="subscribe">
+    <%= link_to "Je crée un compte en 30sec", new_registration_path(resource_name), class: "subscribe_btn" %>
+  </div>
+  <h2 class="little-title mt-3">sinon, connectes toi !</h2>
   <div class="sign_in new_user p-2">
-    <%= link_to new_user_session_path, class: "google_oauth_link" do %>
-      <div class="google_oauth mt-3">
-        <i class="fa-brands fa-google"></i>Se connecter avec Google
-      </div>
-    <% end %>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-      <div class="form-inputs mt-4">
+      <div class="form-inputs">
         <%= f.input :email,
                 required: false,
                 autofocus: true,
@@ -35,9 +31,6 @@
         <%= f.button :submit, "Je me connecte", class: "login-button" %>
       </div>
     <% end %>
-    <div class="subscribe mt-3">
-      Pas encore inscrit.e ? <%= link_to "S'inscrire", new_registration_path(resource_name) %>
-    </div>
   </div>
 </div>
 <h1 style="color:#76B041">Connecte toi !</h1>

@@ -13,11 +13,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     @user = User.find_by(email: params[:user][:email])
-    @ingredients = params[:user][:restricted_ingredient].compact_blank
-    @ingredients.each do |item|
-      ingredient = Ingredient.find_by(name: item)
-      RestrictionsIngredientsUser.create(user: @user, ingredient:) unless ingredient.nil?
-    end
+    # @ingredients = params[:user][:restricted_ingredient].compact_blank
+    # @ingredients.each do |item|
+    #   ingredient = Ingredient.find_by(name: item)
+    #   RestrictionsIngredientsUser.create(user: @user, ingredient:) unless ingredient.nil?
+    # end
   end
 
   # GET /resource/edit

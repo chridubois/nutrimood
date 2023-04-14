@@ -11,9 +11,7 @@
       <div class="recipe-title-green">
         <%= @recipe.name %>
       </div>
-
       <div class="recipe-content">
-
         <h1>Ingrédients</h1>
         <div class="ingredient-list">
           <% @recipe.recipes_ingredients.includes([:ingredient]).each do |recipes_ingredient| %>
@@ -29,24 +27,23 @@
           <% end %>
         </div>
       </div>
-
     </div>
-  </div>
-  <div class="buttons-bloc d-flex justify-content-around">
-    <div>
-      <%= link_to shop_list_path(@recipe) do %>
-        <i class="fa-solid fa-basket-shopping fa-2x btn-rond"></i>
-      <% end %>
-    </div>
-    <div>
-      <%= link_to recipe_infos_path(@recipe) do %>
-        <i class="fa-solid fa-circle-info fa-2x btn-rond"></i>
-      <% end %>
-    </div>
-    <div>
-      <%= link_to recipe_steps_path(@recipe) do %>
-        <i class="fa-solid fa-rectangle-list fa-2x btn-rond"></i>
-      <% end %>
+    <div class="buttons-bloc d-flex justify-content-around">
+      <div>
+        <%= link_to shop_list_path(@recipe) do %>
+          <i class="fa-solid fa-basket-shopping fa-2x btn-rond"></i>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to recipe_infos_path(@recipe) do %>
+          <i class="fa-solid fa-circle-info fa-2x btn-rond"></i>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to recipe_steps_path(@recipe) do %>
+          <i class="fa-solid fa-rectangle-list fa-2x btn-rond"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

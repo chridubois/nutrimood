@@ -1,17 +1,20 @@
-<% content_for :meta_title, "Inscrit toi" %>
+<% content_for :meta_title, "Je crée mon compte" %>
 <% content_for :meta_description, "Inscrit toi et bénéficie quotidiennement de suggestions de recettes parfaitement adaptées à ton mood" %>
-<div class="navbar_nutrimood green">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <div class="logo green">nutrimood
-      <i class="fa-solid fa-user"></i>
-    </div>
-  <% end %>
-</div>
+<% content_for :navbar do %>
+  <%= render 'shared/navbar_green' %>
+<% end %>
 <div class="layout-green">
   <div class="sign_in p-2">
+    <h1 class="title list-mood mt-2">Je crée mon compte</h1>
+    <p><strong>Pourquoi ?</strong> Pour te proposer des recettes adaptées à tes objectifs, tes goûts et intolérances alimentaires.</p>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs mt-3">
+        <%= f.input :firstname,
+                required: true,
+                autofocus: true,
+                label: "Prénom",
+                input_html: { autocomplete: "firstname", class: "login-input" } %>
         <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -25,53 +28,49 @@
                 required: true,
                 label: "Mot de passe confirmation",
                 input_html: { autocomplete: "new-password", class: "login-input" } %>
-        <%= f.input :firstname,
-                required: true,
-                autofocus: true,
-                label: "Prénom",
-                input_html: { autocomplete: "firstname", class: "login-input" } %>
-        <%= f.input :birthday_date,
+        <%# <%= f.input :birthday_date,
                 required: true,
                 autofocus: true,
                 label: "Date de naissance",
                 input_html: { autocomplete: "birthday_date", class: "login-input" } %>
-        <%= f.input :weight,
+        <%# <%= f.input :weight,
                 required: true,
                 autofocus: true,
                 label: "Poids",
                 input_html: { autocomplete: "weight", class: "login-input" } %>
-        <%= f.input :height,
+        <%# <%= f.input :height,
                 required: true,
                 autofocus: true,
                 label: "Taille",
                 input_html: { autocomplete: "height", class: "login-input" } %>
-        <%= f.input :gender,
+        <%# <%= f.input :gender,
                 required: true,
                 autofocus: true,
                 label: "Genre",
                 input_html: { autocomplete: "gender", class: "login-input" } %>
-        <%= f.input :is_gluten_sensitive,
+        <%# <%= f.input :is_gluten_sensitive,
                 required: true,
                 autofocus: true,
                 label: "Es-tu allergique au gluten ?",
                 input_html: { autocomplete: "is_gluten_sensitive", class: "login-input" } %>
-        <%= f.input :is_diabetic,
+        <%# <%= f.input :is_diabetic,
                 required: true,
                 autofocus: true,
                 label: "Es-tu diabétique ?",
                 input_html: { autocomplete: "is_diabetic", class: "login-input" } %>
-        <%= f.input :is_pregnant,
+        <%# <%= f.input :is_pregnant,
                 required: true,
                 autofocus: true,
                 label: "Es-tu enceinte ?",
                 input_html: { autocomplete: "is_pregnant", class: "login-input" } %>
-        <%= f.input :restricted_ingredient,
+        <%# <%= f.input :restricted_ingredient,
                 required: false,
                 autofocus: true,
                 collection: Ingredient.order('name ASC').map{ |string| string.name},
                 label: "Intolérances / Aliments détestés",
                 input_html: {autocomplete: "restricted_element", class: "login-input", id: "input-tags", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
       </div>
+      <p>Pour configurer tes objectifs, tes goûts et tes intolérances alimentaires, rends toi sur ton profil après avoir créer ton compte ! </p>
       <div class="form-actions">
         <%= f.button :submit, "Fini !", class: "login-button" %>
       </div>

@@ -20,7 +20,7 @@ body {
   background: rgba(177, 205, 166, 0.6);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;
-  width: 90%;
+  width: 300px;
   margin: 0 auto;
   min-height: 510px;
 }
@@ -29,7 +29,7 @@ body {
   background: #76B041;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;
-  width: 90%;
+  width: 300px;
   margin: 0 auto;
   min-height: 476px;
 }
@@ -38,16 +38,16 @@ body {
   background: #FFC914;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;
-  width: 90%;
+  width: 300px;
   margin: 0 auto;
-  min-height: 490spx;
+  min-height: 490px;
 }
 
 .layout-white {
   background:white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;
-  width: 90%;
+  width: 300px;
   margin: 0 auto;
   min-height: 490px;
 }
@@ -68,7 +68,7 @@ h1 {
   font-weight: 700;
   font-size: 30px;
   line-height: 38px;
-  text-align: center;
+  margin-left: 34px;
   color: #76B041;
 }
 .logo.blue {
@@ -77,7 +77,7 @@ h1 {
   font-weight: 700;
   font-size: 30px;
   line-height: 38px;
-  text-align: center;
+  margin-left: 34px;
   color: #17BEBB;
 }
 .logo.yellow {
@@ -86,7 +86,7 @@ h1 {
   font-weight: 700;
   font-size: 30px;
   line-height: 38px;
-  text-align: center;
+  margin-left: 34px;
   color: #FFC914;
 }
 .logo.red {
@@ -95,6 +95,6 @@ h1 {
   font-weight: 700;
   font-size: 30px;
   line-height: 38px;
-  text-align: center;
+  margin-left: 34px;
   color: #E4572E;
 }
